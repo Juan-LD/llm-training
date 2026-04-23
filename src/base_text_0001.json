@@ -1,0 +1,86 @@
+{
+    "prompt"  : {
+        "EN": "Create a flow with the name \"Text box\" with a paragraph where the user can write with the placeholder text \"Write anything\""
+    },
+        "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                {
+                    "data"    : {},
+                    "id"      : "DEMO",
+                    "layout"  : {
+                        "children": [
+                        {
+                            "children": [
+                            {
+                                "type"    : "TextArea",
+                                "label"   : "Write anything",
+                                "required": false,
+                                "name"    : "text_area"
+                            },
+                            {
+                                "label"          : "Done",
+                                "on-click-action": {
+                                    "name"   : "complete",
+                                    "payload": {"Write_anything": "text_area"}
+                                },
+                                "type"           : "Footer"
+                            }
+                            ],
+                            "name"    : "flow_path",
+                            "type"    : "Form"
+                        }
+                        ],
+                        "type"    : "SingleColumnLayout"
+                    },
+                    "terminal": true,
+                    "title"   : "Text box"
+                }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+    {
+        "EN": {
+            "screens": [
+            {
+                "data"    : {},
+                "id"      : "DEMO",
+                "layout"  : {
+                    "children": [
+                    {
+                        "children": [
+                        {
+                            "type"    : "TextArea",
+                            "label"   : "Write anything",
+                            "required": false,
+                            "name"    : "text_area"
+                        },
+                        {
+                            "label"          : "Done",
+                            "on-click-action": {
+                                "name"   : "complete",
+                                "payload": {"Write_anything": "text_area"}
+                            },
+                            "type"           : "Footer"
+                        }
+                        ],
+                        "name"    : "flow_path",
+                        "type"    : "Form"
+                    }
+                    ],
+                    "type"    : "SingleColumnLayout"
+                },
+                "terminal": true,
+                "title"   : "Text box"
+            }
+            ],
+            "version": "7.3"
+        }
+    }
+    ]
+}
+
