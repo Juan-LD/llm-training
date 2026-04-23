@@ -1,0 +1,178 @@
+{
+  "prompt": {
+    "EN": "Make me a WhatsApp flow with every Text Type",
+    "ES": "Hazme un WhatsApp Flow con cada tipo de texto"
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "This is a heading",
+                  "visible": true
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "This is a subheading",
+                  "visible": true
+                },
+                {
+                  "type": "TextBody",
+                  "text": "This is body text"
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "This is a text caption"
+                },
+                {
+                  "type": "Footer",
+                  "label": "Continue",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "ES": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "HOJA_DEMO",
+            "title": "HOJA DEMO",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "Este es un encabezado",
+                  "visible": true
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "Este es un subtítulo",
+                  "visible": true
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Este es un texto de cuerpo"
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Este es un pie de foto"
+                },
+                {
+                  "type": "Footer",
+                  "label": "Continuar",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO SCREEN",
+            "title": "Demo Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextPOSTHeading",
+                  "text": "This is a heading",
+                  "visible": true
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "This is a subheading",
+                  "visible": true
+                },
+                {
+                  "type": "TextBody",
+                  "text": "This is body text"
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "This is a text caption"
+                },
+                {
+                  "type": "Footer",
+                  "label": "Continue",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "ES": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "This is a heading",
+                  "visible": true
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "This is a subheading",
+                  "visible": true
+                },
+                {
+                  "type": "TextBody",
+                  "text": "This is body text"
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "This is a text caption"
+                },
+                {
+                  "type": "Footer",
+                  "label": "Continue",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
