@@ -1,0 +1,87 @@
+{
+    "prompt": {
+        "EN": "Collect a valid phone number. Must be 10-15 digits, numbers only. No letters or special characters. Reject empty."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please enter your phone number"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "1234567890",
+                                            "required": true,
+                                            "name": "userPhone"
+                                        },
+                                        {
+                                            "label": "Send",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userPhone": "${form.userPhone}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Phone Number"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Phone please"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "1234567890",
+                                            "required": true,
+                                            "name": "phone_123_xyz"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Phone"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

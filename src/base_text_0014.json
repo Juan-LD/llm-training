@@ -1,0 +1,87 @@
+{
+    "prompt": {
+        "EN": "Ask for email. Must contain @ and a dot after @. Reject empty. No other input accepted."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please write your email"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "example@example.com",
+                                            "required": true,
+                                            "name": "userEmail"
+                                        },
+                                        {
+                                            "label": "Send",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userEmail": "${form.userEmail}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Contact information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Email please"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "test@test.com",
+                                            "required": true,
+                                            "name": "email_123_xyz_abc"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Email"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

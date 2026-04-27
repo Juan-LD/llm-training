@@ -1,0 +1,94 @@
+{
+    "prompt": {
+        "EN": "Collect valid email address. Only proceed if format matches name@domain.extension. No free text."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What's your email?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "you@example.com",
+                                            "required": true,
+                                            "name": "customerEmail"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "customerEmail": "${form.customerEmail}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Contact Info"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Your email"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "name@domain.com",
+                                            "required": true,
+                                            "name": "userEmail"
+                                        },
+                                        {
+                                            "label": "Send",
+                                            "on-click-action": {
+                                                "name": "complete"
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Contact"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

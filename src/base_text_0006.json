@@ -1,0 +1,88 @@
+{
+    "prompt"  : {
+        "EN": "Help me make a simple input for the user"
+    },
+        "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                {
+                    "data"    : {},
+                    "id"      : "DEMO",
+                    "layout"  : {
+                        "children": [
+                        {
+                            "children": [
+                            {
+                                "type"    : "TextArea",
+                                "label"   : "Write anything",
+                                "required": false,
+                                "name"    : "text_area"
+                            },
+                            {
+                                "label"          : "Done",
+                                "on-click-action": {
+                                    "name"   : "complete",
+                                    "payload": {"Write_anything": "text_area"}
+                                },
+                                "type"           : "Footer"
+                            }
+                            ],
+                            "name"    : "flow_path",
+                            "type"    : "Form"
+                        }
+                        ],
+                        "type"    : "SingleColumnLayout"
+                    },
+                    "terminal": true,
+                    "title"   : "Text box"
+                }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+    {
+        "EN":
+        {
+            "screens": [
+                {
+                    "data": {},
+                    "id": "DEMO",
+                    "layout": {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "label": "Pick a date",
+                                        "name": "Pick_a_date_83af59",
+                                        "required": true,
+                                        "type": "DatePicker"
+                                    },
+                                    {
+                                        "label": "Done",
+                                        "on-click-action": {
+                                            "name": "complete",
+                                            "payload": {
+                                                "screen_0_Pick_a_date_0": "${form.Pick_a_date_83af59}"
+                                            }
+                                        },
+                                        "type": "Footer"
+                                    }
+                                ],
+                                "name": "flow_path",
+                                "type": "Form"
+                            }
+                        ],
+                        "type": "SingleColumnLayout"
+                    },
+                    "terminal": true,
+                    "title": "Paragraph"
+                }
+            ],
+            "version": "7.3"
+        }
+            }
+    ]
+}

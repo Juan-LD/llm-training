@@ -1,0 +1,99 @@
+{
+    "prompt"  : {
+        "EN": "Create an input for the user to write anything"
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data"    : {},
+                        "id"      : "DEMO",
+                        "layout"  : {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type"    : "TextArea",
+                                            "label"   : "Write anything",
+                                            "required": false,
+                                            "name"    : "text_area"
+                                        },
+                                        {
+                                            "label"          : "Done",
+                                            "on-click-action": {
+                                                "name"   : "complete",
+                                                "payload": {"Write_anything": "text_area"}
+                                            },
+                                            "type"           : "Footer"
+                                        }
+                                    ],
+                                    "name"    : "flow_path",
+                                    "type"    : "Form"
+                                }
+                            ],
+                            "type"    : "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title"   : "Text box"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN":
+            {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "data-source": [
+                                                {
+                                                    "id": "0_Option_1",
+                                                    "title": "Option 1"
+                                                },
+                                                {
+                                                    "id": "1_Option_2",
+                                                    "title": "Option 2"
+                                                }
+                                            ],
+                                            "label": "Label",
+                                            "name": "Label_08d602",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "screen_0_Label_0": "${form.Label_08d602}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Paragraph"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}
+

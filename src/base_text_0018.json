@@ -1,0 +1,87 @@
+{
+    "prompt": {
+        "EN": "Ask for phone number. Digits only, 10-15 characters. No spaces, dashes, or letters. Must not be empty."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What's your phone number?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "5551234567",
+                                            "required": true,
+                                            "name": "customerPhone"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "customerPhone": "${form.customerPhone}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Contact Info"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Your number"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "5551234567",
+                                            "required": true,
+                                            "name": "userPhone"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Phone"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

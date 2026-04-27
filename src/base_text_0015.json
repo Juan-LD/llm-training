@@ -1,0 +1,97 @@
+{
+    "prompt": {
+        "EN": "Get user email. Validate strictly. Must not be empty, must contain @ and domain. Block malformed input."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please provide your email"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "mail@site.com",
+                                            "required": true,
+                                            "name": "emailAddress"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "emailAddress": "${form.emailAddress}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Email Collection"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Write email"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "mail@site.com",
+                                            "required": true,
+                                            "name": "email"
+                                        },
+                                        {
+                                            "label": "OK",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "email": "${email}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Email"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

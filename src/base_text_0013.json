@@ -1,0 +1,89 @@
+{
+    "prompt"  : {
+        "EN": "Provide a valid email address. Only let the user proceed if format is correct. No other input accepted."
+    },
+    "ok_flows": [
+        {
+            "EN": 
+            {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please write your email"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "example@example.com",
+                                            "required": true,
+                                            "name": "userEmail"
+                                        },
+                                        {
+                                            "label": "Send",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userEmail": "${form.userEmail}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Contact information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": 
+            {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please write your email"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "example@example.com",
+                                            "required": true,
+                                            "name": "exampleexamplecom_e91f94"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Contact information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

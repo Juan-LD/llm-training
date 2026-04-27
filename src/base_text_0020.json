@@ -1,0 +1,87 @@
+{
+    "prompt": {
+        "EN": "Collect a valid postal code. Numbers only, 5-10 digits. No letters or spaces. Reject empty or invalid format."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please enter your postal code"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "12345",
+                                            "required": true,
+                                            "name": "postalCode"
+                                        },
+                                        {
+                                            "label": "Send",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "postalCode": "${form.postalCode}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Postal Code"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Enter your postal code"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "12345",
+                                            "required": true,
+                                            "name": "postalCode"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Postal Code"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "prompt": {
+        "EN": "Get user phone number. Strict validation: only digits, 10-15 length. No letters, symbols, or empty input."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please provide your phone"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "9876543210",
+                                            "required": true,
+                                            "name": "phoneNumber"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "phoneNumber": "${form.phoneNumber}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Phone Collection"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Write number"
+                                        },
+                                        {
+                                            "label": "OK",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "phone": "${phone}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Phone"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}
