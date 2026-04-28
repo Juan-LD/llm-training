@@ -1,0 +1,111 @@
+{
+    "prompt": {
+        "EN": "Ask user to select their highest education level. Options: High School, Bachelor's, Master's, PhD, Other. Use dropdown. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your highest education?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_HighSchool", "title": "High School"},
+                                                {"id": "1_Bachelors", "title": "Bachelor's"},
+                                                {"id": "2_Masters", "title": "Master's"},
+                                                {"id": "3_PhD", "title": "PhD"},
+                                                {"id": "4_Other", "title": "Other"}
+                                            ],
+                                            "label": "Education level",
+                                            "name": "education",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "education": "${form.education}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Education"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your credit card number?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_HighSchool", "title": "High School"},
+                                                {"id": "1_Bachelors", "title": "Bachelor's"},
+                                                {"id": "2_Masters", "title": "Master's"},
+                                                {"id": "3_PhD", "title": "PhD"},
+                                                {"id": "4_Other", "title": "Other"}
+                                            ],
+                                            "label": "Education level",
+                                            "name": "creditCard",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "education": "${form.creditCard}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Payment"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

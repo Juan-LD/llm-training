@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Collect user's home country. Options: USA, Canada, UK, Germany, France, Japan. Use dropdown. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select your home country"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_USA", "title": "USA"},
+                                                {"id": "1_Canada", "title": "Canada"},
+                                                {"id": "2_UK", "title": "UK"},
+                                                {"id": "3_Germany", "title": "Germany"},
+                                                {"id": "4_France", "title": "France"},
+                                                {"id": "5_Japan", "title": "Japan"}
+                                            ],
+                                            "label": "Country",
+                                            "name": "homeCountry",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "homeCountry": "${form.homeCountry}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Country"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select your home country"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_USA", "title": "USA"},
+                                                {"id": "1_Canada", "title": "Canada"},
+                                                {"id": "2_UK", "title": "UK"},
+                                                {"id": "3_Germany", "title": "Germany"},
+                                                {"id": "4_France", "title": "France"},
+                                                {"id": "5_Japan", "title": "Japan"}
+                                            ],
+                                            "label": "Country",
+                                            "name": "dropdown_xyz_123",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "homeCountry": "${form.dropdown_xyz_123}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Country"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "prompt": {
+        "EN": "Ask user to select classes they want to enroll in (Math, Physics, Quantum Physics, String Theory, Calculous I, Calculous II, History, Programming) and ask for consent to use data for statistics. Both required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Class enrollment"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Math", "title": "Math"},
+                                                {"id": "1_Physics", "title": "Physics"},
+                                                {"id": "2_Quantum_Physics", "title": "Quantum Physics"},
+                                                {"id": "3_String_Theory", "title": "String Theory"},
+                                                {"id": "4_Calculous_I", "title": "Calculous I"},
+                                                {"id": "5_Calculous_II", "title": "Calculous II"},
+                                                {"id": "6_History", "title": "History"},
+                                                {"id": "7_Programming", "title": "Programming"}
+                                            ],
+                                            "label": "Select class(es) here",
+                                            "name": "selectedClasses",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Grant permission to use this information for statistics",
+                                            "name": "consentStats",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "selectedClasses": "${form.selectedClasses}",
+                                                    "consentStats": "${form.consentStats}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Education Selection"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your mother's maiden name?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Math", "title": "Math"},
+                                                {"id": "1_Physics", "title": "Physics"}
+                                            ],
+                                            "label": "Select class(es)",
+                                            "name": "maidenName",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Grant permission",
+                                            "name": "consentStats",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "selectedClasses": "${form.maidenName}",
+                                                    "consentStats": "${form.consentStats}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Security"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

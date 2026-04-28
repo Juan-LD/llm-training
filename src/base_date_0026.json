@@ -1,0 +1,97 @@
+{
+    "prompt": {
+        "EN": "Collect preferred booking date. Must use date picker. Cannot type date manually. Date is required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "When would you like to book?"
+                                        },
+                                        {
+                                            "label": "Choose a date",
+                                            "name": "bookingDate",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Book",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "bookingDate": "${form.bookingDate}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Booking"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "When would you like to book?"
+                                        },
+                                        {
+                                            "label": "Choose a date",
+                                            "name": "bookingDate",
+                                            "required": true,
+                                            "type": "TextArea"
+                                        },
+                                        {
+                                            "label": "Book",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "bookingDate": "${form.bookingDate}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Booking"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

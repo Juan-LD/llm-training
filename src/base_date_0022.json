@@ -1,0 +1,97 @@
+{
+    "prompt": {
+        "EN": "Ask for user's birthday. Must use date picker. No manual text entry. Date required to proceed."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Select your birthday"
+                                        },
+                                        {
+                                            "label": "Pick date",
+                                            "name": "birthday",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "birthday": "${form.birthday}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Birthday"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Tell me your favorite color"
+                                        },
+                                        {
+                                            "label": "Pick date",
+                                            "name": "favoriteColor",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "birthday": "${form.favoriteColor}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Favorite Color"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

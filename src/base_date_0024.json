@@ -1,0 +1,97 @@
+{
+    "prompt": {
+        "EN": "Get user's birth date. Use date picker component. No text field. Date is mandatory."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Your birth date"
+                                        },
+                                        {
+                                            "label": "Choose",
+                                            "name": "birthDate",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "birthDate": "${form.birthDate}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Birth Date"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Your birth date"
+                                        },
+                                        {
+                                            "label": "Choose",
+                                            "name": "xyz_123_abc",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "birthDate": "${form.xyz_123_abc}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Birth Date"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

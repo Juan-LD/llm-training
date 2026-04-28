@@ -1,0 +1,125 @@
+{
+    "prompt": {
+        "EN": "Ask user which topics they want to be surveyed on (Customer Service, Product Quality, Pricing, Delivery, Website UX, Mobile App, Returns, Loyalty Program) and ask consent to store responses. Both required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Survey preferences"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_CustomerService", "title": "Customer Service"},
+                                                {"id": "1_ProductQuality", "title": "Product Quality"},
+                                                {"id": "2_Pricing", "title": "Pricing"},
+                                                {"id": "3_Delivery", "title": "Delivery"},
+                                                {"id": "4_WebsiteUX", "title": "Website UX"},
+                                                {"id": "5_MobileApp", "title": "Mobile App"},
+                                                {"id": "6_Returns", "title": "Returns"},
+                                                {"id": "7_LoyaltyProgram", "title": "Loyalty Program"}
+                                            ],
+                                            "label": "Select topics",
+                                            "name": "surveyTopics",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "I consent to my responses being stored",
+                                            "name": "storageConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Start Survey",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "surveyTopics": "${form.surveyTopics}",
+                                                    "storageConsent": "${form.storageConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Survey"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Survey preferences"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_CustomerService", "title": "Customer Service"},
+                                                {"id": "1_ProductQuality", "title": "Product Quality"}
+                                            ],
+                                            "label": "Select topics",
+                                            "name": "random_field_abc",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "I consent",
+                                            "name": "storageConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Start Survey",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "surveyTopics": "${form.random_field_abc}",
+                                                    "storageConsent": "${form.storageConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Survey"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

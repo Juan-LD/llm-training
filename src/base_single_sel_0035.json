@@ -1,0 +1,109 @@
+{
+    "prompt": {
+        "EN": "Ask user to select their favorite cuisine. Options: Italian, Mexican, Chinese, Indian. Use radio buttons. Single selection required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which cuisine do you prefer?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Italian", "title": "Italian"},
+                                                {"id": "1_Mexican", "title": "Mexican"},
+                                                {"id": "2_Chinese", "title": "Chinese"},
+                                                {"id": "3_Indian", "title": "Indian"}
+                                            ],
+                                            "label": "Select a cuisine",
+                                            "name": "favoriteCuisine",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "favoriteCuisine": "${form.favoriteCuisine}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Food Preference"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your home address?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Italian", "title": "Italian"},
+                                                {"id": "1_Mexican", "title": "Mexican"},
+                                                {"id": "2_Chinese", "title": "Chinese"},
+                                                {"id": "3_Indian", "title": "Indian"}
+                                            ],
+                                            "label": "Select a cuisine",
+                                            "name": "homeAddress",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "favoriteCuisine": "${form.homeAddress}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Address"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

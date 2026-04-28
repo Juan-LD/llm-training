@@ -1,0 +1,158 @@
+{
+    "prompt": {
+        "EN": "Single screen. Soup rating 1-5 stars, salad thumbs up/down, dessert free text. Just generate whatever."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How was the soup?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "soupRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What about the salad?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "saladRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "And the desert?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "dessertRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "soupRating": "${form.soupRating}",
+                                                    "saladRating": "${form.saladRating}",
+                                                    "dessertRating": "${form.dessertRating}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Restaurant food quality"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "soupStars",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "1", "title": "★" },
+                                                { "id": "2", "title": "★★" },
+                                                { "id": "3", "title": "★★★" },
+                                                { "id": "4", "title": "★★★★" },
+                                                { "id": "5", "title": "★★★★★" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "saladThumb",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "up", "title": "👍" },
+                                                { "id": "down", "title": "👎" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "dessertText",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Go",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "soup": "${form.soupStars}",
+                                                    "salad": "${form.saladThumb}",
+                                                    "dessert": "${form.dessertText}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Food"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

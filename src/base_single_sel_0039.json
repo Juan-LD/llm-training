@@ -1,0 +1,99 @@
+{
+    "prompt": {
+        "EN": "Collect user's favorite music style. Options: Rock, Pop, Jazz, Classical. Use radio buttons. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What music do you like?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Rock", "title": "Rock"},
+                                                {"id": "1_Pop", "title": "Pop"},
+                                                {"id": "2_Jazz", "title": "Jazz"},
+                                                {"id": "3_Classical", "title": "Classical"}
+                                            ],
+                                            "label": "Pick one",
+                                            "name": "musicPref",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "musicPref": "${form.musicPref}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Music"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What music do you like?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Rock", "title": "Rock"},
+                                                {"id": "1_Pop", "title": "Pop"},
+                                                {"id": "2_Jazz", "title": "Jazz"},
+                                                {"id": "3_Classical", "title": "Classical"}
+                                            ],
+                                            "label": "Pick one",
+                                            "name": "musicPref",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        }                                    
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Music"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "prompt": {
+        "EN": "Ask for appointment date. Date picker required. User must select a future date. No text input."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Pick your appointment date"
+                                        },
+                                        {
+                                            "label": "Select date",
+                                            "name": "appointmentDate",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "appointmentDate": "${form.appointmentDate}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Appointment"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What's your shoe size?"
+                                        },
+                                        {
+                                            "label": "Select date",
+                                            "name": "shoeSize",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "appointmentDate": "${form.shoeSize}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Shoe Size"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

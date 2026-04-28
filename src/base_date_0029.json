@@ -1,0 +1,97 @@
+{
+    "prompt": {
+        "EN": "Collect shipment date from user. Must use date picker component. No text field allowed. Date required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "When should we ship?"
+                                        },
+                                        {
+                                            "label": "Pick date",
+                                            "name": "shipmentDate",
+                                            "required": true,
+                                            "type": "DatePicker"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "shipmentDate": "${form.shipmentDate}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Shipment"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "When should we ship?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Type your favorite movie",
+                                            "required": true,
+                                            "name": "favoriteMovie"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "shipmentDate": "${form.favoriteMovie}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Favorite Movie"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

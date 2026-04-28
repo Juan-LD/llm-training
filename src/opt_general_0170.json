@@ -1,0 +1,138 @@
+{
+    "prompt": {
+        "EN": "In the payload, send 'products' instead of 'clothingTypes', 'h' instead of 'heightCm', 'w' instead of 'weightKg'. But use wrong form references: reference 'clothingTypes' as 'form.items' etc."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Which type product do you need?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Clothing types",
+                                            "name": "clothingTypes",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "tShirt", "title": "T-shirt" },
+                                                { "id": "jeans", "title": "Jeans" },
+                                                { "id": "shoes", "title": "Shoes" },
+                                                { "id": "hoodie", "title": "Hoodie" },
+                                                { "id": "accessories", "title": "Accessories" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please enter your height"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "Height (in cm)",
+                                            "name": "heightCm",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Please enter your weight"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "Weight (in kg)",
+                                            "name": "weightKg",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Look for related products",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "clothingTypes": "${form.clothingTypes}",
+                                                    "heightCm": "${form.heightCm}",
+                                                    "weightKg": "${form.weightKg}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Check clothing products"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "itemsField",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "jeans", "title": "Jeans" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "heightField",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "weightField",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "products": "${form.clothingTypes}",
+                                                    "h": "${form.heightCm}",
+                                                    "w": "${form.weightKg}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Clothing"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

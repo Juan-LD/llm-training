@@ -1,0 +1,140 @@
+{
+    "prompt": {
+        "EN": "Need a travel booking flow. One screen: country, arrival date, departure date, number of people (radio 1-5+). Make the country field required, dates required, people required. Use camelCase variable names. Submit all at the end."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which country do you wish to visit?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "Portugal",
+                                            "name": "destination",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "When do you plan to arrive?"
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "label": "12/12/2012",
+                                            "name": "arrivalDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "When do you plan to leave?"
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "label": "24/12/2012",
+                                            "name": "departureDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How many people are going?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Number of additional people",
+                                            "name": "numberOfPeople",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "1", "title": "1" },
+                                                { "id": "2", "title": "2" },
+                                                { "id": "3", "title": "3" },
+                                                { "id": "4", "title": "4" },
+                                                { "id": "5", "title": "5" },
+                                                { "id": "5plus", "title": "5 +" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Book",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "destination": "${form.destination}",
+                                                    "arrivalDate": "${form.arrivalDate}",
+                                                    "departureDate": "${form.departureDate}",
+                                                    "numberOfPeople": "${form.numberOfPeople}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Travel Itinerary"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "country",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "name": "arrival",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Book",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "dest": "${form.country}",
+                                                    "arrive": "${form.arrival}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Travel"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

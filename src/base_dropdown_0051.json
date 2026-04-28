@@ -1,0 +1,136 @@
+{
+    "prompt"  : {
+        "EN": "Create an input for the user to write anything"
+    },
+    "ok_flows": [
+        {
+            "EN": 
+            {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which is your favorite class?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {
+                                                    "id": "0_Math",
+                                                    "title": "Math"
+                                                },
+                                                {
+                                                    "id": "1_Physics",
+                                                    "title": "Physics"
+                                                },
+                                                {
+                                                    "id": "2_Chemistry",
+                                                    "title": "Chemistry"
+                                                },
+                                                {
+                                                    "id": "3_Programming",
+                                                    "title": "Programming"
+                                                }
+                                            ],
+                                            "label": "Favorite Class?",
+                                            "name": "favoriteClass",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "favoriteClass": "${form.favoriteClass}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Tourism Information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN":
+            {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which is your favorite class?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {
+                                                    "id": "0_Math",
+                                                    "title": "Math"
+                                                },
+                                                {
+                                                    "id": "1_Physics",
+                                                    "title": "Physics"
+                                                },
+                                                {
+                                                    "id": "2_Chemistry",
+                                                    "title": "Chemistry"
+                                                },
+                                                {
+                                                    "id": "3_Programming",
+                                                    "title": "Programming"
+                                                }
+                                            ],
+                                            "label": "Favorite Class?",
+                                            "name": "Favorite_Class_c63195",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "screen_0_Favorite_Class_0": "${form.Favorite_Class_c63195}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Tourism Information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}
+

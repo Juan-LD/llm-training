@@ -1,0 +1,163 @@
+{
+    "prompt": {
+        "EN": "Single screen. Bus rating (radio 1-5), train rating (emoji scale), metro rating (thumbs up/down). Just generate whatever, it doesn't have to work."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How was your latest experience with the bus?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "busRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What about the train?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "trainRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "And the metro?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "metroRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "busRating": "${form.busRating}",
+                                                    "trainRating": "${form.trainRating}",
+                                                    "metroRating": "${form.metroRating}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Public transport"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "busNum",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "1", "title": "1" },
+                                                { "id": "2", "title": "2" },
+                                                { "id": "3", "title": "3" },
+                                                { "id": "4", "title": "4" },
+                                                { "id": "5", "title": "5" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "trainEmoji",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "😊", "title": "😊" },
+                                                { "id": "😐", "title": "😐" },
+                                                { "id": "😞", "title": "😞" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "metroThumb",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "up", "title": "👍" },
+                                                { "id": "down", "title": "👎" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Go",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "bus": "${form.busNum}",
+                                                    "train": "${form.trainEmoji}",
+                                                    "metro": "${form.metroThumb}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Transport"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

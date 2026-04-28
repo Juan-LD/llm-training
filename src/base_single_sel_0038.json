@@ -1,0 +1,109 @@
+{
+    "prompt": {
+        "EN": "Ask user to select their favorite music genre. Options: Rock, Pop, Jazz, Classical. Use radio buttons. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which music genre do you prefer?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Rock", "title": "Rock"},
+                                                {"id": "1_Pop", "title": "Pop"},
+                                                {"id": "2_Jazz", "title": "Jazz"},
+                                                {"id": "3_Classical", "title": "Classical"}
+                                            ],
+                                            "label": "Select a genre",
+                                            "name": "musicGenre",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "musicGenre": "${form.musicGenre}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Music Preference"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your passport number?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Rock", "title": "Rock"},
+                                                {"id": "1_Pop", "title": "Pop"},
+                                                {"id": "2_Jazz", "title": "Jazz"},
+                                                {"id": "3_Classical", "title": "Classical"}
+                                            ],
+                                            "label": "Select a genre",
+                                            "name": "passportNumber",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "musicGenre": "${form.passportNumber}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Passport"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

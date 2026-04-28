@@ -1,0 +1,148 @@
+{
+    "prompt": {
+        "EN": "Ask the user which countries they have been to already to filter out options."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which countries have you been to?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {
+                                                    "id": "0_Portugal",
+                                                    "title": "Portugal"
+                                                },
+                                                {
+                                                    "id": "1_Spain",
+                                                    "title": "Spain"
+                                                },
+                                                {
+                                                    "id": "2_Malta",
+                                                    "title": "Malta"
+                                                },
+                                                {
+                                                    "id": "3_Germany",
+                                                    "title": "Germany"
+                                                },
+                                                {
+                                                    "id": "4_Switzerland",
+                                                    "title": "Switzerland"
+                                                },
+                                                {
+                                                    "id": "5_Turkey",
+                                                    "title": "Turkey"
+                                                }
+                                            ],
+                                            "label": "Select where you have been to ",
+                                            "name": "selectCountry",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "selectCountry": "${form.selectCountry}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Tourism Information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which countries have you been to?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {
+                                                    "id": "0_Portugal",
+                                                    "title": "Portugal"
+                                                },
+                                                {
+                                                    "id": "1_Spain",
+                                                    "title": "Spain"
+                                                },
+                                                {
+                                                    "id": "2_Malta",
+                                                    "title": "Malta"
+                                                },
+                                                {
+                                                    "id": "3_Germany",
+                                                    "title": "Germany"
+                                                },
+                                                {
+                                                    "id": "4_Switzerland",
+                                                    "title": "Switzerland"
+                                                },
+                                                {
+                                                    "id": "5_Turkey",
+                                                    "title": "Turkey"
+                                                }
+                                            ],
+                                            "label": "Select where you have been to ",
+                                            "name": "selectCountry",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "selectCountry": "${form.selectCountry}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Tourism Information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

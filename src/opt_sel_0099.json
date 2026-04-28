@@ -1,0 +1,210 @@
+{
+    "prompt": {
+        "EN": "Need maintenance flow. First screen address + issue. Second screen urgency + record. On the final complete, I want to pull the first screen's address from 'data' but I always mess up and use 'form'. Just generate it that way so I can see."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Type your address"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "John Doe 215 S ...",
+                                            "name": "address",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What type of issue is it?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Issue type",
+                                            "name": "issueType",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "plumbing", "title": "Plumbing" },
+                                                { "id": "electrical", "title": "Electrical" },
+                                                { "id": "hvac", "title": "HVAC" },
+                                                { "id": "appliance", "title": "Appliance" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "address": "${form.address}",
+                                                    "issueType": "${form.issueType}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Issue general problem"
+                    },
+                    {
+                        "data": {
+                            "address": { "__example__": "123 Main St", "type": "string" },
+                            "issueType": { "__example__": "plumbing", "type": "string" }
+                        },
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Select how much this problem needs to be fixed."
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Urgency level",
+                                            "name": "urgencyLevel",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "emergency", "title": "Emergency" },
+                                                { "id": "soon", "title": "Soon" },
+                                                { "id": "schedule", "title": "Schedule" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "Record this problem",
+                                            "name": "recordProblem",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "urgencyLevel": "${form.urgencyLevel}",
+                                                    "recordProblem": "${form.recordProblem}",
+                                                    "address": "${data.address}",
+                                                    "issueType": "${data.issueType}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Specific problem information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "propertyAddress",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "issueCategory",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "pl", "title": "Plumbing" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "savedAddress": "${form.propertyAddress}",
+                                                    "savedIssue": "${form.issueCategory}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Step1"
+                    },
+                    {
+                        "data": {},
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "urgency",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "emergency", "title": "Emergency" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalAddress": "${form.savedAddress}",
+                                                    "finalIssue": "${form.savedIssue}",
+                                                    "finalUrgency": "${form.urgency}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Step2"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

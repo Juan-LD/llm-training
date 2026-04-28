@@ -1,0 +1,234 @@
+{
+    "prompt": {
+        "EN": "We want a flow where after name and guests, the user selects dishes. But we haven't finalized the dish list yet, so leave the checkbox data-source empty for now. We'll fill it later. Also second screen should be terminal."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Type your name"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "First and last name",
+                                            "name": "firstNameAndLastName",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How many guests will be there?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Number of guests",
+                                            "name": "numberOfGuests",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "1", "title": "1" },
+                                                { "id": "2", "title": "2" },
+                                                { "id": "3", "title": "3" },
+                                                { "id": "4", "title": "4" },
+                                                { "id": "5", "title": "5" },
+                                                { "id": "5plus", "title": "5 +" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Type your email for the booking confirmation"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "email",
+                                            "label": "example@example.com",
+                                            "name": "email",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "Suggest places to visit and dine during my stay.",
+                                            "name": "suggestPlaces",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "firstNameAndLastName": "${form.firstNameAndLastName}",
+                                                    "numberOfGuests": "${form.numberOfGuests}",
+                                                    "email": "${form.email}",
+                                                    "suggestPlaces": "${form.suggestPlaces}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Booking Information"
+                    },
+                    {
+                        "data": {
+                            "firstNameAndLastName": { "__example__": "John Doe", "type": "string" },
+                            "numberOfGuests": { "__example__": "2", "type": "string" },
+                            "email": { "__example__": "john@example.com", "type": "string" },
+                            "suggestPlaces": { "__example__": true, "type": "boolean" }
+                        },
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Meal preferences for the stay"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Select multiple dishes",
+                                            "name": "selectedDishes",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "grilledSalmon", "title": "Grilled Salmon" },
+                                                { "id": "roastedChicken", "title": "Roasted Chicken" },
+                                                { "id": "beefTenderloin", "title": "Beef Tenderloin" },
+                                                { "id": "mushroomRisotto", "title": "Mushroom Risotto (Vegetarian)" },
+                                                { "id": "veganBowl", "title": "Vegan Bowl" },
+                                                { "id": "kidsTenders", "title": "Kids: Chicken Tenders" },
+                                                { "id": "kidsMacCheese", "title": "Kids: Mac & Cheese" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "selectedDishes": "${form.selectedDishes}",
+                                                    "firstNameAndLastName": "${data.firstNameAndLastName}",
+                                                    "numberOfGuests": "${data.numberOfGuests}",
+                                                    "email": "${data.email}",
+                                                    "suggestPlaces": "${data.suggestPlaces}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Booking extra information"
+                    }
+                ],
+                "version": "7.3"
+            }  
+
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "fullName",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "guestCount",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "1", "title": "1" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "name": "${form.fullName}",
+                                                    "guests": "${form.guestCount}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Step1"
+                    },
+                    {
+                        "data": {
+                            "name": { "__example__": "Sam", "type": "string" },
+                            "guests": { "__example__": "1", "type": "string" }
+                        },
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "dishes",
+                                            "required": true,
+                                            "data-source": []
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalName": "${data.name}",
+                                                    "finalGuests": "${data.guests}",
+                                                    "finalDishes": "${form.dishes}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Step2"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

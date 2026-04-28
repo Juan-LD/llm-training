@@ -1,0 +1,103 @@
+{
+    "prompt": {
+        "EN": "Ask which type of food they like most. Options: Italian, Mexican, Chinese, Indian. Radio buttons only."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your preferred cuisine"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Italian", "title": "Italian"},
+                                                {"id": "1_Mexican", "title": "Mexican"},
+                                                {"id": "2_Chinese", "title": "Chinese"},
+                                                {"id": "3_Indian", "title": "Indian"}
+                                            ],
+                                            "label": "Choose",
+                                            "name": "cuisinePref",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "cuisinePref": "${form.cuisinePref}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Cuisine"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your preferred cuisine"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Type your favorite food",
+                                            "required": true,
+                                            "name": "cuisinePref"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "cuisinePref": "${form.cuisinePref}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Cuisine"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

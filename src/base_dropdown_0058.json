@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Ask user to select their t-shirt size. Options: XS, S, M, L, XL, XXL. Use dropdown menu. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your t-shirt size?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_XS", "title": "XS"},
+                                                {"id": "1_S", "title": "S"},
+                                                {"id": "2_M", "title": "M"},
+                                                {"id": "3_L", "title": "L"},
+                                                {"id": "4_XL", "title": "XL"},
+                                                {"id": "5_XXL", "title": "XXL"}
+                                            ],
+                                            "label": "Size",
+                                            "name": "tshirtSize",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "tshirtSize": "${form.tshirtSize}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Size"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your passport number?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_XS", "title": "XS"},
+                                                {"id": "1_S", "title": "S"},
+                                                {"id": "2_M", "title": "M"},
+                                                {"id": "3_L", "title": "L"},
+                                                {"id": "4_XL", "title": "XL"},
+                                                {"id": "5_XXL", "title": "XXL"}
+                                            ],
+                                            "label": "Size",
+                                            "name": "passport",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "tshirtSize": "${form.passport}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Passport"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

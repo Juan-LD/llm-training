@@ -1,0 +1,109 @@
+{
+    "prompt": {
+        "EN": "Ask user to select their favorite animal from options: Cat, Dog, Rabbit, Snake. Use radio buttons. Single selection required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which animal do you prefer?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Cat", "title": "Cat"},
+                                                {"id": "1_Dog", "title": "Dog"},
+                                                {"id": "2_Rabbit", "title": "Rabbit"},
+                                                {"id": "3_Snake", "title": "Snake"}
+                                            ],
+                                            "label": "Select an animal",
+                                            "name": "favoriteAnimal",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "favoriteAnimal": "${form.favoriteAnimal}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "User Information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your bank account number?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Cat", "title": "Cat"},
+                                                {"id": "1_Dog", "title": "Dog"},
+                                                {"id": "2_Rabbit", "title": "Rabbit"},
+                                                {"id": "3_Snake", "title": "Snake"}
+                                            ],
+                                            "label": "Select an animal",
+                                            "name": "bankAccount",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "favoriteAnimal": "${form.bankAccount}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Bank Info"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "prompt": {
+        "EN": "Ask user which country they are from. Options: USA, Canada, UK, Germany, France, Japan. Dropdown menu. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your country"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_USA", "title": "USA"},
+                                                {"id": "1_Canada", "title": "Canada"},
+                                                {"id": "2_UK", "title": "UK"},
+                                                {"id": "3_Germany", "title": "Germany"},
+                                                {"id": "4_France", "title": "France"},
+                                                {"id": "5_Japan", "title": "Japan"}
+                                            ],
+                                            "label": "Choose",
+                                            "name": "userCountry",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userCountry": "${form.userCountry}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Origin"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your country"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Type your country",
+                                            "required": true,
+                                            "name": "userCountry"
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userCountry": "${form.userCountry}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Origin"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

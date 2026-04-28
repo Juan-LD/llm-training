@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Collect user's clothing size. Options: XS, S, M, L, XL, XXL. Dropdown. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your t-shirt size"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_XS", "title": "XS"},
+                                                {"id": "1_S", "title": "S"},
+                                                {"id": "2_M", "title": "M"},
+                                                {"id": "3_L", "title": "L"},
+                                                {"id": "4_XL", "title": "XL"},
+                                                {"id": "5_XXL", "title": "XXL"}
+                                            ],
+                                            "label": "Choose size",
+                                            "name": "clothingSize",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "clothingSize": "${form.clothingSize}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Clothing"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your t-shirt size"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_XS", "title": "XS"},
+                                                {"id": "1_S", "title": "S"},
+                                                {"id": "2_M", "title": "M"},
+                                                {"id": "3_L", "title": "L"},
+                                                {"id": "4_XL", "title": "XL"},
+                                                {"id": "5_XXL", "title": "XXL"}
+                                            ],
+                                            "label": "Choose size",
+                                            "name": "clothingSize",
+                                            "required": false,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Confirm",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "clothingSize": "${form.clothingSize}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Clothing"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

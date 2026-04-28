@@ -1,0 +1,105 @@
+{
+    "prompt": {
+        "EN": "Ask user to pick all countries they have been to. Options: Portugal, Spain, Malta, Germany, Switzerland, Turkey. Checkboxes. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Where have you traveled?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Portugal", "title": "Portugal"},
+                                                {"id": "1_Spain", "title": "Spain"},
+                                                {"id": "2_Malta", "title": "Malta"},
+                                                {"id": "3_Germany", "title": "Germany"},
+                                                {"id": "4_Switzerland", "title": "Switzerland"},
+                                                {"id": "5_Turkey", "title": "Turkey"}
+                                            ],
+                                            "label": "Check all that apply",
+                                            "name": "userTravels",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userTravels": "${form.userTravels}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Destinations"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Where have you traveled?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Type countries",
+                                            "required": true,
+                                            "name": "userTravels"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userTravels": "${form.userTravels}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Destinations"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

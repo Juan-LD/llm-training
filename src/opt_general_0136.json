@@ -1,0 +1,217 @@
+{
+    "prompt": {
+        "EN": "Use dropdowns instead of radio buttons for staff experience and pricing opinion. Keep found Yes/No as radio. All required. Opt-in optional. Submit."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Did you manage to find what you were looking for?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes / No",
+                                            "name": "foundWhatLookingFor",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How was your experience with the staff?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Staff experience",
+                                            "name": "staffExperience",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "veryGood", "title": "Very good" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "couldBeBetter", "title": "Could be better" },
+                                                { "id": "bad", "title": "Bad" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "PRICING", "type": "screen" },
+                                                "payload": {
+                                                    "foundWhatLookingFor": "${form.foundWhatLookingFor}",
+                                                    "staffExperience": "${form.staffExperience}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Shop service rating"
+                    },
+                    {
+                        "data": {
+                            "foundWhatLookingFor": { "__example__": "yes", "type": "string" },
+                            "staffExperience": { "__example__": "good", "type": "string" }
+                        },
+                        "id": "PRICING",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Were the items properly priced?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Pricing opinion",
+                                            "name": "pricingOpinion",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "tooExpensive", "title": "Too expensive" },
+                                                { "id": "justRight", "title": "Just right" },
+                                                { "id": "tooCheap", "title": "Too cheap" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "Use this information to make the store better.",
+                                            "name": "allowStoreImprovement",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "pricingOpinion": "${form.pricingOpinion}",
+                                                    "allowStoreImprovement": "${form.allowStoreImprovement}",
+                                                    "foundWhatLookingFor": "${data.foundWhatLookingFor}",
+                                                    "staffExperience": "${data.staffExperience}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Item Pricing"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "foundWhatLookingFor",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "staffDropdown",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "vg", "title": "Very good" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "PRICING", "type": "screen" },
+                                                "payload": {
+                                                    "found": "${form.foundWhatLookingFor}",
+                                                    "staff": "${form.staffDropdown}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Screen1"
+                    },
+                    {
+                        "data": {},
+                        "id": "PRICING",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "pricingDrop",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "te", "title": "Too expensive" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "price": "${form.pricingDrop}",
+                                                    "foundData": "${data.found}",
+                                                    "staffData": "${data.staff}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Screen2"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

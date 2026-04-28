@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Collect user's free time activities. Options: Reading, Gaming, Hiking, Cooking, Photography, Dancing. Checkboxes. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What do you do in your free time?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Reading", "title": "Reading"},
+                                                {"id": "1_Gaming", "title": "Gaming"},
+                                                {"id": "2_Hiking", "title": "Hiking"},
+                                                {"id": "3_Cooking", "title": "Cooking"},
+                                                {"id": "4_Photography", "title": "Photography"},
+                                                {"id": "5_Dancing", "title": "Dancing"}
+                                            ],
+                                            "label": "Pick your activities",
+                                            "name": "activities",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "activities": "${form.activities}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Free Time"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What do you do in your free time?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Reading", "title": "Reading"},
+                                                {"id": "1_Gaming", "title": "Gaming"},
+                                                {"id": "2_Hiking", "title": "Hiking"},
+                                                {"id": "3_Cooking", "title": "Cooking"},
+                                                {"id": "4_Photography", "title": "Photography"},
+                                                {"id": "5_Dancing", "title": "Dancing"}
+                                            ],
+                                            "label": "Pick your activities",
+                                            "name": "activities",
+                                            "required": false,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "activities": "${form.activities}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Free Time"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

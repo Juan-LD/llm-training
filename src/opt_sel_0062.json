@@ -1,0 +1,118 @@
+{
+    "prompt": {
+        "EN": "Ask user which topics they want newsletter for (Tech, Sports, Politics, Health, Entertainment, Science, Business, Travel) and ask consent to email them weekly. Both required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Newsletter preferences"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Tech", "title": "Tech"},
+                                                {"id": "1_Sports", "title": "Sports"},
+                                                {"id": "2_Politics", "title": "Politics"},
+                                                {"id": "3_Health", "title": "Health"},
+                                                {"id": "4_Entertainment", "title": "Entertainment"},
+                                                {"id": "5_Science", "title": "Science"},
+                                                {"id": "6_Business", "title": "Business"},
+                                                {"id": "7_Travel", "title": "Travel"}
+                                            ],
+                                            "label": "Select topics",
+                                            "name": "newsletterTopics",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "I agree to receive weekly emails",
+                                            "name": "emailConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Subscribe",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "newsletterTopics": "${form.newsletterTopics}",
+                                                    "emailConsent": "${form.emailConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Newsletter"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Newsletter preferences"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Tech", "title": "Tech"},
+                                                {"id": "1_Sports", "title": "Sports"}
+                                            ],
+                                            "label": "Select topics",
+                                            "name": "newsletterTopics",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Subscribe",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "newsletterTopics": "${form.newsletterTopics}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Newsletter"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

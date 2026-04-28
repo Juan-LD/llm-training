@@ -1,0 +1,195 @@
+{
+    "prompt": {
+        "EN": "Single screen: combine everything. Ask found, staff, pricing, and opt-in on one screen. Submit all. No second screen. Use camelCase."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Did you manage to find what you were looking for?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes / No",
+                                            "name": "foundWhatLookingFor",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How was your experience with the staff?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Staff experience",
+                                            "name": "staffExperience",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "veryGood", "title": "Very good" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "couldBeBetter", "title": "Could be better" },
+                                                { "id": "bad", "title": "Bad" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "PRICING", "type": "screen" },
+                                                "payload": {
+                                                    "foundWhatLookingFor": "${form.foundWhatLookingFor}",
+                                                    "staffExperience": "${form.staffExperience}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Shop service rating"
+                    },
+                    {
+                        "data": {
+                            "foundWhatLookingFor": { "__example__": "yes", "type": "string" },
+                            "staffExperience": { "__example__": "good", "type": "string" }
+                        },
+                        "id": "PRICING",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Were the items properly priced?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Pricing opinion",
+                                            "name": "pricingOpinion",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "tooExpensive", "title": "Too expensive" },
+                                                { "id": "justRight", "title": "Just right" },
+                                                { "id": "tooCheap", "title": "Too cheap" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "Use this information to make the store better.",
+                                            "name": "allowStoreImprovement",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "pricingOpinion": "${form.pricingOpinion}",
+                                                    "allowStoreImprovement": "${form.allowStoreImprovement}",
+                                                    "foundWhatLookingFor": "${data.foundWhatLookingFor}",
+                                                    "staffExperience": "${data.staffExperience}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Item Pricing"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "foundWhatLookingFor",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "staffExperience",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "good", "title": "Good" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "pricingOpinion",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "justRight", "title": "Just right" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "name": "allowStoreImprovement",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "found": "${form.foundWhatLookingFor}",
+                                                    "staff": "${form.staffExperience}",
+                                                    "price": "${form.pricingOpinion}",
+                                                    "optin": "${form.allowStoreImprovement}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "All in one"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

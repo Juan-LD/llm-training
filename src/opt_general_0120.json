@@ -1,0 +1,156 @@
+{
+    "prompt": {
+        "EN": "One screen. Bus rating, train rating, metro rating. In the payload, I want to send 'bus' instead of 'busRating', 'train' instead of 'trainRating', etc. But I'll mess up the mapping. Generate with wrong field references."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How was your latest experience with the bus?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "busRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What about the train?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "trainRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "And the metro?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "metroRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "busRating": "${form.busRating}",
+                                                    "trainRating": "${form.trainRating}",
+                                                    "metroRating": "${form.metroRating}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Public transport"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "busField",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "trainField",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "good", "title": "Good" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "metroField",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "normal", "title": "Normal" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "bus": "${form.busRating}",
+                                                    "train": "${form.trainRating}",
+                                                    "metro": "${form.metroRating}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Ratings"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

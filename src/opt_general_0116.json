@@ -1,0 +1,156 @@
+{
+    "prompt": {
+        "EN": "One screen with three ratings: bus, train, metro. Use dropdowns instead of radio buttons. All required. Submit."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How was your latest experience with the bus?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "busRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What about the train?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "trainRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "And the metro?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Experience rate",
+                                            "name": "metroRating",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "perfect", "title": "Perfect" },
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "normal", "title": "Normal" },
+                                                { "id": "uncomfortable", "title": "Uncomfortable" },
+                                                { "id": "veryBad", "title": "Very bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "busRating": "${form.busRating}",
+                                                    "trainRating": "${form.trainRating}",
+                                                    "metroRating": "${form.metroRating}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Public transport"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "busDrop",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "a", "title": "Perfect" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "trainDrop",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "b", "title": "Good" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "metroDrop",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "c", "title": "Normal" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Go",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "bus": "${form.busDrop}",
+                                                    "train": "${form.trainDrop}",
+                                                    "metro": "${form.metroDrop}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Ratings"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

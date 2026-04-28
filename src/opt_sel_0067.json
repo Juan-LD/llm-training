@@ -1,0 +1,129 @@
+{
+    "prompt": {
+        "EN": "Collect support ticket details with category dropdown and description textarea. Use markdown for instructions with bold, italic, and code formatting."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Support Request"
+                                        },
+                                        {
+                                            "type": "TextBody",
+                                            "text": "Describe your issue in **detail**. The more info, the *faster* we can help.\n\nExample: \"Error code 500 when clicking login\"",
+                                            "markdown": true
+                                        },
+                                        {
+                                            "type": "TextBody",
+                                            "text": "~~Wait times: 24-48 hours~~ → **Now: 4-6 hours** response time!",
+                                            "markdown": true
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Billing", "title": "💰 Billing"},
+                                                {"id": "1_Technical", "title": "🔧 Technical"},
+                                                {"id": "2_Account", "title": "👤 Account Access"},
+                                                {"id": "3_Feature", "title": "💡 Feature Request"}
+                                            ],
+                                            "label": "Issue category",
+                                            "name": "ticketCategory",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Describe your issue",
+                                            "name": "issueDescription",
+                                            "required": true,
+                                            "max-length": 500
+                                        },
+                                        {
+                                            "label": "I allow support to contact me via email",
+                                            "name": "contactConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Send Ticket",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "ticketCategory": "${form.ticketCategory}",
+                                                    "issueDescription": "${form.issueDescription}",
+                                                    "contactConsent": "${form.contactConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Support"
+                    }
+                ],
+                "version": "7.3"
+            }
+
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Support"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Type",
+                                            "name": "random_field",
+                                            "required": true
+                                        },
+                                        {
+                                            "label": "Send",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "ticket": "${form.random_field}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Support"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "prompt": {
+        "EN": "Ask user for their highest degree. Options: High School, Bachelor's, Master's, PhD, Other. Dropdown only."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Highest degree earned"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_HighSchool", "title": "High School"},
+                                                {"id": "1_Bachelors", "title": "Bachelor's"},
+                                                {"id": "2_Masters", "title": "Master's"},
+                                                {"id": "3_PhD", "title": "PhD"},
+                                                {"id": "4_Other", "title": "Other"}
+                                            ],
+                                            "label": "Select",
+                                            "name": "degree",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "degree": "${form.degree}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Degree"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Highest degree earned"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_HighSchool", "title": "High School"},
+                                                {"id": "1_Bachelors", "title": "Bachelor's"},
+                                                {"id": "2_Masters", "title": "Master's"},
+                                                {"id": "3_PhD", "title": "PhD"},
+                                                {"id": "4_Other", "title": "Other"}
+                                            ],
+                                            "label": "Select",
+                                            "name": "field_999",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "degree": "${form.field_999}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Degree"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

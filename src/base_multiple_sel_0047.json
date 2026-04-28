@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Ask user to choose all programming languages they can use. Options: Python, JavaScript, Java, C++, Go, Rust. Checkboxes only."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your programming languages"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"},
+                                                {"id": "2_Java", "title": "Java"},
+                                                {"id": "3_Cpp", "title": "C++"},
+                                                {"id": "4_Go", "title": "Go"},
+                                                {"id": "5_Rust", "title": "Rust"}
+                                            ],
+                                            "label": "Check all you know",
+                                            "name": "langs",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "langs": "${form.langs}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Languages"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your programming languages"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"},
+                                                {"id": "2_Java", "title": "Java"},
+                                                {"id": "3_Cpp", "title": "C++"},
+                                                {"id": "4_Go", "title": "Go"},
+                                                {"id": "5_Rust", "title": "Rust"}
+                                            ],
+                                            "label": "Check all you know",
+                                            "name": "field_abc_123",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "langs": "${form.field_abc_123}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Languages"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

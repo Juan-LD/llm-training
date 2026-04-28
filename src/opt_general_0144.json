@@ -1,0 +1,143 @@
+{
+    "prompt": {
+        "EN": "Course flow. Make hours per week optional instead of required. Use snake_case: current_skill_level, end_goal, hours_per_week. All good."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Whats your current skill level?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Current skill level",
+                                            "name": "currentSkillLevel",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "beginner", "title": "Beginner" },
+                                                { "id": "intermediate", "title": "Intermediate" },
+                                                { "id": "advanced", "title": "Advanced" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Whats the end goal you want to reach?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "End goal",
+                                            "name": "endGoal",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "careerChange", "title": "Career change" },
+                                                { "id": "hobby", "title": "Hobby" },
+                                                { "id": "certification", "title": "Certification" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How many hours per week on average?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "Type hours here",
+                                            "name": "hoursPerWeek",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "currentSkillLevel": "${form.currentSkillLevel}",
+                                                    "endGoal": "${form.endGoal}",
+                                                    "hoursPerWeek": "${form.hoursPerWeek}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Course Choosing"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "current_skill_level",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "beginner", "title": "Beginner" },
+                                                { "id": "intermediate", "title": "Intermediate" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "end_goal",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "career", "title": "Career change" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "hours_per_week",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "skill": "${form.current_skill_level}",
+                                                    "goal": "${form.end_goal}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Survey"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

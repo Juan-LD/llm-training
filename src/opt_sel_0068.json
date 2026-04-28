@@ -1,0 +1,150 @@
+{
+    "prompt": {
+        "EN": "User registers a product with serial number (TextInput) and purchase date (DatePicker). First screen collects info, second screen confirms registration."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "RECOMMEND",
+                        "title": "Register Product",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Form",
+                                    "name": "form",
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Enter your product details"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "label": "Serial Number",
+                                            "name": "serialNumber",
+                                            "required": true,
+                                            "input-type": "text",
+                                            "max-chars": "20"
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "label": "Purchase Date",
+                                            "name": "purchaseDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": {
+                                                    "type": "screen",
+                                                    "name": "CONFIRM"
+                                                },
+                                                "payload": {
+                                                    "serialNumber": "${form.serialNumber}",
+                                                    "purchaseDate": "${form.purchaseDate}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "CONFIRM",
+                        "title": "Registration Confirmed",
+                        "data": {
+                            "serialNumber": {"type": "string", "__example__": "SN123456"},
+                            "purchaseDate": {"type": "string", "__example__": "2025-01-15"}
+                        },
+                        "terminal": true,
+                        "success": true,
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Form",
+                                    "name": "form",
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Thank you! Your product is registered."
+                                        },
+                                        {
+                                            "type": "TextBody",
+                                            "text": "Serial: ${data.serialNumber}\nPurchase Date: ${data.purchaseDate}",
+                                            "markdown": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "serialNumber": "${data.serialNumber}",
+                                                    "purchaseDate": "${data.purchaseDate}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.2",
+                "screens": [
+                    {
+                        "id": "RECOMMEND",
+                        "title": "SSN Collection",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Form",
+                                    "name": "form",
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What is your Social Security Number?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "label": "SSN",
+                                            "name": "random_ssn_field",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "ssn": "${form.random_ssn_field}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,109 @@
+{
+    "prompt": {
+        "EN": "Collect user's favorite food type. Options: Italian, Mexican, Chinese, Indian. Use radio buttons. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What's your favorite food?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Italian", "title": "Italian"},
+                                                {"id": "1_Mexican", "title": "Mexican"},
+                                                {"id": "2_Chinese", "title": "Chinese"},
+                                                {"id": "3_Indian", "title": "Indian"}
+                                            ],
+                                            "label": "Pick one",
+                                            "name": "foodChoice",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "foodChoice": "${form.foodChoice}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Food"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What's your favorite food?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Italian", "title": "Italian"},
+                                                {"id": "1_Mexican", "title": "Mexican"},
+                                                {"id": "2_Chinese", "title": "Chinese"},
+                                                {"id": "3_Indian", "title": "Indian"}
+                                            ],
+                                            "label": "Pick one",
+                                            "name": "xyz_food_999",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "foodChoice": "${form.xyz_food_999}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Food"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

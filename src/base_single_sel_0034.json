@@ -1,0 +1,103 @@
+{
+    "prompt": {
+        "EN": "Ask which animal they like best. Options: Cat, Dog, Rabbit, Snake. Radio buttons only. Selection required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Pick your favorite animal"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Cat", "title": "Cat"},
+                                                {"id": "1_Dog", "title": "Dog"},
+                                                {"id": "2_Rabbit", "title": "Rabbit"},
+                                                {"id": "3_Snake", "title": "Snake"}
+                                            ],
+                                            "label": "Your choice",
+                                            "name": "animalChoice",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "animalChoice": "${form.animalChoice}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Animal"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Pick your favorite animal"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Type your animal here",
+                                            "required": true,
+                                            "name": "animalChoice"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "animalChoice": "${form.animalChoice}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Animal"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

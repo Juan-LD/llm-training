@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Ask user which programming languages they know. Options: Python, JavaScript, Java, C++, Go, Rust. Use checkboxes. Multi-select allowed."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which programming languages do you know?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"},
+                                                {"id": "2_Java", "title": "Java"},
+                                                {"id": "3_Cpp", "title": "C++"},
+                                                {"id": "4_Go", "title": "Go"},
+                                                {"id": "5_Rust", "title": "Rust"}
+                                            ],
+                                            "label": "Select your skills",
+                                            "name": "programmingSkills",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "programmingSkills": "${form.programmingSkills}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Skills"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your bank account number?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"},
+                                                {"id": "2_Java", "title": "Java"},
+                                                {"id": "3_Cpp", "title": "C++"},
+                                                {"id": "4_Go", "title": "Go"},
+                                                {"id": "5_Rust", "title": "Rust"}
+                                            ],
+                                            "label": "Select your skills",
+                                            "name": "bankAccount",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "programmingSkills": "${form.bankAccount}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Bank"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

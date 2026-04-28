@@ -1,0 +1,419 @@
+{
+    "prompt": {
+        "EN": "Two-screen WhatsApp flow. Screen 1: dish type radio (Meat/Fish/Salad/Light drink) + optional instructions textarea. Screen 2: three rating dropdowns (Purchase/Delivery/Customer service, Excellent to Very Poor). CamelCase vars: dishType, specialInstructions, purchaseExperience, deliveryAndSetup, customerService. Continue passes dishType + instructions. Done submits all ratings + passed data."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select your dish type"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Choose a type of dish",
+                                            "name": "dishType",
+                                            "data-source": [
+                                                {
+                                                    "id": "meat",
+                                                    "title": "Meat"
+                                                },
+                                                {
+                                                    "id": "fish",
+                                                    "title": "Fish"
+                                                },
+                                                {
+                                                    "id": "salad",
+                                                    "title": "Salad"
+                                                },
+                                                {
+                                                    "id": "lightDrink",
+                                                    "title": "Light drink"
+                                                }
+                                            ],
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Any specific requests?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Leave instructions",
+                                            "required": false,
+                                            "name": "specialInstructions"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": {
+                                                    "name": "RATE",
+                                                    "type": "screen"
+                                                },
+                                                "payload": {
+                                                    "selectedDishType": "${form.dishType}",
+                                                    "specialInstructions": "${form.specialInstructions}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Feedback 1 of 2"
+                    },
+                    {
+                        "data": {
+                            "selectedDishType": {
+                                "__example__": "meat",
+                                "type": "string"
+                            },
+                            "specialInstructions": {
+                                "__example__": "no onions please",
+                                "type": "string"
+                            }
+                        },
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Rate the following: "
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Purchase experience",
+                                            "required": true,
+                                            "name": "purchaseExperience",
+                                            "data-source": [
+                                                {
+                                                    "id": "excellent",
+                                                    "title": "★★★★★ • Excellent (5/5)"
+                                                },
+                                                {
+                                                    "id": "good",
+                                                    "title": "★★★★☆ • Good (4/5)"
+                                                },
+                                                {
+                                                    "id": "average",
+                                                    "title": "★★★☆☆ • Average (3/5)"
+                                                },
+                                                {
+                                                    "id": "poor",
+                                                    "title": "★★☆☆☆ • Poor (2/5)"
+                                                },
+                                                {
+                                                    "id": "veryPoor",
+                                                    "title": "★☆☆☆☆ • Very Poor (1/5)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Delivery and setup",
+                                            "required": true,
+                                            "name": "deliveryAndSetup",
+                                            "data-source": [
+                                                {
+                                                    "id": "excellent",
+                                                    "title": "★★★★★ • Excellent (5/5)"
+                                                },
+                                                {
+                                                    "id": "good",
+                                                    "title": "★★★★☆ • Good (4/5)"
+                                                },
+                                                {
+                                                    "id": "average",
+                                                    "title": "★★★☆☆ • Average (3/5)"
+                                                },
+                                                {
+                                                    "id": "poor",
+                                                    "title": "★★☆☆☆ • Poor (2/5)"
+                                                },
+                                                {
+                                                    "id": "veryPoor",
+                                                    "title": "★☆☆☆☆ • Very Poor (1/5)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Customer service",
+                                            "required": true,
+                                            "name": "customerService",
+                                            "data-source": [
+                                                {
+                                                    "id": "excellent",
+                                                    "title": "★★★★★ • Excellent (5/5)"
+                                                },
+                                                {
+                                                    "id": "good",
+                                                    "title": "★★★★☆ • Good (4/5)"
+                                                },
+                                                {
+                                                    "id": "average",
+                                                    "title": "★★★☆☆ • Average (3/5)"
+                                                },
+                                                {
+                                                    "id": "poor",
+                                                    "title": "★★☆☆☆ • Poor (2/5)"
+                                                },
+                                                {
+                                                    "id": "veryPoor",
+                                                    "title": "★☆☆☆☆ • Very Poor (1/5)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "purchaseExperienceRating": "${form.purchaseExperience}",
+                                                    "deliveryAndSetupRating": "${form.deliveryAndSetup}",
+                                                    "customerServiceRating": "${form.customerService}",
+                                                    "selectedDishType": "${data.selectedDishType}",
+                                                    "specialInstructions": "${data.specialInstructions}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Feedback 2 of 2"
+                    }
+                ],
+                "version": "7.3"
+            }
+
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN":
+            {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select your dish type"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Choose a type of dish",
+                                            "name": "Choose_a_type_of_dish_c208f8",
+                                            "data-source": [
+                                                {
+                                                    "id": "0_Meat",
+                                                    "title": "Meat"
+                                                },
+                                                {
+                                                    "id": "1_Fish",
+                                                    "title": "Fish"
+                                                },
+                                                {
+                                                    "id": "2_Salad",
+                                                    "title": "Salad"
+                                                },
+                                                {
+                                                    "id": "3_Light_drink",
+                                                    "title": "Light drink"
+                                                }
+                                            ],
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Any specific requests?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Leave instructions",
+                                            "required": false,
+                                            "name": "Leave_instructions_4bc042"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": {
+                                                    "name": "RATE",
+                                                    "type": "screen"
+                                                },
+                                                "payload": {
+                                                    "screen_0_Choose_a_type_of_dish_0": "${form.Choose_a_type_of_dish_c208f8}",
+                                                    "screen_0_Leave_instructions_1": "${form.Leave_instructions_4bc042}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Feedback 1 of 2"
+                    },
+                    {
+                        "data": {
+                            "screen_0_Choose_a_type_of_dish_0": {
+                                "__example__": "Example",
+                                "type": "string"
+                            },
+                            "screen_0_Leave_instructions_1": {
+                                "__example__": "Example",
+                                "type": "string"
+                            }
+                        },
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Rate the following: "
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Purchase experience",
+                                            "required": true,
+                                            "name": "Purchase_experience_565fdf",
+                                            "data-source": [
+                                                {
+                                                    "id": "0_★★★★★_•_Excellent_(5/5)",
+                                                    "title": "★★★★★ • Excellent (5/5)"
+                                                },
+                                                {
+                                                    "id": "1_★★★★☆_•_Good_(4/5)",
+                                                    "title": "★★★★☆ • Good (4/5)"
+                                                },
+                                                {
+                                                    "id": "2_★★★☆☆_•_Average_(3/5)",
+                                                    "title": "★★★☆☆ • Average (3/5)"
+                                                },
+                                                {
+                                                    "id": "3_★★☆☆☆_•_Poor_(2/5)",
+                                                    "title": "★★☆☆☆ • Poor (2/5)"
+                                                },
+                                                {
+                                                    "id": "4_★☆☆☆☆_•_Very_Poor_(1/5)",
+                                                    "title": "★☆☆☆☆ • Very Poor (1/5)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Delivery and setup",
+                                            "required": true,
+                                            "name": "Delivery_and_setup_6af8d7",
+                                            "data-source": [
+                                                {
+                                                    "id": "0_★★★★★_•_Excellent_(5/5)",
+                                                    "title": "★★★★★ • Excellent (5/5)"
+                                                },
+                                                {
+                                                    "id": "1_★★★★☆_•_Good_(4/5)",
+                                                    "title": "★★★★☆ • Good (4/5)"
+                                                },
+                                                {
+                                                    "id": "2_★★★☆☆_•_Average_(3/5)",
+                                                    "title": "★★★☆☆ • Average (3/5)"
+                                                },
+                                                {
+                                                    "id": "3_★★☆☆☆_•_Poor_(2/5)",
+                                                    "title": "★★☆☆☆ • Poor (2/5)"
+                                                },
+                                                {
+                                                    "id": "4_★☆☆☆☆_•_Very_Poor_(1/5)",
+                                                    "title": "★☆☆☆☆ • Very Poor (1/5)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Customer service",
+                                            "required": true,
+                                            "name": "Customer_service_9cb4b6",
+                                            "data-source": [
+                                                {
+                                                    "id": "0_★★★★★_•_Excellent_(5/5)",
+                                                    "title": "★★★★★ • Excellent (5/5)"
+                                                },
+                                                {
+                                                    "id": "1_★★★★☆_•_Good_(4/5)",
+                                                    "title": "★★★★☆ • Good (4/5)"
+                                                },
+                                                {
+                                                    "id": "2_★★★☆☆_•_Average_(3/5)",
+                                                    "title": "★★★☆☆ • Average (3/5)"
+                                                },
+                                                {
+                                                    "id": "3_★★☆☆☆_•_Poor_(2/5)",
+                                                    "title": "★★☆☆☆ • Poor (2/5)"
+                                                },
+                                                {
+                                                    "id": "4_★☆☆☆☆_•_Very_Poor_(1/5)",
+                                                    "title": "★☆☆☆☆ • Very Poor (1/5)"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "screen_1_Purchase_experience_0": "${form.Purchase_experience_565fdf}",
+                                                    "screen_1_Delivery_and_setup_1": "${form.Delivery_and_setup_6af8d7}",
+                                                    "screen_1_Customer_service_2": "${form.Customer_service_9cb4b6}",
+                                                    "screen_0_Choose_a_type_of_dish_0": "${data.screen_0_Choose_a_type_of_dish_0}",
+                                                    "screen_0_Leave_instructions_1": "${data.screen_0_Leave_instructions_1}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Feedback 2 of 2"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

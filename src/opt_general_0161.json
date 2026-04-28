@@ -1,0 +1,122 @@
+{
+    "prompt": {
+        "EN": "Flight ID form with a second screen that just thanks the user. First screen asks for flight ID."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Whats the flight ID?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "Type flight id here",
+                                            "name": "flightId",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "flightId": "${form.flightId}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Check flight"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "screens": [
+                {
+                    "data": {},
+                    "id": "FIRST",
+                    "layout": {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "type": "TextInput",
+                                        "name": "flightId",
+                                        "required": true
+                                    },
+                                    {
+                                        "type": "Footer",
+                                        "label": "Next",
+                                        "on-click-action": {
+                                            "name": "navigate",
+                                            "next": { "name": "SECOND", "type": "screen" },
+                                            "payload": {
+                                                "flightId": "${form.flightId}"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "name": "flowPath",
+                                "type": "Form"
+                            }
+                        ],
+                        "type": "SingleColumnLayout"
+                    },
+                    "title": "Flight ID"
+                },
+                {
+                    "data": {},
+                    "id": "SECOND",
+                    "layout": {
+                        "children": [
+                            {
+                                "children": [
+                                    {
+                                        "type": "TextHeading",
+                                        "text": "Thank you"
+                                    },
+                                    {
+                                        "type": "Footer",
+                                        "label": "Done",
+                                        "on-click-action": {
+                                            "name": "complete",
+                                            "payload": {
+                                                "flight": "${data.flightId}"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "name": "flowPath",
+                                "type": "Form"
+                            }
+                        ],
+                        "type": "SingleColumnLayout"
+                    },
+                    "terminal": true,
+                    "title": "Thanks"
+                }
+            ],
+            "version": "7.3"
+        }
+    ]
+}

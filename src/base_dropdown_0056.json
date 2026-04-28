@@ -1,0 +1,107 @@
+{
+    "prompt": {
+        "EN": "Collect user's educational background. Options: High School, Bachelor's, Master's, PhD, Other. Dropdown. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select your education"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_HighSchool", "title": "High School"},
+                                                {"id": "1_Bachelors", "title": "Bachelor's"},
+                                                {"id": "2_Masters", "title": "Master's"},
+                                                {"id": "3_PhD", "title": "PhD"},
+                                                {"id": "4_Other", "title": "Other"}
+                                            ],
+                                            "label": "Degree",
+                                            "name": "eduLevel",
+                                            "required": true,
+                                            "type": "Dropdown"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "eduLevel": "${form.eduLevel}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Background"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select your education"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_HighSchool", "title": "High School"},
+                                                {"id": "1_Bachelors", "title": "Bachelor's"},
+                                                {"id": "2_Masters", "title": "Master's"},
+                                                {"id": "3_PhD", "title": "PhD"},
+                                                {"id": "4_Other", "title": "Other"}
+                                            ],
+                                            "label": "Degree",
+                                            "name": "eduLevel",
+                                            "required": true                                        
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete"
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Background"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

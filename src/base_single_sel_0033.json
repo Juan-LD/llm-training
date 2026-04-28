@@ -1,0 +1,109 @@
+{
+    "prompt": {
+        "EN": "Collect user's preferred pet. Options: Cat, Dog, Rabbit, Snake. Use radio buttons. Must select one."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Choose your favorite pet"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Cat", "title": "Cat"},
+                                                {"id": "1_Dog", "title": "Dog"},
+                                                {"id": "2_Rabbit", "title": "Rabbit"},
+                                                {"id": "3_Snake", "title": "Snake"}
+                                            ],
+                                            "label": "Pick one",
+                                            "name": "preferredPet",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "preferredPet": "${form.preferredPet}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Pet Preference"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Choose your favorite pet"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Cat", "title": "Cat"},
+                                                {"id": "1_Dog", "title": "Dog"},
+                                                {"id": "2_Rabbit", "title": "Rabbit"},
+                                                {"id": "3_Snake", "title": "Snake"}
+                                            ],
+                                            "label": "Pick one",
+                                            "name": "random_name_xyz_789",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "preferredPet": "${form.random_name_xyz_789}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Pet Preference"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

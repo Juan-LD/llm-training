@@ -1,0 +1,118 @@
+{
+    "prompt": {
+        "EN": "Ask user which event days they will attend (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) and ask consent to share attendance with sponsors. Both required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Event attendance"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Monday", "title": "Monday"},
+                                                {"id": "1_Tuesday", "title": "Tuesday"},
+                                                {"id": "2_Wednesday", "title": "Wednesday"},
+                                                {"id": "3_Thursday", "title": "Thursday"},
+                                                {"id": "4_Friday", "title": "Friday"},
+                                                {"id": "5_Saturday", "title": "Saturday"},
+                                                {"id": "6_Sunday", "title": "Sunday"}
+                                            ],
+                                            "label": "Select days",
+                                            "name": "attendanceDays",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "I consent to share my attendance with sponsors",
+                                            "name": "sponsorConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Register",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "attendanceDays": "${form.attendanceDays}",
+                                                    "sponsorConsent": "${form.sponsorConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Event Registration"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Event attendance"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Monday", "title": "Monday"},
+                                                {"id": "1_Tuesday", "title": "Tuesday"}
+                                            ],
+                                            "label": "Select days",
+                                            "name": "attendanceDays"
+                                        },
+                                        {
+                                            "label": "I consent",
+                                            "name": "sponsorConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Register",
+                                            "on-click-action": {
+                                                "name": "complete"
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Event Registration"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Ask user to select all hobbies that apply. Options: Reading, Gaming, Hiking, Cooking, Photography, Dancing. Checkboxes only."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your hobbies"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Reading", "title": "Reading"},
+                                                {"id": "1_Gaming", "title": "Gaming"},
+                                                {"id": "2_Hiking", "title": "Hiking"},
+                                                {"id": "3_Cooking", "title": "Cooking"},
+                                                {"id": "4_Photography", "title": "Photography"},
+                                                {"id": "5_Dancing", "title": "Dancing"}
+                                            ],
+                                            "label": "Select all that apply",
+                                            "name": "hobbyList",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "hobbyList": "${form.hobbyList}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Interests"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your hobbies"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Reading", "title": "Reading"},
+                                                {"id": "1_Gaming", "title": "Gaming"},
+                                                {"id": "2_Hiking", "title": "Hiking"},
+                                                {"id": "3_Cooking", "title": "Cooking"},
+                                                {"id": "4_Photography", "title": "Photography"},
+                                                {"id": "5_Dancing", "title": "Dancing"}
+                                            ],
+                                            "label": "Select all that apply",
+                                            "name": "random_hobby_field",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "hobbyList": "${form.random_hobby_field}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Interests"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

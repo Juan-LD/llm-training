@@ -1,0 +1,139 @@
+{
+    "prompt": {
+        "EN": "Park tree survey. Tree species (checkbox). Park standards (Yes/No). Comments optional. Version 7.0."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What kind of trees did you see in your local park?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Tree species",
+                                            "name": "treeSpecies",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "birch", "title": "Birch" },
+                                                { "id": "acacia", "title": "Acacia" },
+                                                { "id": "maple", "title": "Maple" },
+                                                { "id": "spruce", "title": "Spruce" },
+                                                { "id": "pine", "title": "Pine" },
+                                                { "id": "willow", "title": "Willow" },
+                                                { "id": "oak", "title": "Oak" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Was the park up to standards?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes or No",
+                                            "name": "parkUpToStandards",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Any additional comments?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Notes",
+                                            "name": "additionalComments",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "treeSpecies": "${form.treeSpecies}",
+                                                    "parkUpToStandards": "${form.parkUpToStandards}",
+                                                    "additionalComments": "${form.additionalComments}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Park trees"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "treeSpecies",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "birch", "title": "Birch" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "parkUpToStandards",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "trees": "${form.treeSpecies}",
+                                                    "standard": "${form.parkUpToStandards}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Park"
+                    }
+                ],
+                "version": "7.0"
+            }
+        }
+    ]
+}

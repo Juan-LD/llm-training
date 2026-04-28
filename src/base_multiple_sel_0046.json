@@ -1,0 +1,110 @@
+{
+    "prompt": {
+        "EN": "Collect which coding languages user is proficient in. Options: Python, JavaScript, Java, C++, Go, Rust. Checkboxes. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select languages you know"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"},
+                                                {"id": "2_Java", "title": "Java"},
+                                                {"id": "3_Cpp", "title": "C++"},
+                                                {"id": "4_Go", "title": "Go"},
+                                                {"id": "5_Rust", "title": "Rust"}
+                                            ],
+                                            "label": "Your skills",
+                                            "name": "codingSkills",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "codingSkills": "${form.codingSkills}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Coding"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select languages you know"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"},
+                                                {"id": "2_Java", "title": "Java"},
+                                                {"id": "3_Cpp", "title": "C++"},
+                                                {"id": "4_Go", "title": "Go"},
+                                                {"id": "5_Rust", "title": "Rust"}
+                                            ],
+                                            "label": "Your skills",
+                                            "name": "codingSkills",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete"
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Coding"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

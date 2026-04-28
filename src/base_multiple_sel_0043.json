@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Collect which European countries user has traveled to. Options: Portugal, Spain, Malta, Germany, Switzerland, Turkey. Checkboxes. Required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select countries you've visited"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Portugal", "title": "Portugal"},
+                                                {"id": "1_Spain", "title": "Spain"},
+                                                {"id": "2_Malta", "title": "Malta"},
+                                                {"id": "3_Germany", "title": "Germany"},
+                                                {"id": "4_Switzerland", "title": "Switzerland"},
+                                                {"id": "5_Turkey", "title": "Turkey"}
+                                            ],
+                                            "label": "Your travels",
+                                            "name": "traveledTo",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "traveledTo": "${form.traveledTo}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Travels"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Select countries you've visited"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Portugal", "title": "Portugal"},
+                                                {"id": "1_Spain", "title": "Spain"},
+                                                {"id": "2_Malta", "title": "Malta"},
+                                                {"id": "3_Germany", "title": "Germany"},
+                                                {"id": "4_Switzerland", "title": "Switzerland"},
+                                                {"id": "5_Turkey", "title": "Turkey"}
+                                            ],
+                                            "label": "Your travels",
+                                            "name": "data_field_888",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "traveledTo": "${form.data_field_888}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Travels"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

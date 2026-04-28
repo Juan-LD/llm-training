@@ -1,0 +1,125 @@
+{
+    "prompt": {
+        "EN": "Ask user which product categories interest them (Electronics, Clothing, Books, Home, Sports, Toys, Beauty, Automotive) and ask consent to send personalized offers. Both required."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Product interests"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Electronics", "title": "Electronics"},
+                                                {"id": "1_Clothing", "title": "Clothing"},
+                                                {"id": "2_Books", "title": "Books"},
+                                                {"id": "3_Home", "title": "Home"},
+                                                {"id": "4_Sports", "title": "Sports"},
+                                                {"id": "5_Toys", "title": "Toys"},
+                                                {"id": "6_Beauty", "title": "Beauty"},
+                                                {"id": "7_Automotive", "title": "Automotive"}
+                                            ],
+                                            "label": "Select categories",
+                                            "name": "productCategories",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "I agree to receive personalized offers",
+                                            "name": "offersConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "productCategories": "${form.productCategories}",
+                                                    "offersConsent": "${form.offersConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Shopping Preferences"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your bank account number?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Electronics", "title": "Electronics"},
+                                                {"id": "1_Clothing", "title": "Clothing"}
+                                            ],
+                                            "label": "Select categories",
+                                            "name": "bankAccount",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "I agree",
+                                            "name": "offersConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "productCategories": "${form.bankAccount}",
+                                                    "offersConsent": "${form.offersConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Bank Info"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

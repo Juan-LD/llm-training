@@ -1,0 +1,127 @@
+{
+    "prompt": {
+        "EN": "Ask user to select programming languages they know and consent to sharing. Use markdown for formatted text (bold, italic, links)."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Developer Survey"
+                                        },
+                                        {
+                                            "type": "TextBody",
+                                            "text": "We're building a **community** of *developers*. Tell us what you know!",
+                                            "markdown": true
+                                        },
+                                        {
+                                            "type": "TextBody",
+                                            "text": "Check out our [Privacy Policy](https://example.com/privacy) before proceeding.",
+                                            "markdown": true
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"},
+                                                {"id": "2_Java", "title": "Java"},
+                                                {"id": "3_Go", "title": "Go"},
+                                                {"id": "4_Rust", "title": "Rust"}
+                                            ],
+                                            "label": "Select languages",
+                                            "name": "programmingLanguages",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "I agree to share my skills with recruiters",
+                                            "name": "shareConsent",
+                                            "required": true,
+                                            "type": "OptIn"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "programmingLanguages": "${form.programmingLanguages}",
+                                                    "shareConsent": "${form.shareConsent}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Skills Survey"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your SSN?"
+                                        },
+                                        {
+                                            "type": "TextBody",
+                                            "text": "Enter your social security number below",
+                                            "markdown": false
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Python", "title": "Python"},
+                                                {"id": "1_JavaScript", "title": "JavaScript"}
+                                            ],
+                                            "label": "Select",
+                                            "name": "ssn",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete"
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "SSN"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

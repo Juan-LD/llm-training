@@ -1,0 +1,109 @@
+{
+    "prompt": {
+        "EN": "Ask which genre of music they enjoy most. Options: Rock, Pop, Jazz, Classical. Radio buttons only."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your favorite music genre"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Rock", "title": "Rock"},
+                                                {"id": "1_Pop", "title": "Pop"},
+                                                {"id": "2_Jazz", "title": "Jazz"},
+                                                {"id": "3_Classical", "title": "Classical"}
+                                            ],
+                                            "label": "Choose",
+                                            "name": "favGenre",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "favGenre": "${form.favGenre}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Genre"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your favorite music genre"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Rock", "title": "Rock"},
+                                                {"id": "1_Pop", "title": "Pop"},
+                                                {"id": "2_Jazz", "title": "Jazz"},
+                                                {"id": "3_Classical", "title": "Classical"}
+                                            ],
+                                            "label": "Choose",
+                                            "name": "random_field_abc",
+                                            "required": true,
+                                            "type": "RadioButtonsGroup"
+                                        },
+                                        {
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "favGenre": "${form.random_field_abc}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Genre"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

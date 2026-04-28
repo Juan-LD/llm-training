@@ -1,0 +1,128 @@
+{
+    "prompt": {
+        "EN": "One screen: current skill level (Beginner/Intermediate/Advanced), end goal (Career change/Hobby/Certification), hours per week (number input). Use camelCase: currentSkillLevel, endGoal, hoursPerWeek. All required. Submit via complete action."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Whats your current skill level?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Current skill level",
+                                            "name": "currentSkillLevel",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "beginner", "title": "Beginner" },
+                                                { "id": "intermediate", "title": "Intermediate" },
+                                                { "id": "advanced", "title": "Advanced" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Whats the end goal you want to reach?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "End goal",
+                                            "name": "endGoal",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "careerChange", "title": "Career change" },
+                                                { "id": "hobby", "title": "Hobby" },
+                                                { "id": "certification", "title": "Certification" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How many hours per week on average?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "Type hours here",
+                                            "name": "hoursPerWeek",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "currentSkillLevel": "${form.currentSkillLevel}",
+                                                    "endGoal": "${form.endGoal}",
+                                                    "hoursPerWeek": "${form.hoursPerWeek}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Course Choosing"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "skill",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "beginner", "title": "Beginner" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "onlySkill": "${form.skill}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Course"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

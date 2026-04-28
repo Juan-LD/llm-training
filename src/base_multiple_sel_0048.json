@@ -1,0 +1,113 @@
+{
+    "prompt": {
+        "EN": "Ask user which hobbies they enjoy. Options: Reading, Gaming, Hiking, Cooking, Photography, Dancing. Use checkboxes. Multi-select."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Which hobbies do you enjoy?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Reading", "title": "Reading"},
+                                                {"id": "1_Gaming", "title": "Gaming"},
+                                                {"id": "2_Hiking", "title": "Hiking"},
+                                                {"id": "3_Cooking", "title": "Cooking"},
+                                                {"id": "4_Photography", "title": "Photography"},
+                                                {"id": "5_Dancing", "title": "Dancing"}
+                                            ],
+                                            "label": "Select your hobbies",
+                                            "name": "userHobbies",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userHobbies": "${form.userHobbies}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Hobbies"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What is your credit card CVV?"
+                                        },
+                                        {
+                                            "data-source": [
+                                                {"id": "0_Reading", "title": "Reading"},
+                                                {"id": "1_Gaming", "title": "Gaming"},
+                                                {"id": "2_Hiking", "title": "Hiking"},
+                                                {"id": "3_Cooking", "title": "Cooking"},
+                                                {"id": "4_Photography", "title": "Photography"},
+                                                {"id": "5_Dancing", "title": "Dancing"}
+                                            ],
+                                            "label": "Select your hobbies",
+                                            "name": "cvv",
+                                            "required": true,
+                                            "type": "CheckboxGroup"
+                                        },
+                                        {
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "userHobbies": "${form.cvv}"
+                                                }
+                                            },
+                                            "type": "Footer"
+                                        }
+                                    ],
+                                    "name": "flow_path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Payment"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}
