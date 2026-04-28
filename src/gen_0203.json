@@ -1,0 +1,200 @@
+{
+    "prompt": {
+        "EN": "Create a 2-step tutor request flow. Step 1: subject (Math, English, History, Physics, Biology as radio) + confidence (Advanced, Medium, Bad as radio). Step 2: optional notes + required consent checkbox for email sharing. Pass data from step 1 to step 2. Complete on step 2."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What subject do you need help with?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Subject name",
+                                            "name": "subject",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "math", "title": "Math" },
+                                                { "id": "english", "title": "English" },
+                                                { "id": "history", "title": "History" },
+                                                { "id": "physics", "title": "Physics" },
+                                                { "id": "biology", "title": "Biology" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How confident do you feel in terms of that subject?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "How confident",
+                                            "name": "confidence",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "advanced", "title": "Advanced (very confident)" },
+                                                { "id": "medium", "title": "Medium (somewhat confident)" },
+                                                { "id": "bad", "title": "Bad (not confident at all)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "subject": "${form.subject}",
+                                                    "confidence": "${form.confidence}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Tutor Booking"
+                    },
+                    {
+                        "data": {
+                            "subject": { "__example__": "math", "type": "string" },
+                            "confidence": { "__example__": "advanced", "type": "string" }
+                        },
+                        "id": "NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Anything you want to mention to your assigned tutor?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Additional Notes",
+                                            "name": "additionalNotes",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "I agree to let my tutor know my email address to contact me.",
+                                            "name": "shareEmailConsent",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "additionalNotes": "${form.additionalNotes}",
+                                                    "shareEmailConsent": "${form.shareEmailConsent}",
+                                                    "subject": "${data.subject}",
+                                                    "confidence": "${data.confidence}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Final notes"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "subjectPick",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "physics", "title": "Physics" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "SECOND", "type": "screen" },
+                                                "payload": {
+                                                    "chosenSubject": "${form.subjectPick}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Choose Subject"
+                    },
+                    {
+                        "data": {},
+                        "id": "SECOND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextArea",
+                                            "name": "notes",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalSubject": "${data.chosenSubject}",
+                                                    "finalNotes": "${form.notes}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Notes"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

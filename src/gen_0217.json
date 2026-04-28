@@ -1,0 +1,200 @@
+{
+    "prompt": {
+        "EN": "Build a tutor request flow. First screen: subject (radio with 5 subjects) and confidence (radio with 3 levels). Second screen: textarea for notes (optional) and a required opt-in checkbox. Use version 7.3. SingleColumnLayout. Complete on second screen."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What subject do you need help with?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Subject name",
+                                            "name": "subject",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "math", "title": "Math" },
+                                                { "id": "english", "title": "English" },
+                                                { "id": "history", "title": "History" },
+                                                { "id": "physics", "title": "Physics" },
+                                                { "id": "biology", "title": "Biology" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How confident do you feel in terms of that subject?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "How confident",
+                                            "name": "confidence",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "advanced", "title": "Advanced (very confident)" },
+                                                { "id": "medium", "title": "Medium (somewhat confident)" },
+                                                { "id": "bad", "title": "Bad (not confident at all)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "subject": "${form.subject}",
+                                                    "confidence": "${form.confidence}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Tutor Booking"
+                    },
+                    {
+                        "data": {
+                            "subject": { "__example__": "math", "type": "string" },
+                            "confidence": { "__example__": "advanced", "type": "string" }
+                        },
+                        "id": "NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Anything you want to mention to your assigned tutor?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Additional Notes",
+                                            "name": "additionalNotes",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "I agree to let my tutor know my email address to contact me.",
+                                            "name": "shareEmailConsent",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "additionalNotes": "${form.additionalNotes}",
+                                                    "shareEmailConsent": "${form.shareEmailConsent}",
+                                                    "subject": "${data.subject}",
+                                                    "confidence": "${data.confidence}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Final notes"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "STEPA",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "subjects",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "math", "title": "Math" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "STEPB", "type": "screen" },
+                                                "payload": {
+                                                    "subjList": "${form.subjects}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "a",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Subjects"
+                    },
+                    {
+                        "data": {},
+                        "id": "STEPB",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "OptIn",
+                                            "name": "agree",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "selected": "${data.subjList}",
+                                                    "consent": "${form.agree}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "b",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.0"
+            }
+        }
+    ]
+}

@@ -1,0 +1,159 @@
+{
+    "prompt": {
+        "EN": "Build a food ordering flow. One screen. Required: main dish (checkbox with Burger, Pizza, Sushi, Salad, Drink). Optional: sides (French fries, Olives, Garlic bread, Normal bread), drinks (Coca cola, Water, Fanta, Seven Up), dessert (Tiramisu, Ice cream, Apple pie). Use complete action. Field names: mainDish, sideDish, drink, dessert."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Which one are you craving?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Main dish",
+                                            "name": "mainDish",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "burger", "title": "Burger" },
+                                                { "id": "pizza", "title": "Pizza" },
+                                                { "id": "sushi", "title": "Sushi" },
+                                                { "id": "salad", "title": "Salad" },
+                                                { "id": "drink", "title": "Drink" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Any sides?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Side dish",
+                                            "name": "sideDish",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "frenchFries", "title": "French fries" },
+                                                { "id": "olives", "title": "Olives" },
+                                                { "id": "garlicBread", "title": "Garlic bread" },
+                                                { "id": "normalBread", "title": "Normal bread" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Any drinks?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Drink",
+                                            "name": "drink",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "cocaCola", "title": "Coca cola" },
+                                                { "id": "water", "title": "Water" },
+                                                { "id": "fanta", "title": "Fanta" },
+                                                { "id": "sevenUp", "title": "Seven Up" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Finish with a dessert?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Dessert",
+                                            "name": "dessert",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "tiramisu", "title": "Tiramisu" },
+                                                { "id": "iceCream", "title": "Ice cream" },
+                                                { "id": "applePie", "title": "Apple pie" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "mainDish": "${form.mainDish}",
+                                                    "sideDish": "${form.sideDish}",
+                                                    "drink": "${form.drink}",
+                                                    "dessert": "${form.dessert}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Order food"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "mainDish",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "burger", "title": "Burger" },
+                                                { "id": "pizza", "title": "Pizza" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "sideDish",
+                                            "required": false,
+                                            "data-source": []
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "main": "${form.mainDish}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "path",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Order"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

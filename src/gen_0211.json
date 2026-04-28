@@ -1,0 +1,194 @@
+{
+    "prompt": {
+        "EN": "Generate a 2-screen WhatsApp flow for tutor booking. Screen 1: ask subject (radio: Math, English, History, Physics, Biology) and confidence level (radio: Advanced/Medium/Bad). Screen 2: optional notes textarea and a required opt-in for sharing email with tutor. Navigate from screen 1 to screen 2. Complete on screen 2 with all data."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What subject do you need help with?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Subject name",
+                                            "name": "subject",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "math", "title": "Math" },
+                                                { "id": "english", "title": "English" },
+                                                { "id": "history", "title": "History" },
+                                                { "id": "physics", "title": "Physics" },
+                                                { "id": "biology", "title": "Biology" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How confident do you feel in terms of that subject?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "How confident",
+                                            "name": "confidence",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "advanced", "title": "Advanced (very confident)" },
+                                                { "id": "medium", "title": "Medium (somewhat confident)" },
+                                                { "id": "bad", "title": "Bad (not confident at all)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "subject": "${form.subject}",
+                                                    "confidence": "${form.confidence}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Tutor Booking"
+                    },
+                    {
+                        "data": {
+                            "subject": { "__example__": "math", "type": "string" },
+                            "confidence": { "__example__": "advanced", "type": "string" }
+                        },
+                        "id": "NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Anything you want to mention to your assigned tutor?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Additional Notes",
+                                            "name": "additionalNotes",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "I agree to let my tutor know my email address to contact me.",
+                                            "name": "shareEmailConsent",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "additionalNotes": "${form.additionalNotes}",
+                                                    "shareEmailConsent": "${form.shareEmailConsent}",
+                                                    "subject": "${data.subject}",
+                                                    "confidence": "${data.confidence}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Final notes"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "subj",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "math", "title": "Math" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "subjectChoice": "${form.subj}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Booking"
+                    },
+                    {
+                        "data": {},
+                        "id": "NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "onlySubject": "${data.subjectChoice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Done"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

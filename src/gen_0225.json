@@ -1,0 +1,267 @@
+{
+    "prompt": {
+        "EN": "Generate a lost pet report flow. 3 screens. Screen IDs: PET_INFO, EXTRA_INFO, FINAL_NOTES. PET_INFO: breed (text), name (text), location (textarea). EXTRA_INFO: microchip (yes/no), reward (yes/no). FINAL_NOTES: optional notes. Use camelCase. Navigate then complete. Include example data in screens 2 and 3."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Whats the pet breed?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "Pet breed",
+                                            "name": "petBreed",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What about its name?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "Pet name",
+                                            "name": "petName",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "And the last seen location?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Pet location",
+                                            "name": "lastSeenLocation",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "MORE_INFO", "type": "screen" },
+                                                "payload": {
+                                                    "petBreed": "${form.petBreed}",
+                                                    "petName": "${form.petName}",
+                                                    "lastSeenLocation": "${form.lastSeenLocation}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Pet information"
+                    },
+                    {
+                        "data": {
+                            "petBreed": { "__example__": "Golden Retriever", "type": "string" },
+                            "petName": { "__example__": "Max", "type": "string" },
+                            "lastSeenLocation": { "__example__": "Central Park", "type": "string" }
+                        },
+                        "id": "MORE_INFO",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Does it have a microchip?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes or No",
+                                            "name": "hasMicrochip",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Offer reward?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes or No",
+                                            "name": "offerReward",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "hasMicrochip": "${form.hasMicrochip}",
+                                                    "offerReward": "${form.offerReward}",
+                                                    "petBreed": "${data.petBreed}",
+                                                    "petName": "${data.petName}",
+                                                    "lastSeenLocation": "${data.lastSeenLocation}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "More information"
+                    },
+                    {
+                        "data": {
+                            "hasMicrochip": { "__example__": "yes", "type": "string" },
+                            "offerReward": { "__example__": "no", "type": "string" },
+                            "petBreed": { "__example__": "Golden Retriever", "type": "string" },
+                            "petName": { "__example__": "Max", "type": "string" },
+                            "lastSeenLocation": { "__example__": "Central Park", "type": "string" }
+                        },
+                        "id": "FINAL_NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Anything important to mention?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Additional Notes",
+                                            "name": "additionalNotes",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "additionalNotes": "${form.additionalNotes}",
+                                                    "hasMicrochip": "${data.hasMicrochip}",
+                                                    "offerReward": "${data.offerReward}",
+                                                    "petBreed": "${data.petBreed}",
+                                                    "petName": "${data.petName}",
+                                                    "lastSeenLocation": "${data.lastSeenLocation}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Final notes"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "PET_INFO",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "breed",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "name",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "EXTRA_INFO", "type": "screen" },
+                                                "payload": {
+                                                    "breedData": "${form.breed}",
+                                                    "nameData": "${form.name}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Pet"
+                    },
+                    {
+                        "data": {},
+                        "id": "EXTRA_INFO",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "chip",
+                                            "required": false,
+                                            "data-source": []
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalBreed": "${data.breedData}",
+                                                    "finalName": "${data.nameData}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Extra"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

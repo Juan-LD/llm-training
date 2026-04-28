@@ -1,0 +1,209 @@
+{
+    "prompt": {
+        "EN": "Generate an aquarium feedback flow with 2 screens. Screen 1: which animals they liked (checkbox with 4 options) + did they like the environment (Yes/No). Screen 2: did they enjoy the visit (Yes/No) + optional additional notes. Use camelCase for all field names. Navigate on screen 1, complete on screen 2."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Which animal(s) did you like seeing the most?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "Favorite animals",
+                                            "name": "favoriteAnimals",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "penguin", "title": "Penguin" },
+                                                { "id": "jellyfish", "title": "Jelly fish" },
+                                                { "id": "dolphin", "title": "Dolphin" },
+                                                { "id": "polarBear", "title": "Polar bear" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Did you like the environment?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes or No",
+                                            "name": "likedEnvironment",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "favoriteAnimals": "${form.favoriteAnimals}",
+                                                    "likedEnvironment": "${form.likedEnvironment}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Aquarium visit"
+                    },
+                    {
+                        "data": {
+                            "favoriteAnimals": { "__example__": ["dolphin"], "type": "array" },
+                            "likedEnvironment": { "__example__": "yes", "type": "string" }
+                        },
+                        "id": "FINAL_NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Did you enjoy your visit?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes or No",
+                                            "name": "enjoyedVisit",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Anything else you want to mention?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Additional Notes",
+                                            "name": "additionalNotes",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "enjoyedVisit": "${form.enjoyedVisit}",
+                                                    "additionalNotes": "${form.additionalNotes}",
+                                                    "favoriteAnimals": "${data.favoriteAnimals}",
+                                                    "likedEnvironment": "${data.likedEnvironment}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Final notes"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "ONE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "animals",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "penguin", "title": "Penguin" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "TWO", "type": "screen" },
+                                                "payload": {
+                                                    "selected": "${form.animals}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "f",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Animals"
+                    },
+                    {
+                        "data": {},
+                        "id": "TWO",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "enjoy",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalAnimals": "${data.selected}",
+                                                    "finalEnjoy": "${form.enjoy}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "f",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Enjoy"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}
