@@ -1,6 +1,6 @@
 {
     "prompt": {
-        "EN": "Create a 2-screen aquarium survey. Screen 1: favorite animals (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) + environment liked? (Yes/No). Screen 2: overall enjoyment (Yes/No) + free text notes (optional). Use navigate and complete. CamelCase variables. Include example data on screen 2."
+        "EN": "Build an aquarium feedback flow. 2 screens. First screen: favorite animals (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) and environment liked (Yes/No). Second screen: enjoyed visit (Yes/No) and optional notes. Use version 7.3. SingleColumnLayout. Navigate then complete. Field names: favoriteAnimals, likedEnvironment, enjoyedVisit, additionalNotes."
     },
     "ok_flows": [
         {
@@ -132,25 +132,21 @@
                 "screens": [
                     {
                         "data": {},
-                        "id": "FIRST",
+                        "id": "START",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "CheckboxGroup",
-                                            "name": "favAnimals",
-                                            "required": true,
-                                            "data-source": [
-                                                { "id": "dolphin", "title": "Dolphin" }
-                                            ]
+                                            "type": "TextSubheading",
+                                            "text": "Animals?"
                                         },
                                         {
-                                            "type": "RadioButtonsGroup",
-                                            "name": "envLike",
+                                            "type": "CheckboxGroup",
+                                            "name": "animals",
                                             "required": true,
                                             "data-source": [
-                                                { "id": "no", "title": "No" }
+                                                { "id": "penguin", "title": "Penguin" }
                                             ]
                                         },
                                         {
@@ -158,34 +154,32 @@
                                             "label": "Next",
                                             "on-click-action": {
                                                 "name": "navigate",
-                                                "next": { "name": "SECOND", "type": "screen" },
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
                                                 "payload": {
-                                                    "animals": "${form.favAnimals}",
-                                                    "env": "${form.envLike}"
+                                                    "selected": "${form.animals}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "p",
+                                    "name": "flow",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
-                        "title": "Aquarium"
+                        "title": "Step1"
                     },
                     {
                         "data": {},
-                        "id": "SECOND",
+                        "id": "FINAL_NOTES",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "RadioButtonsGroup",
-                                            "name": "enjoy",
-                                            "required": false,
-                                            "data-source": []
+                                            "type": "TextArea",
+                                            "name": "notes",
+                                            "required": true
                                         },
                                         {
                                             "type": "Footer",
@@ -193,23 +187,23 @@
                                             "on-click-action": {
                                                 "name": "complete",
                                                 "payload": {
-                                                    "finalAnimals": "${data.animals}",
-                                                    "finalEnv": "${data.env}"
+                                                    "finalAnimals": "${data.selected}",
+                                                    "finalNotes": "${form.notes}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "p",
+                                    "name": "flow",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
                         "terminal": true,
-                        "title": "Enjoy"
+                        "title": "Step2"
                     }
                 ],
-                "version": "7.0"
+                "version": "7.3"
             }
         }
     ]

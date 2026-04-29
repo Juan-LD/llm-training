@@ -1,1 +1,203 @@
-{}
+{
+    "prompt": {
+        "EN": "Make a 2-screen order issue form. Screen 1: extra notes (optional) + consent opt-in required. Screen 2: order number, issue type (radio with 3 options), arrival date. Use camelCase. Navigate on first, complete on second."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "screen_tosexy",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Extra notes"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Write notes here",
+                                            "name": "extraNotes",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "label": "I agree to use this information to make this service better.",
+                                            "name": "consentToImprove",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "extraNotes": "${form.extraNotes}",
+                                                    "consentToImprove": "${form.consentToImprove}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Finish"
+                    },
+                    {
+                        "data": {
+                            "extraNotes": { "__example__": "Example", "type": "string" },
+                            "consentToImprove": { "__example__": false, "type": "boolean" }
+                        },
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Which order do you want us to check?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "Order number...",
+                                            "name": "orderNumber",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What happened?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "What happened to your order?",
+                                            "name": "orderIssue",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "notArrived", "title": "Wasnt arrived yet" },
+                                                { "id": "cameDamaged", "title": "Came damaged" },
+                                                { "id": "missingItems", "title": "Missing items" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Date of arrival (or estimated)"
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "label": "Date",
+                                            "name": "arrivalDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "orderNumber": "${form.orderNumber}",
+                                                    "orderIssue": "${form.orderIssue}",
+                                                    "arrivalDate": "${form.arrivalDate}",
+                                                    "extraNotes": "${data.extraNotes}",
+                                                    "consentToImprove": "${data.consentToImprove}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Identify Target order"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST_PAGE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextArea",
+                                            "name": "notesText",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "notesVal": "${form.notesText}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formA",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Notes",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "OptIn",
+                                            "name": "consentCheck",
+                                            "required": false
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalNotes": "${data.notesVal}",
+                                                    "finalConsent": "${form.consentCheck}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formB",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Consent"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

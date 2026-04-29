@@ -1,6 +1,6 @@
 {
     "prompt": {
-        "EN": "Build an aquarium feedback flow. 2 screens. First screen: favorite animals (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) and environment liked (Yes/No). Second screen: enjoyed visit (Yes/No) and optional notes. Use version 7.3. SingleColumnLayout. Navigate then complete. Field names: favoriteAnimals, likedEnvironment, enjoyedVisit, additionalNotes."
+        "EN": "Make a 2-screen aquarium feedback form. First screen: favorite animals (checkbox with Penguin, Jelly fish, Dolphin, Polar bear) + environment rating (Yes/No). Second screen: overall enjoyment (Yes/No) + optional comments textarea. Use camelCase for all variables. Navigate on first, complete on second."
     },
     "ok_flows": [
         {
@@ -132,21 +132,26 @@
                 "screens": [
                     {
                         "data": {},
-                        "id": "START",
+                        "id": "PAGE1",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "TextSubheading",
-                                            "text": "Animals?"
-                                        },
-                                        {
                                             "type": "CheckboxGroup",
-                                            "name": "animals",
+                                            "name": "fav",
                                             "required": true,
                                             "data-source": [
-                                                { "id": "penguin", "title": "Penguin" }
+                                                { "id": "jellyfish", "title": "Jelly" },
+                                                { "id": "polar", "title": "Polar" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "env",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
                                             ]
                                         },
                                         {
@@ -154,32 +159,36 @@
                                             "label": "Next",
                                             "on-click-action": {
                                                 "name": "navigate",
-                                                "next": { "name": "END", "type": "screen" },
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
                                                 "payload": {
-                                                    "selected": "${form.animals}"
+                                                    "animals": "${form.fav}",
+                                                    "environment": "${form.env}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "flow",
+                                    "name": "form",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
-                        "title": "Step1"
+                        "title": "First"
                     },
                     {
                         "data": {},
-                        "id": "END",
+                        "id": "FINAL_NOTES",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "TextArea",
-                                            "name": "notes",
-                                            "required": true
+                                            "type": "RadioButtonsGroup",
+                                            "name": "enjoy",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "no", "title": "No" }
+                                            ]
                                         },
                                         {
                                             "type": "Footer",
@@ -187,20 +196,21 @@
                                             "on-click-action": {
                                                 "name": "complete",
                                                 "payload": {
-                                                    "finalAnimals": "${data.selected}",
-                                                    "finalNotes": "${form.notes}"
+                                                    "finalAnimals": "${data.animals}",
+                                                    "finalEnv": "${data.environment}",
+                                                    "finalEnjoy": "${form.enjoy}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "flow",
+                                    "name": "form",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
                         "terminal": true,
-                        "title": "Step2"
+                        "title": "Second"
                     }
                 ],
                 "version": "7.3"

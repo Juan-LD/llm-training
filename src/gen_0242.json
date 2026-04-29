@@ -1,6 +1,6 @@
 {
     "prompt": {
-        "EN": "Build a 2-screen aquarium feedback flow. First screen: favorite animals (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) and environment liked? (Yes/No). Second screen: enjoyed visit? (Yes/No) and optional notes. Use camelCase: favoriteAnimals, likedEnvironment, enjoyedVisit, additionalNotes. Navigate then complete."
+        "EN": "Create a 2-step aquarium feedback flow. Step 1: favorite animals (checkbox with Penguin, Jelly fish, Dolphin, Polar bear) + environment rating (Yes/No). Step 2: overall enjoyment (Yes/No) + optional comments. Use navigate and complete. All fields required except comments. CamelCase field names."
     },
     "ok_flows": [
         {
@@ -132,42 +132,43 @@
                 "screens": [
                     {
                         "data": {},
-                        "id": "FIRST",
+                        "id": "PAGE1",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "RadioButtonsGroup",
-                                            "name": "environment",
-                                            "required": false,
+                                            "type": "CheckboxGroup",
+                                            "name": "animals",
+                                            "required": true,
                                             "data-source": [
-                                                { "id": "yes", "title": "Yes" }
+                                                { "id": "penguin", "title": "Penguin" },
+                                                { "id": "jelly", "title": "Jelly" }
                                             ]
                                         },
                                         {
                                             "type": "Footer",
                                             "label": "Next",
                                             "on-click-action": {
-                                                "name": "go",
-                                                "next": { "name": "SECOND", "type": "screen" },
+                                                "name": "navigate",
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
                                                 "payload": {
-                                                    "env": "${form.environment}"
+                                                    "animalData": "${form.animals}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "flow",
+                                    "name": "form1",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
-                        "title": "Env"
+                        "title": "Animals"
                     },
                     {
                         "data": {},
-                        "id": "SECOND",
+                        "id": "FINAL_NOTES",
                         "layout": {
                             "children": [
                                 {
@@ -175,31 +176,34 @@
                                         {
                                             "type": "RadioButtonsGroup",
                                             "name": "enjoy",
-                                            "required": false,
-                                            "data-source": []
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
                                         },
                                         {
                                             "type": "Footer",
                                             "label": "Finish",
                                             "on-click-action": {
-                                                "name": "submit",
+                                                "name": "complete",
                                                 "payload": {
-                                                    "finalEnv": "${data.env}"
+                                                    "finalAnimals": "${data.animalData}",
+                                                    "finalEnjoy": "${form.enjoy}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "flow",
+                                    "name": "form2",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
-                        "terminal": false,
-                        "title": "Enjoy"
+                        "terminal": true,
+                        "title": "Enjoyment"
                     }
                 ],
-                "version": "7.2"
+                "version": "7.3"
             }
         }
     ]

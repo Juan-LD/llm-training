@@ -1,1 +1,194 @@
-{}
+{
+  "prompt": {
+    "EN": "Create a work feedback survey. Screen 1: comfortable at work (Yes/No) and general mood (checkbox with 5 options). Both required. Screen 2: required notes textarea. Use camelCase. Navigate then complete."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "screens": [
+          {
+            "data": {},
+            "id": "RECOMMEND",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "TextSubheading",
+                      "text": "Do you feel comfortable at work?"
+                    },
+                    {
+                      "type": "RadioButtonsGroup",
+                      "label": "Yes or No",
+                      "name": "comfortableAtWork",
+                      "required": true,
+                      "data-source": [
+                        { "id": "yes", "title": "Yes" },
+                        { "id": "no", "title": "No" }
+                      ]
+                    },
+                    {
+                      "type": "TextSubheading",
+                      "text": "What is your general mood at work?"
+                    },
+                    {
+                      "type": "CheckboxGroup",
+                      "label": "Mood",
+                      "name": "generalMood",
+                      "required": true,
+                      "data-source": [
+                        { "id": "sleepy", "title": "Sleepy" },
+                        { "id": "bored", "title": "Bored" },
+                        { "id": "happy", "title": "Happy" },
+                        { "id": "energized", "title": "Energized" },
+                        { "id": "tired", "title": "Tired" }
+                      ]
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Continue",
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": { "name": "EXTRA_NOTES", "type": "screen" },
+                        "payload": {
+                          "comfortableAtWork": "${form.comfortableAtWork}",
+                          "generalMood": "${form.generalMood}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "flowPath",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "title": "Work feedback"
+          },
+          {
+            "data": {
+              "comfortableAtWork": { "__example__": "yes", "type": "string" },
+              "generalMood": { "__example__": ["happy"], "items": { "type": "string" }, "type": "array" }
+            },
+            "id": "EXTRA_NOTES",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "TextSubheading",
+                      "text": "Extra Notes"
+                    },
+                    {
+                      "type": "TextArea",
+                      "label": "Write any notes here",
+                      "name": "extraNotes",
+                      "required": true
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Finish",
+                      "on-click-action": {
+                        "name": "complete",
+                        "payload": {
+                          "extraNotes": "${form.extraNotes}",
+                          "comfortableAtWork": "${data.comfortableAtWork}",
+                          "generalMood": "${data.generalMood}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "flowPath",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "terminal": true,
+            "title": "Work feedback notes"
+          }
+        ],
+        "version": "7.3"
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "screens": [
+          {
+            "data": {},
+            "id": "FIRST",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "TextInput",
+                      "name": "customMood",
+                      "required": true
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Next",
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": { "name": "SECOND", "type": "screen" },
+                        "payload": {
+                          "moodText": "${form.customMood}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "p",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "title": "Mood",
+            "terminal": false
+          },
+          {
+            "data": {},
+            "id": "SECOND",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "RadioButtonsGroup",
+                      "name": "comfort",
+                      "required": true,
+                      "data-source": [
+                        { "id": "yes", "title": "Yes" },
+                        { "id": "no", "title": "No" }
+                      ]
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Finish",
+                      "on-click-action": {
+                        "name": "complete",
+                        "payload": {
+                          "finalMood": "${data.moodText}",
+                          "finalComfort": "${form.comfort}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "p",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "terminal": false,
+            "title": "Comfort"
+          }
+        ],
+        "version": "7.0"
+      }
+    }
+  ]
+}

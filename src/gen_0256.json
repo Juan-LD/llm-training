@@ -1,1 +1,273 @@
-{}
+{
+	"prompt": {
+		"EN": "Generate a 3-screen booking flow for home services. Screen 1: service dropdown (4 options) and urgency radio (3 options). Screen 2: name and phone number. Screen 3: yes/no confirmation radio. Add routing_model. Use version 7.3 and data_api_version 3.0."
+	},
+	"ok_flows": [
+		{
+			"EN": {
+				"version": "7.3",
+				"data_api_version": "3.0",
+				"routing_model": {
+					"SERVICE_SELECTION": ["CUSTOMER_DETAILS"],
+					"CUSTOMER_DETAILS": ["CONFIRMATION"],
+					"CONFIRMATION": []
+				},
+				"screens": [
+					{
+						"id": "SERVICE_SELECTION",
+						"title": "Select Your Service",
+						"terminal": false,
+						"layout": {
+							"type": "SingleColumnLayout",
+							"children": [
+								{
+									"type": "TextHeading",
+									"text": "Premium Home Services"
+								},
+								{
+									"type": "TextBody",
+									"text": "Choose the service you're interested in. We'll handle the rest."
+								},
+								{
+									"type": "Form",
+									"name": "service_form",
+									"children": [
+										{
+											"type": "Dropdown",
+											"name": "service_type",
+											"label": "Service Category",
+											"required": true,
+											"data-source": [
+												{ "id": "cleaning", "title": "Deep Cleaning" },
+												{ "id": "plumbing", "title": "Plumbing Repair" },
+												{ "id": "electrical", "title": "Electrical Work" },
+												{ "id": "landscaping", "title": "Landscaping" }
+											]
+										},
+										{
+											"type": "RadioButtonsGroup",
+											"name": "urgency",
+											"label": "How urgent is this?",
+											"required": true,
+											"data-source": [
+												{ "id": "standard", "title": "Standard (Next 3 days)" },
+												{ "id": "express", "title": "Express (Tomorrow)" },
+												{ "id": "emergency", "title": "Emergency (Today)" }
+											]
+										},
+										{
+											"type": "Footer",
+											"label": "Continue",
+											"on-click-action": {
+												"name": "navigate",
+												"next": { "type": "screen", "name": "CUSTOMER_DETAILS" },
+												"payload": {
+													"service_type": "${form.service_type}",
+													"urgency": "${form.urgency}"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "CUSTOMER_DETAILS",
+						"title": "Your Contact Info",
+						"terminal": false,
+						"data": {
+							"service_type": { "__example__": "cleaning", "type": "string" },
+							"urgency": { "__example__": "standard", "type": "string" }
+						},
+						"layout": {
+							"type": "SingleColumnLayout",
+							"children": [
+								{
+									"type": "TextHeading",
+									"text": "Almost Done!"
+								},
+								{
+									"type": "TextBody",
+									"text": "Please provide your contact details so our team can reach you."
+								},
+								{
+									"type": "Form",
+									"name": "contact_form",
+									"children": [
+										{
+											"type": "TextInput",
+											"name": "full_name",
+											"label": "Full Name",
+											"input-type": "text",
+											"required": true,
+											"min-chars": 3,
+											"max-chars": 100
+										},
+										{
+											"type": "TextInput",
+											"name": "phone_number",
+											"label": "Phone Number",
+											"input-type": "phone",
+											"required": true
+										},
+										{
+											"type": "Footer",
+											"label": "Review & Confirm",
+											"on-click-action": {
+												"name": "navigate",
+												"next": { "type": "screen", "name": "CONFIRMATION" },
+												"payload": {
+													"service_type": "${data.service_type}",
+													"urgency": "${data.urgency}",
+													"full_name": "${form.full_name}",
+													"phone_number": "${form.phone_number}"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "CONFIRMATION",
+						"title": "Confirm Your Booking",
+						"terminal": true,
+						"data": {
+							"service_type": { "__example__": "cleaning", "type": "string" },
+							"urgency": { "__example__": "standard", "type": "string" },
+							"full_name": { "__example__": "John Doe", "type": "string" },
+							"phone_number": { "__example__": "+1234567890", "type": "string" }
+						},
+						"layout": {
+							"type": "SingleColumnLayout",
+							"children": [
+								{
+									"type": "TextHeading",
+									"text": "Booking Summary"
+								},
+								{
+									"type": "TextBody",
+									"text": "Please review your details and confirm."
+								},
+								{
+									"type": "Form",
+									"name": "confirm_form",
+									"children": [
+										{
+											"type": "RadioButtonsGroup",
+											"name": "confirm_booking",
+											"label": "Confirm your booking?",
+											"required": true,
+											"data-source": [
+												{ "id": "yes", "title": "Yes, confirm" },
+												{ "id": "no", "title": "No, go back" }
+											]
+										},
+										{
+											"type": "Footer",
+											"label": "Submit",
+											"on-click-action": {
+												"name": "complete",
+												"payload": {
+													"service_type": "${data.service_type}",
+													"urgency": "${data.urgency}",
+													"full_name": "${data.full_name}",
+													"phone_number": "${data.phone_number}",
+													"confirm_booking": "${form.confirm_booking}"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	],
+	"ko_flows": [
+		{
+			"EN": {
+				"version": "7.3",
+				"screens": [
+					{
+						"data": {},
+						"id": "FIRST_SCREEN",
+						"layout": {
+							"children": [
+								{
+									"children": [
+										{
+											"type": "CheckboxGroup",
+											"name": "services",
+											"required": true,
+											"data-source": [
+												{ "id": "clean", "title": "Clean" }
+											]
+										},
+										{
+											"type": "Footer",
+											"label": "Next",
+											"on-click-action": {
+												"name": "navigate",
+												"next": { "type": "screen", "name": "SECOND_SCREEN" },
+												"payload": {
+													"selectedServices": "${form.services}"
+												}
+											}
+										}
+									],
+									"name": "serviceForm",
+									"type": "Form"
+								}
+							],
+							"type": "SingleColumnLayout"
+						},
+						"title": "Services",
+						"terminal": false
+					},
+					{
+						"data": {},
+						"id": "SECOND_SCREEN",
+						"layout": {
+							"children": [
+								{
+									"children": [
+										{
+											"type": "DatePicker",
+											"name": "bookingDate",
+											"required": true
+										},
+										{
+											"type": "Footer",
+											"label": "Finish",
+											"on-click-action": {
+												"name": "complete",
+												"payload": {
+													"finalServices": "${data.selectedServices}",
+													"date": "${form.bookingDate}"
+												}
+											}
+										}
+									],
+									"name": "dateForm",
+									"type": "Form"
+								}
+							],
+							"type": "SingleColumnLayout"
+						},
+						"title": "Date",
+						"terminal": true
+					}
+				],
+				"routing_model": {
+					"FIRST_SCREEN": ["SECOND_SCREEN", "THIRD_SCREEN"]
+				},
+				"data_api_version": "3.0"
+			}
+		}
+	]
+}

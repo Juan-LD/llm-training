@@ -1,6 +1,6 @@
 {
     "prompt": {
-        "EN": "Create a 2-step aquarium feedback flow. Step 1: favorite animals (checkbox with Penguin, Jelly fish, Dolphin, Polar bear) + environment rating (Yes/No). Step 2: overall enjoyment (Yes/No) + optional comments. Use navigate and complete. All fields required except comments. CamelCase naming."
+        "EN": "Design a 2-screen WhatsApp flow for aquarium feedback. Screen 1: favorite animals (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) and environment liked? (Yes/No). Screen 2: enjoyed visit? (Yes/No) and optional notes textarea. Use SingleColumnLayout. Navigate then complete. Use camelCase naming."
     },
     "ok_flows": [
         {
@@ -132,18 +132,21 @@
                 "screens": [
                     {
                         "data": {},
-                        "id": "PAGE1",
+                        "id": "SCREEN_A",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "CheckboxGroup",
-                                            "name": "animals",
+                                            "type": "TextSubheading",
+                                            "text": "Favorite animal?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "favAnimal",
                                             "required": true,
                                             "data-source": [
-                                                { "id": "penguin", "title": "Penguin" },
-                                                { "id": "jellyfish", "title": "Jelly" }
+                                                { "id": "polar", "title": "Polar bear" }
                                             ]
                                         },
                                         {
@@ -151,35 +154,32 @@
                                             "label": "Next",
                                             "on-click-action": {
                                                 "name": "navigate",
-                                                "next": { "name": "PAGE2", "type": "screen" },
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
                                                 "payload": {
-                                                    "fav": "${form.animals}"
+                                                    "animal": "${form.favAnimal}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "form1",
+                                    "name": "a",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
-                        "title": "Animals"
+                        "title": "Fav"
                     },
                     {
                         "data": {},
-                        "id": "PAGE2",
+                        "id": "FINAL_NOTES",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "RadioButtonsGroup",
-                                            "name": "enjoy",
-                                            "required": true,
-                                            "data-source": [
-                                                { "id": "yes", "title": "Yes" }
-                                            ]
+                                            "type": "TextArea",
+                                            "name": "notes",
+                                            "required": true
                                         },
                                         {
                                             "type": "Footer",
@@ -187,20 +187,20 @@
                                             "on-click-action": {
                                                 "name": "complete",
                                                 "payload": {
-                                                    "finalAnimals": "${data.fav}",
-                                                    "finalEnjoy": "${form.enjoy}"
+                                                    "finalAnimal": "${data.animal}",
+                                                    "finalNotes": "${form.notes}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "form2",
+                                    "name": "b",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
                         "terminal": true,
-                        "title": "Enjoyment"
+                        "title": "Notes"
                     }
                 ],
                 "version": "7.3"

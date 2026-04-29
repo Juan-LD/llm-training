@@ -1,1 +1,211 @@
-{}
+{
+    "prompt": {
+        "EN": "Create a new employee check-in survey. Screen 1: feeling (Good/Okay/Bad) + expectations met (Yes/No). Screen 2: suggestions (textarea required) + extra notes (textarea required). Navigate then complete. Use camelCase field names."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "One month! Wow!"
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How are you feeling after one month working here?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "How do you feel?",
+                                            "name": "currentFeeling",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "good", "title": "Good" },
+                                                { "id": "okay", "title": "Okay" },
+                                                { "id": "bad", "title": "Bad" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Has the company met with your needs and expectations?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Has it?",
+                                            "name": "expectationsMet",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue to Notes",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "EXTRA_NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "currentFeeling": "${form.currentFeeling}",
+                                                    "expectationsMet": "${form.expectationsMet}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Check up on new employee"
+                    },
+                    {
+                        "data": {
+                            "currentFeeling": { "__example__": "good", "type": "string" },
+                            "expectationsMet": { "__example__": "yes", "type": "string" }
+                        },
+                        "id": "EXTRA_NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Now for any notes or suggestions you want to leave."
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Any suggestions you want to leave?"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Leave suggestions",
+                                            "name": "suggestions",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Any extra notes (eg. workplace problem or anything you personally want to note)"
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "label": "Type any troubles",
+                                            "name": "extraNotes",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "suggestions": "${form.suggestions}",
+                                                    "extraNotes": "${form.extraNotes}",
+                                                    "currentFeeling": "${data.currentFeeling}",
+                                                    "expectationsMet": "${data.expectationsMet}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Extra information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "customFeeling",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "EXTRA_NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "feelingText": "${form.customFeeling}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "p",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Feeling",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "EXTRA_NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "expectRadio",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalFeeling": "${data.feelingText}",
+                                                    "finalExpect": "${form.expectRadio}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "p",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Expectations"
+                    }
+                ],
+                "version": "7.0"
+            }
+        }
+    ]
+}

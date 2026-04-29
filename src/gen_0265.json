@@ -1,1 +1,203 @@
-{}
+{
+  "prompt": {
+    "EN": "Build a work feedback flow. 2 screens. First screen: comfortable at work (Yes/No) and general mood (checkbox: Sleepy, Bored, Happy, Energized, Tired). Second screen: required extra notes. Use camelCase field names. Navigate then complete."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "screens": [
+          {
+            "data": {},
+            "id": "RECOMMEND",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "TextSubheading",
+                      "text": "Do you feel comfortable at work?"
+                    },
+                    {
+                      "type": "RadioButtonsGroup",
+                      "label": "Yes or No",
+                      "name": "comfortableAtWork",
+                      "required": true,
+                      "data-source": [
+                        { "id": "yes", "title": "Yes" },
+                        { "id": "no", "title": "No" }
+                      ]
+                    },
+                    {
+                      "type": "TextSubheading",
+                      "text": "What is your general mood at work?"
+                    },
+                    {
+                      "type": "CheckboxGroup",
+                      "label": "Mood",
+                      "name": "generalMood",
+                      "required": true,
+                      "data-source": [
+                        { "id": "sleepy", "title": "Sleepy" },
+                        { "id": "bored", "title": "Bored" },
+                        { "id": "happy", "title": "Happy" },
+                        { "id": "energized", "title": "Energized" },
+                        { "id": "tired", "title": "Tired" }
+                      ]
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Continue",
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": { "name": "EXTRA_NOTES", "type": "screen" },
+                        "payload": {
+                          "comfortableAtWork": "${form.comfortableAtWork}",
+                          "generalMood": "${form.generalMood}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "flowPath",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "title": "Work feedback"
+          },
+          {
+            "data": {
+              "comfortableAtWork": { "__example__": "yes", "type": "string" },
+              "generalMood": { "__example__": ["happy"], "items": { "type": "string" }, "type": "array" }
+            },
+            "id": "EXTRA_NOTES",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "TextSubheading",
+                      "text": "Extra Notes"
+                    },
+                    {
+                      "type": "TextArea",
+                      "label": "Write any notes here",
+                      "name": "extraNotes",
+                      "required": true
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Finish",
+                      "on-click-action": {
+                        "name": "complete",
+                        "payload": {
+                          "extraNotes": "${form.extraNotes}",
+                          "comfortableAtWork": "${data.comfortableAtWork}",
+                          "generalMood": "${data.generalMood}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "flowPath",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "terminal": true,
+            "title": "Work feedback notes"
+          }
+        ],
+        "version": "7.3"
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "screens": [
+          {
+            "data": {},
+            "id": "START",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "RadioButtonsGroup",
+                      "name": "comfort",
+                      "required": true,
+                      "data-source": [
+                        { "id": "yes", "title": "Yes" }
+                      ]
+                    },
+                    {
+                      "type": "CheckboxGroup",
+                      "name": "mood",
+                      "required": true,
+                      "data-source": [
+                        { "id": "bored", "title": "Bored" }
+                      ]
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Next",
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": { "name": "END", "type": "screen" },
+                        "payload": {
+                          "c": "${form.comfort}",
+                          "m": "${form.mood}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "flow",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "title": "Step1",
+            "terminal": false
+          },
+          {
+            "data": {},
+            "id": "END",
+            "layout": {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "TextArea",
+                      "name": "notes",
+                      "required": true
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Finish",
+                      "on-click-action": {
+                        "name": "complete",
+                        "payload": {
+                          "finalComfort": "${data.c}",
+                          "finalMood": "${data.m}",
+                          "finalNotes": "${form.notes}"
+                        }
+                      }
+                    }
+                  ],
+                  "name": "flow",
+                  "type": "Form"
+                }
+              ],
+              "type": "SingleColumnLayout"
+            },
+            "terminal": true,
+            "title": "Step2"
+          }
+        ],
+        "version": "7.3"
+      }
+    }
+  ]
+}

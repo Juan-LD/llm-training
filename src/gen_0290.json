@@ -1,1 +1,164 @@
-{}
+{
+    "prompt": {
+        "EN": "Create a one-screen exit interview flow. Primary reason (radio: Money, Growth, Management, Culture, Relocation, Other). Retention factors (checkbox: Better salary, Better ambience, Less work, More bonuses). Both required. Use camelCase field names. Complete action."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "We are sorry to see you go. Please answer this form for your reasons."
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What was the primary reason for leaving?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Why?",
+                                            "name": "primaryReason",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "money", "title": "Money" },
+                                                { "id": "growth", "title": "Growth" },
+                                                { "id": "management", "title": "Management" },
+                                                { "id": "culture", "title": "Culture" },
+                                                { "id": "relocation", "title": "Relocation" },
+                                                { "id": "other", "title": "Other" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What could have kept you from leaving?"
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "label": "What?",
+                                            "name": "retentionFactors",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "betterSalary", "title": "Better salary" },
+                                                { "id": "betterAmbience", "title": "Better ambience" },
+                                                { "id": "lessWork", "title": "Less work" },
+                                                { "id": "moreBonuses", "title": "More bonuses" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "primaryReason": "${form.primaryReason}",
+                                                    "retentionFactors": "${form.retentionFactors}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Reason of leave"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "A",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Leaving reason?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "reason",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "money", "title": "Money" },
+                                                { "id": "growth", "title": "Growth" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "reasonVal": "${form.reason}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formX",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Reason",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "factors",
+                                            "required": false,
+                                            "data-source": []
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalReason": "${data.reasonVal}",
+                                                    "finalFactors": "${form.factors}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formY",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Factors"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

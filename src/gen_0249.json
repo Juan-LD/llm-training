@@ -1,6 +1,6 @@
 {
     "prompt": {
-        "EN": "Generate an aquarium feedback flow. 2 screens. Screen 1: favorite animals (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) and environment liked (Yes/No). Screen 2: enjoyed the visit (Yes/No) and optional notes. Use camelCase. Navigate then complete. Include example data in screen 2."
+        "EN": "Create a 2-screen WhatsApp flow for aquarium visitors. Screen 1: which animals did they like (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) and environment rating (Yes/No). Screen 2: overall enjoyment (Yes/No) and any additional feedback (textarea, optional). Use SingleColumnLayout, navigate, complete. CamelCase fields: favoriteAnimals, likedEnvironment, enjoyedVisit, additionalNotes."
     },
     "ok_flows": [
         {
@@ -132,14 +132,22 @@
                 "screens": [
                     {
                         "data": {},
-                        "id": "STEP1",
+                        "id": "START",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
+                                            "type": "CheckboxGroup",
+                                            "name": "animals",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "penguin", "title": "Penguin" }
+                                            ]
+                                        },
+                                        {
                                             "type": "RadioButtonsGroup",
-                                            "name": "env",
+                                            "name": "envLike",
                                             "required": true,
                                             "data-source": [
                                                 { "id": "yes", "title": "Yes" }
@@ -150,33 +158,41 @@
                                             "label": "Next",
                                             "on-click-action": {
                                                 "name": "navigate",
-                                                "next": { "name": "STEP2", "type": "screen" },
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
                                                 "payload": {
-                                                    "environment": "${form.env}"
+                                                    "selectedAnimals": "${form.animals}",
+                                                    "env": "${form.envLike}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "path",
+                                    "name": "flow",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
-                        "title": "Env"
+                        "title": "Aquarium"
                     },
                     {
                         "data": {},
-                        "id": "STEP2",
+                        "id": "FINAL_NOTES",
                         "layout": {
                             "children": [
                                 {
                                     "children": [
                                         {
-                                            "type": "CheckboxGroup",
-                                            "name": "animals",
+                                            "type": "RadioButtonsGroup",
+                                            "name": "enjoy",
                                             "required": true,
-                                            "data-source": []
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "name": "notes",
+                                            "required": false
                                         },
                                         {
                                             "type": "Footer",
@@ -184,20 +200,22 @@
                                             "on-click-action": {
                                                 "name": "complete",
                                                 "payload": {
-                                                    "finalEnv": "${data.environment}",
-                                                    "finalAnimals": "${form.animals}"
+                                                    "finalAnimals": "${data.selectedAnimals}",
+                                                    "finalEnv": "${data.env}",
+                                                    "finalEnjoy": "${form.enjoy}",
+                                                    "finalNotes": "${form.notes}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "path",
+                                    "name": "flow",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
-                        "terminal": false,
-                        "title": "Animals"
+                        "terminal": true,
+                        "title": "Feedback"
                     }
                 ],
                 "version": "7.3"

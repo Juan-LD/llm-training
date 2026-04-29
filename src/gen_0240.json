@@ -1,6 +1,6 @@
 {
     "prompt": {
-        "EN": "Generate a food order flow. Single screen. Required main dish (checkbox: Burger, Pizza, Sushi, Salad, Drink). Optional sides (French fries, Olives, Garlic bread, Normal bread). Optional drinks (Coca cola, Water, Fanta, Seven Up). Optional dessert (Tiramisu, Ice cream, Apple pie). Complete action. Field names: mainDish, sideDish, drink, dessert."
+        "EN": "Generate a 2-screen aquarium feedback flow. Screen 1: favorite animals (checkbox: Penguin, Jelly fish, Dolphin, Polar bear) required + liked environment (Yes/No radio) required. Screen 2: enjoyed visit (Yes/No radio) required + optional notes textarea. Navigate from screen 1 to screen 2. Complete on screen 2 with all data. Use camelCase field names: favoriteAnimals, likedEnvironment, enjoyedVisit, additionalNotes."
     },
     "ok_flows": [
         {
@@ -15,67 +15,88 @@
                                     "children": [
                                         {
                                             "type": "TextSubheading",
-                                            "text": "Which one are you craving?"
+                                            "text": "Which animal(s) did you like seeing the most?"
                                         },
                                         {
                                             "type": "CheckboxGroup",
-                                            "label": "Main dish",
-                                            "name": "mainDish",
+                                            "label": "Favorite animals",
+                                            "name": "favoriteAnimals",
                                             "required": true,
                                             "data-source": [
-                                                { "id": "burger", "title": "Burger" },
-                                                { "id": "pizza", "title": "Pizza" },
-                                                { "id": "sushi", "title": "Sushi" },
-                                                { "id": "salad", "title": "Salad" },
-                                                { "id": "drink", "title": "Drink" }
+                                                { "id": "penguin", "title": "Penguin" },
+                                                { "id": "jellyfish", "title": "Jelly fish" },
+                                                { "id": "dolphin", "title": "Dolphin" },
+                                                { "id": "polarBear", "title": "Polar bear" }
                                             ]
                                         },
                                         {
                                             "type": "TextSubheading",
-                                            "text": "Any sides?"
+                                            "text": "Did you like the environment?"
                                         },
                                         {
-                                            "type": "CheckboxGroup",
-                                            "label": "Side dish",
-                                            "name": "sideDish",
-                                            "required": false,
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes or No",
+                                            "name": "likedEnvironment",
+                                            "required": true,
                                             "data-source": [
-                                                { "id": "frenchFries", "title": "French fries" },
-                                                { "id": "olives", "title": "Olives" },
-                                                { "id": "garlicBread", "title": "Garlic bread" },
-                                                { "id": "normalBread", "title": "Normal bread" }
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "favoriteAnimals": "${form.favoriteAnimals}",
+                                                    "likedEnvironment": "${form.likedEnvironment}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Aquarium visit"
+                    },
+                    {
+                        "data": {
+                            "favoriteAnimals": { "__example__": ["dolphin"], "type": "array" },
+                            "likedEnvironment": { "__example__": "yes", "type": "string" }
+                        },
+                        "id": "FINAL_NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Did you enjoy your visit?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Yes or No",
+                                            "name": "enjoyedVisit",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
                                             ]
                                         },
                                         {
                                             "type": "TextSubheading",
-                                            "text": "Any drinks?"
+                                            "text": "Anything else you want to mention?"
                                         },
                                         {
-                                            "type": "CheckboxGroup",
-                                            "label": "Drink",
-                                            "name": "drink",
-                                            "required": false,
-                                            "data-source": [
-                                                { "id": "cocaCola", "title": "Coca cola" },
-                                                { "id": "water", "title": "Water" },
-                                                { "id": "fanta", "title": "Fanta" },
-                                                { "id": "sevenUp", "title": "Seven Up" }
-                                            ]
-                                        },
-                                        {
-                                            "type": "TextSubheading",
-                                            "text": "Finish with a dessert?"
-                                        },
-                                        {
-                                            "type": "CheckboxGroup",
-                                            "label": "Dessert",
-                                            "name": "dessert",
-                                            "required": false,
-                                            "data-source": [
-                                                { "id": "tiramisu", "title": "Tiramisu" },
-                                                { "id": "iceCream", "title": "Ice cream" },
-                                                { "id": "applePie", "title": "Apple pie" }
-                                            ]
+                                            "type": "TextArea",
+                                            "label": "Additional Notes",
+                                            "name": "additionalNotes",
+                                            "required": false
                                         },
                                         {
                                             "type": "Footer",
@@ -83,10 +104,10 @@
                                             "on-click-action": {
                                                 "name": "complete",
                                                 "payload": {
-                                                    "mainDish": "${form.mainDish}",
-                                                    "sideDish": "${form.sideDish}",
-                                                    "drink": "${form.drink}",
-                                                    "dessert": "${form.dessert}"
+                                                    "enjoyedVisit": "${form.enjoyedVisit}",
+                                                    "additionalNotes": "${form.additionalNotes}",
+                                                    "favoriteAnimals": "${data.favoriteAnimals}",
+                                                    "likedEnvironment": "${data.likedEnvironment}"
                                                 }
                                             }
                                         }
@@ -98,7 +119,7 @@
                             "type": "SingleColumnLayout"
                         },
                         "terminal": true,
-                        "title": "Order food"
+                        "title": "Final notes"
                     }
                 ],
                 "version": "7.3"
@@ -117,36 +138,59 @@
                                 {
                                     "children": [
                                         {
-                                            "type": "TextSubheading",
-                                            "text": "Main dish"
-                                        },
-                                        {
                                             "type": "CheckboxGroup",
-                                            "name": "mainDish",
+                                            "name": "animals",
                                             "required": true,
                                             "data-source": [
-                                                { "id": "burger", "title": "Burger" }
+                                                { "id": "dolphin", "title": "Dolphin" }
                                             ]
                                         },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "FINAL_NOTES", "type": "screen" },
+                                                "payload": {
+                                                    "favAnimals": "${form.animals}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Aquarium"
+                    },
+                    {
+                        "data": {},
+                        "id": "FINAL_NOTES",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
                                         {
                                             "type": "Footer",
                                             "label": "Finish",
                                             "on-click-action": {
                                                 "name": "complete",
                                                 "payload": {
-                                                    "main": "${form.mainDish}"
+                                                    "onlyAnimals": "${data.favAnimals}"
                                                 }
                                             }
                                         }
                                     ],
-                                    "name": "flow",
+                                    "name": "flowPath",
                                     "type": "Form"
                                 }
                             ],
                             "type": "SingleColumnLayout"
                         },
                         "terminal": true,
-                        "title": "Order"
+                        "title": "Done"
                     }
                 ],
                 "version": "7.3"
