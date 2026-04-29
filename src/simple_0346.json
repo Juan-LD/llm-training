@@ -1,0 +1,129 @@
+{
+    "prompt": {
+        "EN": "Create a price suggestion survey. One screen. Heading: 'What price should the hotdog be?' Number input for price (required). Complete action. Use camelCase: suggestedPrice."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What price should the hotdog be?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "12,34",
+                                            "name": "suggestedPrice",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Register",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "suggestedPrice": "${form.suggestedPrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Suggest price change"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "email",
+                                            "name": "customPrice",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "priceText": "${form.customPrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "p",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Price",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "name": "confirmPrice",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalPriceText": "${data.priceText}",
+                                                    "finalPrice": "${form.confirmPrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "p",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.0"
+            }
+        }
+    ]
+}

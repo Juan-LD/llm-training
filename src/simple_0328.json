@@ -1,0 +1,133 @@
+{
+    "prompt": {
+        "EN": "Make a one-screen order rescheduling form. Heading: 'Your order did not arrive! Please mark another day here.' Date picker required. Complete action. Use camelCase: newDeliveryDate."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your order did not arrive! Please mark another day here."
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "label": "Select new delivery date",
+                                            "name": "newDeliveryDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "newDeliveryDate": "${form.newDeliveryDate}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Order didnt arrive!"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST_PAGE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "dateDrop",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "monday", "title": "Monday" },
+                                                { "id": "tuesday", "title": "Tuesday" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "dateChoice": "${form.dateDrop}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formA",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Date",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "confirmCheck",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "confirm", "title": "Confirm" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalDate": "${data.dateChoice}",
+                                                    "finalConfirm": "${form.confirmCheck}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formB",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,127 @@
+{
+    "prompt": {
+        "EN": "Build a one-screen order cancellation form. Ask if they want to cancel the order (Yes/No radio). Required. Submit with complete action. Use camelCase: cancelOrder."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Checking on an order that is still arriving"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Cancel your order?",
+                                            "name": "cancelOrder",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "cancelOrder": "${form.cancelOrder}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Checking up on order"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "cancelCheck",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "go",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "cancelVal": "${form.cancelCheck}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Cancel",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "submit",
+                                                "payload": {
+                                                    "finalCancel": "${data.cancelVal}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.2"
+            }
+        }
+    ]
+}

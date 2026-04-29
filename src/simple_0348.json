@@ -1,0 +1,134 @@
+{
+    "prompt": {
+        "EN": "Make a one-screen price suggestion form. Heading: 'What price should the hotdog be?' Number input for price (required). Complete action. Use camelCase: suggestedPrice."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "What price should the hotdog be?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "12,34",
+                                            "name": "suggestedPrice",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Register",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "suggestedPrice": "${form.suggestedPrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Suggest price change"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST_PAGE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "priceDrop",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "one", "title": "$1" },
+                                                { "id": "two", "title": "$2" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "priceChoice": "${form.priceDrop}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formA",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Price",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "confirmCheck",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "confirm", "title": "Confirm" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalPrice": "${data.priceChoice}",
+                                                    "finalConfirm": "${form.confirmCheck}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formB",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

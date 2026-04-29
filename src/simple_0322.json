@@ -1,0 +1,121 @@
+{
+    "prompt": {
+        "EN": "Build a one-screen order rescheduling form. Heading: 'Your order did not arrive! Please mark another day here.' Date picker required. Complete action. Use camelCase: newDeliveryDate."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your order did not arrive! Please mark another day here."
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "label": "Select new delivery date",
+                                            "name": "newDeliveryDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "newDeliveryDate": "${form.newDeliveryDate}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Order didnt arrive!"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "dateText",
+                                            "required": false,
+                                            "input-type": "text"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "go",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "dateVal": "${form.dateText}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Date",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "submit",
+                                                "payload": {
+                                                    "finalDate": "${data.dateVal}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flow",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.2"
+            }
+        }
+    ]
+}

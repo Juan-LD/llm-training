@@ -1,0 +1,130 @@
+{
+    "prompt": {
+        "EN": "Create a one-screen order rescheduling flow. Heading: 'Your order did not arrive! Please mark another day here.' Date picker required. Complete action. Use camelCase: newDeliveryDate."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Your order did not arrive! Please mark another day here."
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "label": "Select new delivery date",
+                                            "name": "newDeliveryDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "newDeliveryDate": "${form.newDeliveryDate}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Order didnt arrive!"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "A",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Select date"
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "name": "newDate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "dateVal": "${form.newDate}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formX",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Date",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "OptIn",
+                                            "name": "agreeOpt",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalDate": "${data.dateVal}",
+                                                    "finalAgree": "${form.agreeOpt}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formY",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Agreement"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

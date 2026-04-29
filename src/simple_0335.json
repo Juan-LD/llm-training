@@ -1,0 +1,134 @@
+{
+    "prompt": {
+        "EN": "Generate a car registration flow. One screen. Heading: 'Car license plate?' Text input for license plate (required). Complete action. Use camelCase: licensePlate."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Car license plate?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "AA-123-AA",
+                                            "name": "licensePlate",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Register",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "licensePlate": "${form.licensePlate}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Register car"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "ONE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "License"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "carLicense",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "licenseChoice": "${form.carLicense}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "f",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Car",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "confirmRadio",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalLicense": "${data.licenseChoice}",
+                                                    "finalConfirm": "${form.confirmRadio}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "f",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

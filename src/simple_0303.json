@@ -1,0 +1,134 @@
+{
+    "prompt": {
+        "EN": "Create a one-screen order cancellation survey. Question: 'Cancel your order?' with Yes/No radio. Required. Complete action. Use camelCase field name cancelOrder."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Checking on an order that is still arriving"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Cancel your order?",
+                                            "name": "cancelOrder",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "cancelOrder": "${form.cancelOrder}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Checking up on order"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "PAGE1",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "cancelChoice",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "choice": "${form.cancelChoice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "form1",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Step1",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextArea",
+                                            "name": "reason",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalChoice": "${data.choice}",
+                                                    "finalReason": "${form.reason}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "form2",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Step2"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

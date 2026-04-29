@@ -1,0 +1,147 @@
+{
+    "prompt": {
+        "EN": "Create a work absence survey. One screen. Dropdown for absence reason (4 options). Radio for vacation day option (2 options). Both required. Use camelCase. Complete action."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Youre not going to work today? Why?"
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "No work today due to",
+                                            "name": "absenceReason",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "beingSick", "title": "Being sick" },
+                                                { "id": "feelingTired", "title": "Feeling tired" },
+                                                { "id": "otherResponsibilities", "title": "Other responsibilities" },
+                                                { "id": "other", "title": "Other" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Mark as vacation day?",
+                                            "name": "markAsVacation",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "vacationDay", "title": "Mark as a vacation day" },
+                                                { "id": "deductFromSalary", "title": "Take away from salary" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "absenceReason": "${form.absenceReason}",
+                                                    "markAsVacation": "${form.markAsVacation}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Skipping working justification"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "customReason",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "reasonText": "${form.customReason}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "p",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Reason",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "vacationRadio",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "vacation", "title": "Vacation" },
+                                                { "id": "salary", "title": "Salary" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalReason": "${data.reasonText}",
+                                                    "finalVacation": "${form.vacationRadio}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "p",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Vacation"
+                    }
+                ],
+                "version": "7.0"
+            }
+        }
+    ]
+}

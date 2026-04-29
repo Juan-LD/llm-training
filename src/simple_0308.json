@@ -1,0 +1,137 @@
+{
+    "prompt": {
+        "EN": "Make a one-screen order cancellation form. Question: 'Cancel your order?' with Yes/No radio. Required. Use complete action. Use camelCase: cancelOrder."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Checking on an order that is still arriving"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Cancel your order?",
+                                            "name": "cancelOrder",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "cancelOrder": "${form.cancelOrder}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Checking up on order"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "FIRST_PAGE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "cancelDrop",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "yes", "title": "Yes" },
+                                                { "id": "no", "title": "No" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "cancelChoice": "${form.cancelDrop}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formA",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Cancel",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "confirmCheck",
+                                            "required": false,
+                                            "data-source": [
+                                                { "id": "confirm", "title": "Confirm" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalCancel": "${data.cancelChoice}",
+                                                    "finalConfirm": "${form.confirmCheck}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "formB",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Confirm"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}
