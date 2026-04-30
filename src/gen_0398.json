@@ -1,0 +1,128 @@
+{
+    "prompt": {
+        "EN": "Make a one-screen aquarium feedback form. Rating dropdown (Excellent, Good, Average, Poor, Very Poor) required. Comments textarea optional (200 max chars, helper text). Complete action. Use camelCase: rating, comments."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FEEDBACK_SCREEN",
+                        "title": "Rate Your Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "How was your experience at the aquarium?"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "feedbackForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Overall experience",
+                                            "required": true,
+                                            "name": "rating",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "name": "comments",
+                                            "label": "Any comments?",
+                                            "max-length": 200,
+                                            "helper-text": "Tell us what you loved or how we can improve"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit Feedback",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "rating": "${form.rating}",
+                                                    "comments": "${form.comments}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FIRST_PAGE",
+                        "title": "Rate Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "RadioButtonsGroup",
+                                    "name": "starRating",
+                                    "required": true,
+                                    "data-source": [
+                                        { "id": "5", "title": "5 Stars" },
+                                        { "id": "4", "title": "4 Stars" }
+                                    ]
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Next",
+                                    "on-click-action": {
+                                        "name": "navigate",
+                                        "next": { "name": "COMMENTS_PAGE", "type": "screen" },
+                                        "payload": { "stars": "${form.starRating}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    },
+                    {
+                        "id": "COMMENTS_PAGE",
+                        "title": "Your Comments",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextInput",
+                                    "name": "feedbackText",
+                                    "required": false
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Finish",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "finalStars": "${data.stars}", "finalFeedback": "${form.feedbackText}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}

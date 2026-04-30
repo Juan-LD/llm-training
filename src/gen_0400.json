@@ -1,0 +1,133 @@
+{
+    "prompt": {
+        "EN": "Create a one-screen aquarium feedback flow. Rating dropdown (5 options from Excellent to Very Poor) required. Comments textarea optional (200 max chars, helper text). Complete action. Use camelCase: rating, comments."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FEEDBACK_SCREEN",
+                        "title": "Rate Your Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "How was your experience at the aquarium?"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "feedbackForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Overall experience",
+                                            "required": true,
+                                            "name": "rating",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "name": "comments",
+                                            "label": "Any comments?",
+                                            "max-length": 200,
+                                            "helper-text": "Tell us what you loved or how we can improve"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit Feedback",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "rating": "${form.rating}",
+                                                    "comments": "${form.comments}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "A",
+                        "title": "Rate",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "How was it?"
+                                },
+                                {
+                                    "type": "Dropdown",
+                                    "name": "ratingPick",
+                                    "required": true,
+                                    "data-source": [
+                                        { "id": "excellent", "title": "Excellent" },
+                                        { "id": "good", "title": "Good" },
+                                        { "id": "average", "title": "Average" }
+                                    ]
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Next",
+                                    "on-click-action": {
+                                        "name": "navigate",
+                                        "next": { "name": "B", "type": "screen" },
+                                        "payload": { "rateVal": "${form.ratingPick}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    },
+                    {
+                        "id": "B",
+                        "title": "Comment",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "OptIn",
+                                    "name": "consentAgree",
+                                    "required": true
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Finish",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "finalRating": "${data.rateVal}", "finalConsent": "${form.consentAgree}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    }
+                ]
+            }
+        }
+    ]
+}

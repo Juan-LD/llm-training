@@ -1,0 +1,132 @@
+{
+    "prompt": {
+        "EN": "Design a one-screen WhatsApp flow for aquarium feedback. Rating dropdown (Excellent, Good, Average, Poor, Very Poor) required. Comments textarea optional (200 chars max, helper text). Complete action. Use camelCase."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FEEDBACK_SCREEN",
+                        "title": "Rate Your Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "How was your experience at the aquarium?"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "feedbackForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Overall experience",
+                                            "required": true,
+                                            "name": "rating",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "name": "comments",
+                                            "label": "Any comments?",
+                                            "max-length": 200,
+                                            "helper-text": "Tell us what you loved or how we can improve"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit Feedback",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "rating": "${form.rating}",
+                                                    "comments": "${form.comments}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "SCREEN_A",
+                        "title": "Rate",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Rating?"
+                                },
+                                {
+                                    "type": "RadioButtonsGroup",
+                                    "name": "ratingChoice",
+                                    "required": true,
+                                    "data-source": [
+                                        { "id": "excellent", "title": "Excellent" }
+                                    ]
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Next",
+                                    "on-click-action": {
+                                        "name": "navigate",
+                                        "next": { "name": "SCREEN_B", "type": "screen" },
+                                        "payload": { "rate": "${form.ratingChoice}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    },
+                    {
+                        "id": "SCREEN_B",
+                        "title": "Comments",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextArea",
+                                    "name": "userComment",
+                                    "required": false,
+                                    "max-length": 100
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Finish",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "finalRating": "${data.rate}", "finalComment": "${form.userComment}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}

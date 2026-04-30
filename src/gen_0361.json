@@ -1,0 +1,204 @@
+{
+    "prompt": {
+        "EN": "Generate a 2-screen mortgage approval flow. Screen 1: property type (radio: Single Family, Condo, Townhouse, Multi-family, Land) and purchase price (text input). Both required. Screen 2: purchase experience dropdown (Excellent to Very Poor) and customer service dropdown (Excellent to Very Poor). Both required. Navigate from screen 1 to screen 2. Complete on screen 2 with all data. Use camelCase: propertyType, purchasePrice, purchaseExperience, customerService."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What is the type of your property?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Type of property",
+                                            "name": "propertyType",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "singleFamily", "title": "Single Family" },
+                                                { "id": "condo", "title": "Condo" },
+                                                { "id": "townhouse", "title": "Townhouse" },
+                                                { "id": "multiFamily", "title": "Multi-family" },
+                                                { "id": "land", "title": "Land" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Estimated purchase price"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "Purchase price",
+                                            "name": "purchasePrice",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "propertyType": "${form.propertyType}",
+                                                    "purchasePrice": "${form.purchasePrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Mortgage Approval"
+                    },
+                    {
+                        "data": {
+                            "propertyType": { "__example__": "singleFamily", "type": "string" },
+                            "purchasePrice": { "__example__": "250000", "type": "string" }
+                        },
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Rate the following: "
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Purchase experience",
+                                            "required": true,
+                                            "name": "purchaseExperience",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Customer service",
+                                            "required": true,
+                                            "name": "customerService",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "purchaseExperience": "${form.purchaseExperience}",
+                                                    "customerService": "${form.customerService}",
+                                                    "propertyType": "${data.propertyType}",
+                                                    "purchasePrice": "${data.purchasePrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Purchase evaluation"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "type",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "single", "title": "Single" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "propType": "${form.type}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Mortgage"
+                    },
+                    {
+                        "data": {},
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "onlyType": "${data.propType}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Eval"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

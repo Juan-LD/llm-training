@@ -1,0 +1,124 @@
+{
+    "prompt": {
+        "EN": "Create an aquarium feedback survey. One screen. Rating dropdown required (Excellent, Good, Average, Poor, Very Poor). Comments textarea optional (200 char max, helper text). Complete action. Use camelCase."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FEEDBACK_SCREEN",
+                        "title": "Rate Your Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "How was your experience at the aquarium?"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "feedbackForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Overall experience",
+                                            "required": true,
+                                            "name": "rating",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "name": "comments",
+                                            "label": "Any comments?",
+                                            "max-length": 200,
+                                            "helper-text": "Tell us what you loved or how we can improve"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit Feedback",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "rating": "${form.rating}",
+                                                    "comments": "${form.comments}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.0",
+                "screens": [
+                    {
+                        "id": "FIRST",
+                        "title": "Rate",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextInput",
+                                    "name": "customRating",
+                                    "required": true
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Next",
+                                    "on-click-action": {
+                                        "name": "navigate",
+                                        "next": { "name": "SECOND", "type": "screen" },
+                                        "payload": { "ratingText": "${form.customRating}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    },
+                    {
+                        "id": "SECOND",
+                        "title": "Comment",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextArea",
+                                    "name": "notes",
+                                    "required": false
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Finish",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "finalRating": "${data.ratingText}", "finalNotes": "${form.notes}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    }
+                ]
+            }
+        }
+    ]
+}

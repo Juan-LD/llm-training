@@ -1,0 +1,108 @@
+{
+    "prompt": {
+        "EN": "Build an aquarium feedback flow. One screen. Rating dropdown (5-star scale) required. Comments textarea optional (200 max chars, helper text). Complete action. Use camelCase field names."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FEEDBACK_SCREEN",
+                        "title": "Rate Your Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "How was your experience at the aquarium?"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "feedbackForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Overall experience",
+                                            "required": true,
+                                            "name": "rating",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "name": "comments",
+                                            "label": "Any comments?",
+                                            "max-length": 200,
+                                            "helper-text": "Tell us what you loved or how we can improve"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit Feedback",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "rating": "${form.rating}",
+                                                    "comments": "${form.comments}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "START",
+                        "title": "Feedback",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Dropdown",
+                                    "name": "ratingSelect",
+                                    "required": true,
+                                    "data-source": [
+                                        { "id": "excellent", "title": "Excellent" }
+                                    ]
+                                },
+                                {
+                                    "type": "TextArea",
+                                    "name": "commentBox",
+                                    "required": false,
+                                    "max-length": 500
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Submit",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "rate": "${form.ratingSelect}", "comment": "${form.commentBox}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}

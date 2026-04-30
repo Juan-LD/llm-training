@@ -1,0 +1,274 @@
+{
+    "prompt": {
+        "EN": "Make an aquarium ticket flow. NavigationList with Adult (10€) and Student (6€). Adult form: full name, ticket quantity, visit date. Student form: full name, student ID, school name, quantity, visit date. Complete actions. Use camelCase."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FIRST_SCREEN",
+                        "title": "Aquarium Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "NavigationList",
+                                    "name": "admissionList",
+                                    "list-items": [
+                                        {
+                                            "id": "adult",
+                                            "main-content": {
+                                                "title": "Adult",
+                                                "metadata": "No documents required"
+                                            },
+                                            "end": {
+                                                "title": "only 10€"
+                                            },
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "SECOND_SCREEN", "type": "screen" },
+                                                "payload": {
+                                                    "ticketType": "adult",
+                                                    "ticketPrice": "10"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "student",
+                                            "main-content": {
+                                                "title": "Student",
+                                                "metadata": "Required student proof, e.g. student card"
+                                            },
+                                            "end": {
+                                                "title": "only 6€"
+                                            },
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "THIRD_SCREEN", "type": "screen" },
+                                                "payload": {
+                                                    "ticketType": "student",
+                                                    "ticketPrice": "6"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "SECOND_SCREEN",
+                        "title": "Adult Ticket",
+                        "data": {
+                            "ticketType": { "__example__": "adult", "type": "string" },
+                            "ticketPrice": { "__example__": "10", "type": "string" }
+                        },
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Complete your purchase"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "adultTicketForm",
+                                    "children": [
+                                        {
+                                            "type": "TextBody",
+                                            "text": "Adult ticket: 10€"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "fullName",
+                                            "label": "Full name",
+                                            "input-type": "text",
+                                            "required": true,
+                                            "helper-text": "As shown on ID"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "quantity",
+                                            "label": "Number of tickets",
+                                            "input-type": "number",
+                                            "required": true,
+                                            "helper-text": "1-10 tickets"
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "name": "visitDate",
+                                            "label": "Visit date",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Buy Now",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "ticketType": "adult",
+                                                    "pricePerTicket": "10",
+                                                    "quantity": "${form.quantity}",
+                                                    "visitorName": "${form.fullName}",
+                                                    "visitDate": "${form.visitDate}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    },
+                    {
+                        "id": "THIRD_SCREEN",
+                        "title": "Student Ticket",
+                        "data": {
+                            "ticketType": { "__example__": "student", "type": "string" },
+                            "ticketPrice": { "__example__": "6", "type": "string" }
+                        },
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Student verification required"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "studentTicketForm",
+                                    "children": [
+                                        {
+                                            "type": "TextBody",
+                                            "text": "Student ticket: 6€ (Valid student ID required at entrance)"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "fullName",
+                                            "label": "Full name",
+                                            "input-type": "text",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "studentId",
+                                            "label": "Student ID number",
+                                            "input-type": "text",
+                                            "required": true,
+                                            "helper-text": "Found on your student card"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "schoolName",
+                                            "label": "School name",
+                                            "input-type": "text",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "quantity",
+                                            "label": "Number of tickets",
+                                            "input-type": "number",
+                                            "required": true,
+                                            "helper-text": "Max 2 per student ID"
+                                        },
+                                        {
+                                            "type": "DatePicker",
+                                            "name": "visitDate",
+                                            "label": "Visit date",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Buy Now",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "ticketType": "student",
+                                                    "pricePerTicket": "6",
+                                                    "quantity": "${form.quantity}",
+                                                    "visitorName": "${form.fullName}",
+                                                    "studentId": "${form.studentId}",
+                                                    "schoolName": "${form.schoolName}",
+                                                    "visitDate": "${form.visitDate}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "MENU_SCREEN",
+                        "title": "Menu",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "NavigationList",
+                                    "name": "menuNav",
+                                    "list-items": [
+                                        {
+                                            "id": "opt1",
+                                            "main-content": { "title": "Option 1" },
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "DETAIL_1", "type": "screen" },
+                                                "payload": { "opt": "1" }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "DETAIL_1",
+                        "title": "Detail1",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Form",
+                                    "name": "detailForm1",
+                                    "children": [
+                                        {
+                                            "type": "DatePicker",
+                                            "name": "dateField",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": { "date": "${form.dateField}", "option": "${data.opt}" }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}

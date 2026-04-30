@@ -1,0 +1,102 @@
+{
+    "prompt": {
+        "EN": "Generate a one-screen aquarium feedback flow. Dropdown for rating (Excellent, Good, Average, Poor, Very Poor) required. Optional textarea for comments (max 200 chars, helper text 'Tell us what you loved or how we can improve'). Complete action submits rating and comments. Use camelCase: rating, comments."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FEEDBACK_SCREEN",
+                        "title": "Rate Your Visit",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "How was your experience at the aquarium?"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "feedbackForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Overall experience",
+                                            "required": true,
+                                            "name": "rating",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextArea",
+                                            "name": "comments",
+                                            "label": "Any comments?",
+                                            "max-length": 200,
+                                            "helper-text": "Tell us what you loved or how we can improve"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit Feedback",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "rating": "${form.rating}",
+                                                    "comments": "${form.comments}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.2",
+                "screens": [
+                    {
+                        "id": "FEEDBACK",
+                        "title": "Rate",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Dropdown",
+                                    "name": "rate",
+                                    "required": false,
+                                    "data-source": [
+                                        { "id": "good", "title": "Good" }
+                                    ]
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Submit",
+                                    "on-click-action": {
+                                        "name": "submit",
+                                        "payload": {}
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    }
+                ]
+            }
+        }
+    ]
+}

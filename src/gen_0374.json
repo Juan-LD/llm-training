@@ -1,0 +1,347 @@
+{
+    "prompt": {
+        "EN": "Design a multi-product insurance flow. First screen: NavigationList with 3 products: Smartphones (50-400€), Computers (100-999€), Headphones (5-50€). Clicking each navigates to a product-specific form. Smartphones form has brand dropdown (Apple, Samsung, Google, Xiaomi, Other) and price number input. Computers form has computer type dropdown (Laptop, Desktop, All-in-One), brand dropdown (Apple, Dell, HP, Lenovo, ASUS, Other), and price. Headphones form has audio type dropdown (Over-ear, In-ear, Speaker), brand dropdown (Apple, Sony, Bose, Sennheiser, JBL, Other), and price. All forms complete with payload. Use camelCase: selectedProduct, selectedProductTitle, purchasePrice, computerType, audioType."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FIRST_SCREEN",
+                        "title": "Our offers",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "NavigationList",
+                                    "name": "insurances",
+                                    "list-items": [
+                                        {
+                                            "id": "smartphones",
+                                            "main-content": {
+                                                "title": "Smartphones",
+                                                "metadata": "Buy a new smartphone for your everyday needs"
+                                            },
+                                            "end": {
+                                                "title": "from 50€",
+                                                "description": "up to 400€"
+                                            },
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "SECOND_SCREEN", "type": "screen" },
+                                                "payload": {
+                                                    "selectedProduct": "smartphones",
+                                                    "selectedProductTitle": "Smartphones"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "computers",
+                                            "main-content": {
+                                                "title": "Computers",
+                                                "metadata": "Get a new computer for personal use or for your business"
+                                            },
+                                            "end": {
+                                                "title": "from 100€",
+                                                "description": "up to 999€"
+                                            },
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "THIRD_SCREEN", "type": "screen" },
+                                                "payload": {
+                                                    "selectedProduct": "computers",
+                                                    "selectedProductTitle": "Computers"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "id": "headphones",
+                                            "main-content": {
+                                                "title": "Headphones",
+                                                "metadata": "Listen to the new hits with style"
+                                            },
+                                            "end": {
+                                                "title": "from 5€",
+                                                "description": "up to 50€"
+                                            },
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "FOURTH_SCREEN", "type": "screen" },
+                                                "payload": {
+                                                    "selectedProduct": "headphones",
+                                                    "selectedProductTitle": "Headphones"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "SECOND_SCREEN",
+                        "title": "Device Insurance",
+                        "data": {
+                            "selectedProduct": { "__example__": "smartphones", "type": "string" },
+                            "selectedProductTitle": { "__example__": "Smartphones", "type": "string" }
+                        },
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Tell us about your device"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "deviceDetailsForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "brand",
+                                            "required": true,
+                                            "label": "Brand",
+                                            "data-source": [
+                                                { "id": "apple", "title": "Apple" },
+                                                { "id": "samsung", "title": "Samsung" },
+                                                { "id": "google", "title": "Google" },
+                                                { "id": "xiaomi", "title": "Xiaomi" },
+                                                { "id": "other", "title": "Other" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "purchasePrice",
+                                            "label": "Purchase price (€)",
+                                            "input-type": "number",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "productType": "smartphones",
+                                                    "brand": "${form.brand}",
+                                                    "price": "${form.purchasePrice}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    },
+                    {
+                        "id": "THIRD_SCREEN",
+                        "title": "Computer Insurance",
+                        "data": {
+                            "selectedProduct": { "__example__": "computers", "type": "string" },
+                            "selectedProductTitle": { "__example__": "Computers", "type": "string" }
+                        },
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Tell us about your computer"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "computerDetailsForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "computerType",
+                                            "required": true,
+                                            "label": "Computer type",
+                                            "data-source": [
+                                                { "id": "laptop", "title": "Laptop" },
+                                                { "id": "desktop", "title": "Desktop" },
+                                                { "id": "allInOne", "title": "All-in-One" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "brand",
+                                            "required": true,
+                                            "label": "Brand",
+                                            "data-source": [
+                                                { "id": "apple", "title": "Apple" },
+                                                { "id": "dell", "title": "Dell" },
+                                                { "id": "hp", "title": "HP" },
+                                                { "id": "lenovo", "title": "Lenovo" },
+                                                { "id": "asus", "title": "ASUS" },
+                                                { "id": "other", "title": "Other" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "purchasePrice",
+                                            "label": "Purchase price (€)",
+                                            "input-type": "number",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "productType": "computers",
+                                                    "computerType": "${form.computerType}",
+                                                    "brand": "${form.brand}",
+                                                    "price": "${form.purchasePrice}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    },
+                    {
+                        "id": "FOURTH_SCREEN",
+                        "title": "Audio Insurance",
+                        "data": {
+                            "selectedProduct": { "__example__": "headphones", "type": "string" },
+                            "selectedProductTitle": { "__example__": "Headphones", "type": "string" }
+                        },
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Tell us about your audio device"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "audioDetailsForm",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "audioType",
+                                            "required": true,
+                                            "label": "Device type",
+                                            "data-source": [
+                                                { "id": "overEar", "title": "Over-ear headphones" },
+                                                { "id": "inEar", "title": "In-ear / Earbuds" },
+                                                { "id": "speaker", "title": "Portable speaker" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "brand",
+                                            "required": true,
+                                            "label": "Brand",
+                                            "data-source": [
+                                                { "id": "apple", "title": "Apple" },
+                                                { "id": "sony", "title": "Sony" },
+                                                { "id": "bose", "title": "Bose" },
+                                                { "id": "sennheiser", "title": "Sennheiser" },
+                                                { "id": "jbl", "title": "JBL" },
+                                                { "id": "other", "title": "Other" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "purchasePrice",
+                                            "label": "Purchase price (€)",
+                                            "input-type": "number",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "productType": "headphones",
+                                                    "audioType": "${form.audioType}",
+                                                    "brand": "${form.brand}",
+                                                    "price": "${form.purchasePrice}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "HOME",
+                        "title": "Offers",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "NavigationList",
+                                    "name": "offersNav",
+                                    "list-items": [
+                                        {
+                                            "id": "optA",
+                                            "main-content": { "title": "Option A" },
+                                            "end": { "title": "€10" },
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "DETAILS_A", "type": "screen" },
+                                                "payload": { "selection": "A" }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "id": "DETAILS_A",
+                        "title": "Details",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Form",
+                                    "name": "formA",
+                                    "children": [
+                                        {
+                                            "type": "Dropdown",
+                                            "name": "choice",
+                                            "required": true,
+                                            "data-source": []
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Go",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {}
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}

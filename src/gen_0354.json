@@ -1,0 +1,172 @@
+{
+    "prompt": {
+        "EN": "Design a one-screen WhatsApp flow for bank loan application. Ask for loan amount (number), purpose (5 radio options), credit score range (4 radio options). All required. Use camelCase."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Taking out a bank loan"
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How much money do you want to take out?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "100",
+                                            "name": "loanAmount",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "For what purpose?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Loan purpose",
+                                            "name": "loanPurpose",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "debtConsolidation", "title": "Debt consolidation" },
+                                                { "id": "homeImprovement", "title": "Home improvement" },
+                                                { "id": "medical", "title": "Medical" },
+                                                { "id": "wedding", "title": "Wedding" },
+                                                { "id": "other", "title": "Other" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Credit score range?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Credit score range",
+                                            "name": "creditScoreRange",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "score720plus", "title": "720+" },
+                                                { "id": "score680to719", "title": "680 - 719" },
+                                                { "id": "score640to679", "title": "640 - 679" },
+                                                { "id": "score640minus", "title": "640-" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "loanAmount": "${form.loanAmount}",
+                                                    "loanPurpose": "${form.loanPurpose}",
+                                                    "creditScoreRange": "${form.creditScoreRange}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Loan Information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "SCREEN_A",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Amount"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "name": "amountValue",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RECOMMEND", "type": "screen" },
+                                                "payload": {
+                                                    "amountVal": "${form.amountValue}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "a",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Amount",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "purpose",
+                                            "required": true,
+                                            "data-source": []
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalAmount": "${data.amountVal}",
+                                                    "finalPurpose": "${form.purpose}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "b",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Purpose"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

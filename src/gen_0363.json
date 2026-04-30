@@ -1,0 +1,219 @@
+{
+    "prompt": {
+        "EN": "Create a 2-step mortgage approval flow. Step 1: property type (radio: Single Family, Condo, Townhouse, Multi-family, Land) and purchase price (text). Step 2: purchase experience and customer service (both dropdowns from Excellent to Very Poor). Navigate then complete. Use camelCase."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "What is the type of your property?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Type of property",
+                                            "name": "propertyType",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "singleFamily", "title": "Single Family" },
+                                                { "id": "condo", "title": "Condo" },
+                                                { "id": "townhouse", "title": "Townhouse" },
+                                                { "id": "multiFamily", "title": "Multi-family" },
+                                                { "id": "land", "title": "Land" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Estimated purchase price"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "text",
+                                            "label": "Purchase price",
+                                            "name": "purchasePrice",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Continue",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "propertyType": "${form.propertyType}",
+                                                    "purchasePrice": "${form.purchasePrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Mortgage Approval"
+                    },
+                    {
+                        "data": {
+                            "propertyType": { "__example__": "singleFamily", "type": "string" },
+                            "purchasePrice": { "__example__": "250000", "type": "string" }
+                        },
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Rate the following: "
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Purchase experience",
+                                            "required": true,
+                                            "name": "purchaseExperience",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Dropdown",
+                                            "label": "Customer service",
+                                            "required": true,
+                                            "name": "customerService",
+                                            "data-source": [
+                                                { "id": "excellent", "title": "★★★★★ • Excellent (5/5)" },
+                                                { "id": "good", "title": "★★★★☆ • Good (4/5)" },
+                                                { "id": "average", "title": "★★★☆☆ • Average (3/5)" },
+                                                { "id": "poor", "title": "★★☆☆☆ • Poor (2/5)" },
+                                                { "id": "veryPoor", "title": "★☆☆☆☆ • Very Poor (1/5)" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Done",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "purchaseExperience": "${form.purchaseExperience}",
+                                                    "customerService": "${form.customerService}",
+                                                    "propertyType": "${data.propertyType}",
+                                                    "purchasePrice": "${data.purchasePrice}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Purchase evaluation"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "PAGE1",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "name": "typeRadio",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "townhouse", "title": "Townhouse" },
+                                                { "id": "land", "title": "Land" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "name": "price",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "navigate",
+                                                "next": { "name": "RATE", "type": "screen" },
+                                                "payload": {
+                                                    "t": "${form.typeRadio}",
+                                                    "p": "${form.price}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "form1",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "title": "Step1",
+                        "terminal": false
+                    },
+                    {
+                        "data": {},
+                        "id": "RATE",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextArea",
+                                            "name": "comment",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Finish",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "finalType": "${data.t}",
+                                                    "finalPrice": "${data.p}",
+                                                    "finalComment": "${form.comment}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "form2",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": false,
+                        "title": "Step2"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}

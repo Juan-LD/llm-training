@@ -1,0 +1,133 @@
+{
+    "prompt": {
+        "EN": "Generate a one-screen bank loan application flow. Heading: 'Taking out a bank loan'. Ask for loan amount (number input), loan purpose (radio: Debt consolidation, Home improvement, Medical, Wedding, Other), and credit score range (radio: 720+, 680-719, 640-679, 640-). All required. Complete action submits all. Use camelCase: loanAmount, loanPurpose, creditScoreRange."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextHeading",
+                                            "text": "Taking out a bank loan"
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "How much money do you want to take out?"
+                                        },
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "label": "100",
+                                            "name": "loanAmount",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "For what purpose?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Loan purpose",
+                                            "name": "loanPurpose",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "debtConsolidation", "title": "Debt consolidation" },
+                                                { "id": "homeImprovement", "title": "Home improvement" },
+                                                { "id": "medical", "title": "Medical" },
+                                                { "id": "wedding", "title": "Wedding" },
+                                                { "id": "other", "title": "Other" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "TextSubheading",
+                                            "text": "Credit score range?"
+                                        },
+                                        {
+                                            "type": "RadioButtonsGroup",
+                                            "label": "Credit score range",
+                                            "name": "creditScoreRange",
+                                            "required": true,
+                                            "data-source": [
+                                                { "id": "score720plus", "title": "720+" },
+                                                { "id": "score680to719", "title": "680 - 719" },
+                                                { "id": "score640to679", "title": "640 - 679" },
+                                                { "id": "score640minus", "title": "640-" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Next",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "loanAmount": "${form.loanAmount}",
+                                                    "loanPurpose": "${form.loanPurpose}",
+                                                    "creditScoreRange": "${form.creditScoreRange}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Loan Information"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "screens": [
+                    {
+                        "data": {},
+                        "id": "RECOMMEND",
+                        "layout": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "input-type": "number",
+                                            "name": "amount",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Submit",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "onlyAmount": "${form.amount}"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "name": "flowPath",
+                                    "type": "Form"
+                                }
+                            ],
+                            "type": "SingleColumnLayout"
+                        },
+                        "terminal": true,
+                        "title": "Loan"
+                    }
+                ],
+                "version": "7.3"
+            }
+        }
+    ]
+}
