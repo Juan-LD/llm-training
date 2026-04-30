@@ -1,1 +1,133 @@
-{}
+{
+    "prompt": {
+        "EN": "Make a one-screen newsletter subscription form. Email required (email type). Checkbox group with 4 interest options. Opt-in for extra updates. Complete action. Use camelCase: subscriberEmail, interests, allowExtra."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "NEWSLETTER_SCREEN",
+                        "title": "Stay Updated",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Get aquarium news, events & special offers"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "newsletterForm",
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "email",
+                                            "label": "Email address",
+                                            "input-type": "email",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "interests",
+                                            "label": "Interested in",
+                                            "data-source": [
+                                                { "id": "events", "title": "Special events" },
+                                                { "id": "discounts", "title": "Discounts & offers" },
+                                                { "id": "education", "title": "Educational programs" },
+                                                { "id": "animals", "title": "New animal arrivals" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "name": "extra",
+                                            "label": "Receive other extra updates"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Subscribe",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "subscriberEmail": "${form.email}",
+                                                    "interests": "${form.interests}",
+                                                    "allowExtra": "${form.extra}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "FIRST_PAGE",
+                        "title": "Sign Up",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "RadioButtonsGroup",
+                                    "name": "emailRadio",
+                                    "required": true,
+                                    "data-source": [
+                                        { "id": "yes", "title": "Yes" },
+                                        { "id": "no", "title": "No" }
+                                    ]
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Next",
+                                    "on-click-action": {
+                                        "name": "navigate",
+                                        "next": { "name": "SECOND_PAGE", "type": "screen" },
+                                        "payload": { "emailChoice": "${form.emailRadio}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    },
+                    {
+                        "id": "SECOND_PAGE",
+                        "title": "Interests",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "Dropdown",
+                                    "name": "interestDrop",
+                                    "required": false,
+                                    "data-source": []
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Finish",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "finalEmailChoice": "${data.emailChoice}", "finalInterest": "${form.interestDrop}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}

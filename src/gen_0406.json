@@ -1,1 +1,129 @@
-{}
+{
+    "prompt": {
+        "EN": "Create a newsletter signup survey. Email field required (email type). Checkbox group for interests (4 options). Opt-in for extra updates. Complete action. Use camelCase."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "NEWSLETTER_SCREEN",
+                        "title": "Stay Updated",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Get aquarium news, events & special offers"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "newsletterForm",
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "email",
+                                            "label": "Email address",
+                                            "input-type": "email",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "interests",
+                                            "label": "Interested in",
+                                            "data-source": [
+                                                { "id": "events", "title": "Special events" },
+                                                { "id": "discounts", "title": "Discounts & offers" },
+                                                { "id": "education", "title": "Educational programs" },
+                                                { "id": "animals", "title": "New animal arrivals" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "name": "extra",
+                                            "label": "Receive other extra updates"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Subscribe",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "subscriberEmail": "${form.email}",
+                                                    "interests": "${form.interests}",
+                                                    "allowExtra": "${form.extra}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.0",
+                "screens": [
+                    {
+                        "id": "FIRST",
+                        "title": "Signup",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextInput",
+                                    "name": "userEmail",
+                                    "required": true,
+                                    "input-type": "text"
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Next",
+                                    "on-click-action": {
+                                        "name": "navigate",
+                                        "next": { "name": "SECOND", "type": "screen" },
+                                        "payload": { "emailText": "${form.userEmail}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    },
+                    {
+                        "id": "SECOND",
+                        "title": "Options",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "OptIn",
+                                    "name": "extraUpdates",
+                                    "required": false
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Finish",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "finalEmail": "${data.emailText}", "finalExtra": "${form.extraUpdates}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": false
+                    }
+                ]
+            }
+        }
+    ]
+}

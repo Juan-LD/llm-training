@@ -1,1 +1,112 @@
-{}
+{
+    "prompt": {
+        "EN": "Build a newsletter subscription flow. One screen. Email required (email type). Checkbox group for interests (4 options). Opt-in for extra updates. Complete action. Use camelCase field names."
+    },
+    "ok_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "NEWSLETTER_SCREEN",
+                        "title": "Stay Updated",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextSubheading",
+                                    "text": "Get aquarium news, events & special offers"
+                                },
+                                {
+                                    "type": "Form",
+                                    "name": "newsletterForm",
+                                    "children": [
+                                        {
+                                            "type": "TextInput",
+                                            "name": "email",
+                                            "label": "Email address",
+                                            "input-type": "email",
+                                            "required": true
+                                        },
+                                        {
+                                            "type": "CheckboxGroup",
+                                            "name": "interests",
+                                            "label": "Interested in",
+                                            "data-source": [
+                                                { "id": "events", "title": "Special events" },
+                                                { "id": "discounts", "title": "Discounts & offers" },
+                                                { "id": "education", "title": "Educational programs" },
+                                                { "id": "animals", "title": "New animal arrivals" }
+                                            ]
+                                        },
+                                        {
+                                            "type": "OptIn",
+                                            "name": "extra",
+                                            "label": "Receive other extra updates"
+                                        },
+                                        {
+                                            "type": "Footer",
+                                            "label": "Subscribe",
+                                            "on-click-action": {
+                                                "name": "complete",
+                                                "payload": {
+                                                    "subscriberEmail": "${form.email}",
+                                                    "interests": "${form.interests}",
+                                                    "allowExtra": "${form.extra}"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ],
+    "ko_flows": [
+        {
+            "EN": {
+                "version": "7.3",
+                "screens": [
+                    {
+                        "id": "START",
+                        "title": "Subscribe",
+                        "data": {},
+                        "layout": {
+                            "type": "SingleColumnLayout",
+                            "children": [
+                                {
+                                    "type": "TextInput",
+                                    "name": "emailAddress",
+                                    "required": true,
+                                    "input-type": "email"
+                                },
+                                {
+                                    "type": "CheckboxGroup",
+                                    "name": "preferences",
+                                    "required": false,
+                                    "data-source": [
+                                        { "id": "events", "title": "Events" }
+                                    ]
+                                },
+                                {
+                                    "type": "Footer",
+                                    "label": "Submit",
+                                    "on-click-action": {
+                                        "name": "complete",
+                                        "payload": { "email": "${form.emailAddress}", "pref": "${form.preferences}" }
+                                    }
+                                }
+                            ]
+                        },
+                        "terminal": true
+                    }
+                ]
+            }
+        }
+    ]
+}
