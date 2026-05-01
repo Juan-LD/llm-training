@@ -1,0 +1,231 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that acts as a signup form with the fields (name, number, email, password, phone, description and accept Terms of Service.)"
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "TextHeading",
+                "text": "Registration form"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Full name",
+                "name": "text input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Number Input",
+                "input-type": "number",
+                "name": "number input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Email Input",
+                "input-type": "email",
+                "name": "email input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Password Input",
+                "input-type": "password",
+                "name": "password input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Phone Input",
+                "input-type": "phone",
+                "name": "phone input"
+              },
+              {
+                "type": "TextArea",
+                "required": true,
+                "label": "Description",
+                "name": "text area"
+              },
+              {
+            "type": "OptIn",
+            "name": "toc",
+            "required": true,
+            "label": "Terms of Service.",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "type": "screen",
+                "name": "Terms"
+              },
+              "payload": {}
+            }
+          },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+     {
+      "id": "Terms",
+      "title": "Terms of Service",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "RichText",
+            "text": [
+              "This is a mock-up of ToC demonstrating the supported syntax of RichText components",
+              "# Terms of Service",
+              "## 1. Acceptance of Terms",
+              "By using our services, you *agree* to a these lol **Terms of Service** (*\"Terms\"*). If you do not *agree*, please do not use our services.",
+              "## 2. Contact Information",
+              "For questions, contact us at **[your email address]**.",
+              "Alternatively please go to our [Fancy web-site](https://www.whatsapp.com) to learn more about our services.",
+              "**Last Updated:** ***[Date]***"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "TextHeading",
+                "text": "Registration form"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Full name",
+                "name": "text input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Number Input",
+                "input-type": "number",
+                "name": "number input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Email Input",
+                "input-type": "email",
+                "name": "email input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Password Input",
+                "input-type": "password",
+                "name": "password input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Phone Input",
+                "input-type": "phone",
+                "name": "phone input"
+              },
+              {
+                "type": "TextArea",
+                "required": true,
+                "label": "Description",
+                "name": "text area"
+              },
+              {
+            "type": "terms",
+            "name": "toc",
+            "required": true,
+            "label": "Terms of Service.",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "type": "screen",
+                "name": "Terms"
+              },
+              "payload": {}
+            }
+          },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+     {
+      "id": "Terms",
+      "title": "Terms of Service",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "RichText",
+            "text": [
+              "This is a mock-up of ToC demonstrating the supported syntax of RichText components",
+              "# Terms of Service",
+              "## 1. Acceptance of Terms",
+              "By using our services, you *agree* to a these lol **Terms of Service** (*\"Terms\"*). If you do not *agree*, please do not use our services.",
+              "## 2. Contact Information",
+              "For questions, contact us at **[your email address]**.",
+              "Alternatively please go to our [Fancy web-site](https://www.whatsapp.com) to learn more about our services.",
+              "**Last Updated:** ***[Date]***"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+          }
+  ]
+}

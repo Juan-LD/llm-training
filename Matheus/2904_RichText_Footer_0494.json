@@ -1,0 +1,83 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow with one screen using 'RichText' and 'Footer' components."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "RichText",
+            "text": [
+              "This is a mock-up of ToC demonstrating the supported syntax of RichText components",
+              "# Terms of Service",
+              "## 1. Acceptance of Terms",
+              "By using our services, you *agree* to a these lol **Terms of Service** (*\"Terms\"*). If you do not *agree*, please do not use our services.",
+              "**Here is image example:**",
+              "## 2. Contact Information",
+              "**Last Updated:** ***[Date]***"
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            'type': "RichText",
+            "text": [
+              "This is a mock-up of ToC demonstrating the supported syntax of RichText components",
+              "# Terms of Service",
+              "## 1. Acceptance of Terms",
+              "By using our services, you *agree* to a these lol **Terms of Service** (*\"Terms\"*). If you do not *agree*, please do not use our services.",
+              "**Here is image example:**",
+              "## 2. Contact Information",
+              "**Last Updated:** ***[Date]***"
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+          }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect your access code using a 'TextEntry'."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "passcode",
+                "label": "Your access code",
+                "name": "Your_access_code_ea7a55",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your access code."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_access_code_0": "${form.Your_access_code_ea7a55}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "passcode",
+                "label": "Your access code",
+                "name": "Your_access_code_ea7a55",
+                "required": true,
+                "type": "TextInput",
+                "": "Enter your access code."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_access_code_0": "${form.Your_access_code_ea7a55}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that initiates with a 'Basic Text' component containing a Heading, Subheading, Body, and Caption to introduce a feedback survey. Following the text, include a 'Chips Selector' component that allows the user to select their satisfaction level from three options: 'Satisfied', 'Neutral', and 'Unsatisfied'."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "Service Feedback"
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "Your opinion matters"
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Please let us know how your experience was today so we can continue to improve our services for you."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Response time: < 1 minute"
+                },
+                {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "How satisfied were you with our service today?",
+            "description": "Please select the option that best reflects your experience.",
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "satisfied",
+                "title": "Satisfied"
+              },
+              {
+                "id": "neutral",
+                "title": "Neutral"
+              },
+              {
+                "id": "unsatisfied",
+                "title": "Unsatisfied"
+              }
+            ]
+          },
+                {
+                  "type": "Footer",
+                  "label": "Submit",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {
+                      "rating": "{data.satisfaction_level}"
+                    }
+                  }
+                }
+              ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "3.0",
+        "screens": [
+          {
+            "id": "SURVEY_SCREEN",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "Service Feedback"
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "Your opinion matters",
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Please let us know how your experience was today so we can continue to improve our services for you."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Response time: < 1 minute"
+                },
+                {
+                  "type": "ChipsSelector",
+                  "name": "satisfaction_level",
+                  "label": "How would you rate us?",
+                  "options": [
+                    {
+                      "id": "1",
+                      "title": "Satisfied"
+                    },
+                    {
+                      "id": "2",
+                      "title": "Neutral"
+                    },
+                    {
+                      "id": "3",
+                      "title": "Unsatisfied"
+                    }
+                  ],
+                  "required": true,
+                  "error_intentional": "Missing closing bracket in payload mapping"
+                },
+                {
+                  "type": "Footer",
+                  "label": "Submit",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {
+                      "rating": "${data.satisfaction_level" 
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with a single terminal screen featuring a CalendarPicker and a Footer. The CalendarPicker should be in 'single' mode, labeled 'Single date', and be a required field. It must allow selections between 2024-10-21 and 2025-12-12, but only on weekdays (Mon-Fri), excluding the specific dates 2024-11-28 and 2024-11-01. Set the initial value to 2024-10-23 and trigger a 'data_exchange' action on selection. The Footer should also trigger a 'data_exchange' action when clicked."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "data_api_version": "3.0",
+        "routing_model": {},
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "terminal": true,
+            "title": "Demo screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "CalendarPicker",
+                  "name": "calendar",
+                  "label": "Single date",
+                  "helper-text": "Select a date",
+                  "required": true,
+                  "mode": "single",
+                  "min-date": "2024-10-21",
+                  "max-date": "2025-12-12",
+                  "unavailable-dates": [
+                    "2024-11-28",
+                    "2024-11-01"
+                  ],
+                  "include-days": [
+                    "Mon",
+                    "Tue",
+                    "Wed",
+                    "Thu",
+                    "Fri"
+                  ],
+                  "init-value": "2024-10-23",
+                  "on-select-action": {
+                    "name": "data_exchange",
+                    "payload": {
+                      "calendar": "${form.calendar}"
+                    }
+                  }
+                },
+                {
+                  "type": "Footer",
+                  "label": "Continue",
+                  "on-click-action": {
+                    "name": "data_exchange",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "data_api_version": "3.0",
+        "routing_model": (),
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "terminal": true,
+            "title": "Demo screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Footer",
+                  "label": "Continue",
+                  "on-click-action": {
+                    "name": "data_exchange",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

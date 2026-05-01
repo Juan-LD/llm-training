@@ -1,0 +1,327 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that has a navigation menu on the first page to go to other pages, and place a button on subsequent pages to go to the next page, using a 'NavigationList' and 'Footer'."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "FIRST_SCREEN": [
+      "SECOND_SCREEN",
+      "THIRD_SCREEN"
+    ],
+    "SECOND_SCREEN": [
+      "CONTACT"
+    ],
+    "THIRD_SCREEN": [
+      "CONTACT"
+    ],
+    "CONTACT": []
+  },
+  "screens": [
+    {
+      "id": "FIRST_SCREEN",
+      "title": "Our offers",
+      "data": {
+        "insurances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "main-content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id": "Page2",
+              "main-content": {
+                "title": "Page 2",
+                "metadata": "Caption "
+              },
+              "on-click-action": {
+                "name": "navigate",
+                "next": {
+                    "name": "SECOND_SCREEN",
+                    "type": "screen"
+                  }
+              }
+            },
+            {
+              "id": "Page3",
+              "main-content": {
+                "title": "Page 3",
+                "metadata": "Caption1"
+              },
+              "on-click-action": {
+                "name": "navigate",
+                "next": {
+                    "name": "THIRD_SCREEN",
+                    "type": "screen"
+                }
+              
+              }
+            }
+          ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "NavigationList",
+            "name": "insurances",
+            "list-items": "${data.insurances}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SECOND_SCREEN",
+      "terminal": true,
+      "title": "page 2",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "page 2"
+          },
+          {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload":{}
+                }
+          }
+        ]
+      }
+    },
+    {
+      "id": "THIRD_SCREEN",
+      "title": "page 3",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "page 3"
+          },
+          {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload":{}
+                }
+          }
+        ]
+      }
+    },
+    {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Page Contact"
+          },
+          
+            {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload":{}
+                }
+              }
+        ]
+  
+        
+      }
+    }
+  ]
+}
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "FIRST_SCREEN": [
+      "SECOND_SCREEN",
+      "THIRD_SCREEN"
+    ],
+    "SECOND_SCREEN": [
+      "CONTACT"
+    ],
+    "THIRD_SCREEN": [
+      "CONTACT"
+    ],
+    "CONTACT": []
+  },
+  "screens": [
+    {
+      "id": "FIRST_SCREEN",
+      "title": "Our offers",
+      "data": {
+        "insurances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "main-content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id", "Page2",
+              "main-content": {
+                "title": "Page 2",
+                "metadata": "Caption "
+              },
+              "on-click-action": {
+                "name": "navigate",
+                "next": {
+                    "name": "SECOND_SCREEN",
+                    "type": "screen"
+                  }
+              }
+            },
+            {
+              "id": "Page3",
+              "main-content": {
+                "title": "Page 3",
+                "metadata": "Caption1"
+              },
+              "on-click-action": {
+                "name": "navigate",
+                "next": {
+                    "name": "THIRD_SCREEN",
+                    "type": "screen"
+                }
+              
+              }
+            }
+          ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "NavigationList",
+            "name": "insurances",
+            "list-items": "${data.insurances}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SECOND_SCREEN",
+      "terminal": true,
+      "title": "page 2",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "page 2"
+          },
+          {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload":{}
+                }
+          }
+        ]
+      }
+    },
+    {
+      "id": "THIRD_SCREEN",
+      "title": "page 3",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "page 3"
+          },
+          {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload":{}
+                }
+          }
+        ]
+      }
+    },
+    {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Page Contact"
+          },
+          
+            {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload":{}
+                }
+              }
+        ]
+  
+        
+      }
+    }
+  ]
+}
+          }
+  ]
+}

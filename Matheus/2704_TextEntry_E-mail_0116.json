@@ -1,0 +1,96 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect the email address using a 'TextEntry'."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "email",
+                "label": "Your E-mail",
+                "name": "Your_Email_e928b0",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your E-mail."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Email_0": "${form.Your_Email_e928b0}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layoute": {
+        "children": [
+          {
+            "children": [
+              {
+                "inputtype": "email",
+                "label": "Your E-mail",
+                "name": "Your_Email_e928b0",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your E-mail."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": 
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Email_0": "${form.Your_Email_e928b0}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

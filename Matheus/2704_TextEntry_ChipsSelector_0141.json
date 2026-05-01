@@ -1,0 +1,128 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect a name and let the user choose their interests to get personalized design ideas and solutions, use a Selector to show the 4 options."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "6.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_bcfadf",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your name."
+              },
+          {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "Personalize your experience",
+            "description": "Choose your interests to get personalized design ideas and solution",
+            "max-selected-items": 2,
+            "data-source": [
+              {
+                "id": "room_layout",
+                "title": "🏡 Room layouts"
+              },
+              {
+                "id": "lighting",
+                "title": "💡 Lighting"
+              },
+              {
+                "id": "renovation",
+                "title": "Renovation"
+              },
+              {
+                "id": "furnitures",
+                "title": "📐 Room layouts"
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "6.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_bcfadf",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your name."
+              },
+          {
+            "type": "ChipsSelector",
+            "name": "chips",
+            'label': "Personalize your experience",
+            "descrition": "Choose your interests to get personalized design ideas and solution",
+            "max-selected-items": 2,
+            "data-source": [
+              {
+                "id": "room_layout",
+                "title": "🏡 Room layouts"
+              },
+              {
+                "id": "lighting",
+                "title": "💡 Lighting"
+              },
+              {
+                "id": "renovation",
+                "title": "Renovation"
+              },
+              {
+                "id": "furnitures",
+                "title": "📐 Room layouts"
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+          
+    }
+
+  ]
+}

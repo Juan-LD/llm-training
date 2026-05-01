@@ -1,0 +1,117 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow for a travel agency that allows users to select from four different travel packages (Tropical Beach, Mountain Adventure, City Break, and Historical Tour) using a RadioButtonsGroup and complete the selection with a footer button."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "TRAVEL_PACKAGES",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "RadioButtonsGroup",
+                  "name": "packages",
+                  "required": true,
+                  "data-source": [
+                    {
+                      "id": "1",
+                      "title": "Tropical Beach Vacation",
+                      "description": "Enjoy 7 nights and 8 days at a luxury beach resort in Bali. Including flights and stays",
+                      "alt-text": "beach vacation",
+                      "image": "image1"
+                    },
+                    {
+                      "id": "2",
+                      "title": "Mountain Adventure",
+                      "description": "Embark on a 5-day guided trek in the Swiss Alps. Package includes flights and stays",
+                      "image": "image2"
+                    },
+                    {
+                      "id": "3",
+                      "title": "City Break",
+                      "description": "Explore the sights and sounds of New York City with our 4 nights and 5 days package",
+                      "image": "image3"
+                    },
+                    {
+                      "id": "4",
+                      "title": "Historical Tour",
+                      "description": "Take a 7-day historical tour of Rome, Italy. Package includes flights and stays",
+                      "image": "image4"
+                    }
+                  ],
+                  "label": "Explore our exciting packages"
+                },
+                {
+                  "type": "Footer",
+                  "label": "Continue",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            },
+            "title": "Travel Packages",
+            "terminal": true
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "TRAVEL_PACKAGES",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "RadioButtonsGroup",
+                  "name": "packages",
+                  "required": true,
+                  "data-": [
+                    {
+                      "id": "1",
+                      "title": "Tropical Beach Vacation",
+                      "description": "Enjoy 7 nights and 8 days at a luxury beach resort in Bali. Including flights and stays",
+                      "alt-text": "beach vacation",
+                      "image": "image1"
+                    },
+                    {
+                      "id": "2",
+                      "title": "Mountain Adventure",
+                      "description": "Embark on a 5-day guided trek in the Swiss Alps. Package includes flights and stays",
+                      "image": "image2"
+                    },
+                    {
+                      "id": "3",
+                      "title": "City Break",
+                      "description": "Explore the sights and sounds of New York City with our 4 nights and 5 days package",
+                      "image": "image3"
+                    },
+                    {
+                      "id": "4",
+                      "title": "Historical Tour",
+                      "description": "Take a 7-day historical tour of Rome, Italy. Package includes flights and stays",
+                      "image": "image4"
+                    }
+                  ],
+                  "label": "Explore our exciting packages"
+                }
+              ]
+            },
+            "title": "Travel Packages",
+            "terminal": true
+          }
+        ]
+      }
+    }
+  ]
+}

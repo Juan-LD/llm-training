@@ -1,0 +1,55 @@
+{
+  "prompt": {
+    "EN": "Create a Flow with a 'TextCaption' labeled 'This is a Caption'."
+      },
+  "ok_flows": [
+    {
+  "EN": {
+    "version": "7.3",
+    "screens": [
+      {
+        "id": "DEMO_SCREEN",
+        "title": "Demo Screen",
+        "terminal": true,
+        "layout": {
+          "type": "SingleColumnLayout",
+          "children": [
+            { "type": "TextCaption","text": "This is a Caption", "visible": true },
+            { "type": "Footer", "label": "Continue","on-click-action": {
+                "name": "complete",
+                "payload": {}
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+    }
+],
+  "ko_flows": [
+    { 
+  "EN": {
+    "version": "7.3",
+    "screens": [
+      {
+        "id": "DEMO_SCREEN",
+        "title": "Demo Screen",
+        "terminal": on,
+        "layout": {
+          "type": "SingleColumnLayout",
+          "children": [
+            { "type": "TextCaption","text": "This is a Caption", "visible": true },
+            { "type": "Footer", "label": "Continue","on-click-action": {
+                "name": "complete",
+                "payload": {}
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+    }
+  ]
+}

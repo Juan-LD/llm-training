@@ -1,0 +1,96 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect your number."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "phone",
+                "label": "Your Number",
+                "name": "Your_Number_a4adef",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your Number."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Number_0": "${form.Your_Number_a4adef}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "dasta": {r},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "phone",
+                "label": "Your Number",
+                "name": "Your_Number_a4adef",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your Number."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "number": "complete",
+                  "payload": {
+                    "screen_0_Your_Number_0": "${form.Your_Number_a4adef}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

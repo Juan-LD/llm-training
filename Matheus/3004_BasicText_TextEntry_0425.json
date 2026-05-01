@@ -1,0 +1,117 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow consisting of a single screen. The screen must feature a 'Basic Text' component displaying a Heading, Subheading, Body, and Caption to introduce a feedback form. Below the text, include a 'TextEntry' component to allow the user to input their comments."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "FEEDBACK_SCREEN",
+      "title": "FEEDBACK",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+                  "type": "TextHeading",
+                  "text": "Customer Feedback"
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "We value your opinion"
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Please let us know how we can improve our services for you."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Your response is anonymous"
+                },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Enter your comments",
+                "helper-text": "Maximum 500 characters",
+                "name": "userFeedback"
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "FEEDBACK_SCREEN",
+      "title": "FEEDBACK",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+                  "type": "TextHeading",
+                  "text": "Customer Feedback"
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "We value your opinion"
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Please let us know how we can improve our services for you."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Your response is anonymous"
+                },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "childrem": [
+              {
+                "type": "TextInput",
+                "required": true,
+                "label-text": "Enter your comments",
+                "helper-text": "Maximum 500 characters";
+                "name": "userFeedback"
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

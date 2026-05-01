@@ -1,0 +1,75 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that initiates with a 'Basic Text' component containing a Heading, Subheading, Body, and Caption to introduce the service, followed by a 'RichText' component to provide formatted detailed information or terms and conditions."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "screens": [
+          {
+            "id": "WELCOME_SCREEN",
+            "layout": {
+              "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "Welcome to Our Service"
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "Your journey starts here"
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Please review the details below before proceeding with your application."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Step 1 of 3"
+                },
+                {
+                  "type": "RichText",
+                  "text": "By continuing, you agree to our *Terms of Service*. Visit our [website](https://example.com) for more **info**."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "screens": [
+          {
+            "id": "WELCOME_SCREEN",
+            "layout": {
+              "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "Welcome to Our Service"
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "Your journey starts here"
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Please review the details below before proceeding with your application."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Step 1 of 3"
+                },
+                {
+                  "type": "RichText",
+                  "content": "This is an error because the property should be 'text', not 'content'."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

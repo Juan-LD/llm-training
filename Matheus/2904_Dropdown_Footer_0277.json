@@ -1,0 +1,109 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow featuring a single terminal screen named 'Demo Screen'. This screen should contain a Form with a Dropdown component offering three options (Dropdown Option 1, 2, and 3) and a Footer with the label 'Continue' that completes the flow upon being clicked."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "Dropdown",
+                      "label": "Dropdown",
+                      "name": "Dropdown",
+                      "data-source": [
+                        {
+                          "id": "Dropdown Option 1",
+                          "title": "Dropdown Option 1"
+                        },
+                        {
+                          "id": "Dropdown Option 2",
+                          "title": "Dropdown Option 2"
+                        },
+                        {
+                          "id": "Dropdown Option 3",
+                          "title": "Dropdown Option 3"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Continue",
+                      "on-click-action": {
+                        "name": "complete",
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Forma",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "Dropdawn",
+                      "label": "Dropdown",
+                      "name": "Dropdown",
+                      "data-source": [
+                        {
+                          "id": "Dropdown Option 1",
+                          "title": "Dropdown Option 1"
+                        },
+                        {
+                          "id": "Dropdown Option 2",
+                          "title"; "Dropdown Option 2"
+                        },
+                        {
+                          "id": "Dropdown Option 3",
+                          "title": "Dropdown Option 3"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Continue",
+                      "on-click-action": {
+                        "name": "complete",
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect a number using 'TextEntry'."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "number",
+                "label": "Number",
+                "name": "Number_fb1a53",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter Number."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Number_0": "${form.Number_fb1a53}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "number",
+                "label": "Number",
+                "name": "Number_fb1a53",
+                "required": false,
+                "type": "TextInput",
+                "helper-text": "Enter Number."
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Number_0": "${form.Number_fb1a53}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form",
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "prompt": {
+    "EN": "Create a simple WhatsApp Flow consisting of a single screen. This screen must include a 'RichText' component at the top to display a confirmation message or informational text using basic Markdown formatting. At the bottom of the screen, include a 'Footer' component with a label such as 'Finish' or 'Dismiss' that triggers the 'complete' action to close the flow when clicked."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Thank You! \nYour request has been successfully processed. You can now close this window",
+                "type": "TextBody"
+              },
+              {
+                "label": "Finish",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {}
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Thank You! \nYour request has been successfully processed. You can now close this window",
+                "type": "TextBody"
+              },
+              {
+                "label": "Finish",
+                "on-click-action": {
+                  "name": "complete",
+                  "pay": {}
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "typa": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ]
+}

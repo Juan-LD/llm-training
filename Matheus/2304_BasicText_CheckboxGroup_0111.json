@@ -1,0 +1,189 @@
+{
+  "prompt": {
+    "EN": "Create a single-screen WhatsApp flow for a newsletter subscription. The screen must include a Basic Text explaining the subscription benefits. Below the text, include a Checkbox to allow users to select their preferred topics of interest."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "data": {
+        "all_topics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": [
+                    {
+                      "id": "tech",
+                      "title": "Technology"
+                    },
+                    {
+                      "id": "lifestyle",
+                      "title": "Lifestyle"
+                    },
+                    {
+                      "id": "finance",
+                      "title": "Finance"
+                    }
+                  ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+                {
+                  "type": "TextHeading",
+                  "text": "Stay Updated!"
+                },
+                {
+                  "type": "TextSubheading",
+                  "text": "Join our weekly newsletter"
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Get the latest news, product updates, and exclusive offers delivered straight to your inbox."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Select at least one topic"
+                },
+                {
+            "type": "Form",
+            "name": "checkbox_example_form",
+            "children": [
+              {
+                "type": "CheckboxGroup",
+                "name": "topics",
+                "label": "Topics:",
+                "required": true,
+                "data-source": "${data.all_topics}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "topics": "${form.topics}"
+                  }
+                }
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+              ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "data": {
+        "all_topics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": [
+                    {
+                      "id": "tech",
+                      "title": "Technology"
+                    },
+                    {
+                      "id": "lifestyle",
+                      "title": "Lifestyle"
+                    },
+                    {
+                      "id": "finance",
+                      "title": "Finance"
+                    }
+                  ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+                {
+                  "tpe": "TextSubheading",
+                  "text": "Join our weekly newsletter"
+                },
+                {
+                  "type": "TextBody",
+                  "text": "Get the latest news, product updates, and exclusive offers delivered straight to your inbox."
+                },
+                {
+                  "type": "TextCaption",
+                  "text": "Select at least one topic"
+                },
+                {
+            "type": "Form",
+            "name": "checkbox_example_form",
+            "children": [
+              {
+                "type": "CheckboxGroup",
+                "name": "topics",
+                "labels": "Topics:",
+                "required": true,
+                "data-source": "${data.all_topics}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "topics": "${form.topics}"
+                  }
+                }
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+              ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

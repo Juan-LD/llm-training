@@ -1,0 +1,141 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that has a screen with the following elements: TextHeading: 'Enter your information, TextInput: 'Full Name', required, TextInput: 'E-mail', required, TextInput: 'Phone Number', required,  EmbeddedLink: 'Terms of Service', footer: 'Submit' and another screen with 'Terms of Service' as TextBody"
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Enter your information",
+                "type": "TextHeading"
+              },
+              {
+                "input-type": "text",
+                "label": "Full Name",
+                "name": "Full_Name_a5d8f8",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "email",
+                "label": "E-mail",
+                "name": "Email_ae765b",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_bd212e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "type": "TextCaption",
+                "markdown": true,
+                "text": "\t\t\t\t[Terms of Service](https://exemplo.com)" 
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Full_Name_0": "${form.Full_Name_a5d8f8}",
+                    "screen_0_Email_1": "${form.Email_ae765b}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_bd212e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Enter your information",
+                "type": "TextHeading"
+              },
+              {
+                "input-type": "text",
+                "label": "Full Name",
+                "name": "Full_Name_a5d8f8",
+                "required": true or False,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "email",
+                "label": "E-mail",
+                "name": "Email_ae765b",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_bd212e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "type": "TextCaption",
+                "markdown": true,
+                "text": "\t\t\t\t[Terms of Service](https://exemplo.com)" 
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Full_Name_0": "${form.Full_Name_a5d8f8}",
+                    "screen_0_Email_1": "${form.Email_ae765b}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_bd212e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          }
+  ]
+}

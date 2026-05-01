@@ -1,0 +1,451 @@
+{
+  "prompt": {
+    "EN": "Generate a WhatsApp Flow JSON. Build a complete flow for simple service scheduling. Flow structure: 1. Screen: collect full name and phone number. 2. Screen: select service. 3. Screen: select date. 4. Screen: select time. 5. Screen: summary with TextCaption and Footer to finalize."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "start",
+      "title": "Book Service",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Let's start your booking",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "Fill in your details to continue.",
+            "visible": true
+          },
+          {
+            "type": "TextInput",
+            "label": "Full name",
+            "input-type": "text",
+            "name": "nome_cliente",
+            "required": true,
+            "helper-text": "Enter your full name",
+            "visible": true
+          },
+          {
+            "type": "TextInput",
+            "label": "Phone number",
+            "input-type": "phone",
+            "name": "telefone_cliente",
+            "required": true,
+            "helper-text": "Include area code",
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "servico",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "servico",
+      "title": "Service",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Select the service",
+            "visible": true
+          },
+          {
+            "type": "Dropdown",
+            "label": "Service",
+            "name": "tipo_servico",
+            "required": true,
+            "data-source": [
+              { "id": "corte", "title": "Haircut" },
+              { "id": "barba", "title": "Beard" },
+              { "id": "combo", "title": "Haircut + Beard" },
+              { "id": "sobrancelha", "title": "Eyebrows" }
+            ],
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Pick date",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "data",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "data",
+      "title": "Appointment Date",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Choose the date",
+            "visible": true
+          },
+          {
+            "type": "DatePicker",
+            "label": "Date",
+            "name": "data_agendamento",
+            "required": true,
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Pick time",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "horario",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "horario",
+      "title": "Time",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Select a time",
+            "visible": true
+          },
+          {
+            "type": "Dropdown",
+            "label": "Time",
+            "name": "horario_agendamento",
+            "required": true,
+            "data-source": [
+              { "id": "09", "title": "09:00" },
+              { "id": "10", "title": "10:00" },
+              { "id": "11", "title": "11:00" },
+              { "id": "14", "title": "14:00" },
+              { "id": "15", "title": "15:00" },
+              { "id": "16", "title": "16:00" }
+            ],
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Review",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "resumo",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "resumo",
+      "title": "Booking Summary",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Review your details",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Name: ${data.nome_cliente}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Phone: ${data.telefone_cliente}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Service: ${data.tipo_servico}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Date: ${data.data_agendamento}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Time: ${data.horario_agendamento}",
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Confirm",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "start",
+      "title": "Book Service",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Let's start your booking",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "Fill in your details to continue.",
+            "visible": true
+          },
+          {
+            "type": "TextInput",
+            "label": "Full name",
+            "input-type": "text",
+            "name": "nome_cliente",
+            "required": true,
+            "helper-text": "Enter your full name",
+            "visible": true
+          },
+          {
+            "type": "TextInput",
+            "label": "Phone number",
+            "input-type": "phone",
+            "name": "telefone_cliente",
+            "required": true,
+            "helper-text": "Include area code",
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "servico",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "servico",
+      "title": "Service",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Select the service",
+            "visible": true
+          },
+          {
+            "type": "Dropdown",
+            "label": "Service",
+            "name": "tipo_servico",
+            "required": true,
+            "data-source": [
+              { "id": "corte", "title": "Haircut" },
+              { "id": "barba", "title": "Beard" },
+              { "id": "combo", "title": "Haircut + Beard" },
+              { "id": "sobrancelha", "title": "Eyebrows" }
+            ],
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Pick date",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "data",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "data",
+      "title": "Appointment Date",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Choose the date",
+            "visible": true
+          },
+          {
+            "type": "DatePiker",
+            "label": "Date",
+            "name": "data_agendamento",
+            "required": true,
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Pick time",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "horario",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "horario",
+      "title": "Time",
+      "terminal": false,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Select a time",
+            "visible": true
+          },
+          {
+            "type": "Dropdown",
+            "label": "Time",
+            "name": "horario_agendamento",
+            "required": true,
+            "data-source": [
+              { "id": "09", "title": "09:00" },
+              { "id": "10", "title": "10:00" },
+              { "id": "11", "title": "11:00" },
+              { "id": "14", "title": "14:00" },
+              { "id": "15", "title": "15:00" },
+              { "id": "16", "title": "16:00" }
+            ],
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Review",
+            "on-click-action": {
+              "name": "navigate",
+              "next": {
+                "name": "resumo",
+                "type": "screen"
+              }
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "resumo",
+      "title": "Booking Summary",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Review your details",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Name: ${data.nome_cliente}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Phone: ${data.telefone_cliente}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Service: ${data.tipo_servico}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Date: ${data.data_agendamento}",
+            "visible": true
+          },
+          {
+            "type": "TextCaption",
+            "text": "Time: ${data.horario_agendamento}",
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Confirm",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+          }
+  ]
+}

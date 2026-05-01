@@ -1,0 +1,166 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect the email address and accept the terms of service."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "email",
+                "label": "Your E-mail",
+                "name": "Your_Email_e928b0",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your E-mail."
+              },
+              {
+                "label": "Terms of Service",
+                "name": "Terms_of_Service_d7be72",
+                "required": true,
+                "type": "OptIn",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "OPTIN_SCREEN_screen_rmjocc",
+                    "type": "screen"
+                  },
+                  "payload": {}
+                }
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Email_0": "${form.Your_Email_e928b0}",
+                    "screen_0_Terms_of_Service_1": "${form.Terms_of_Service_d7be72}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    },
+    {
+      "data": {},
+      "id": "OPTIN_SCREEN_screen_rmjocc",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "terms of service",
+                "type": "TextBody"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "title": "Terms of Service"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "email",
+                "label": "Your E-mail",
+                "name": "Your_Email_e928b0",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your E-mail."
+              },
+              {
+                "label": "Terms of Service",
+                "name": "Terms_of_Service_d7be72",
+                "required": true,
+                "type": "OptIn",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "OPTIN_SCREEN_screen_rmjocc",
+                    "type": "screen"
+                  },
+                  "payload": {
+                }
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Email_0": "${form.Your_Email_e928b0}",
+                    "screen_0_Terms_of_Service_1": "${form.Terms_of_Service_d7be72}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    },
+    {
+      "data": {},
+      "id": "OPTIN_SCREEN_screen_rmjocc",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "terms of service",
+                "type": "TextBody"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "text": "Terms of Service"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

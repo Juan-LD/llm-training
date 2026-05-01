@@ -1,0 +1,135 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow where users select a service and include a link below for more information."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  },
+                  {
+                    "id": "3_Service_4",
+                    "title": "Service 4"
+                  }
+                ],
+                "label": "Which service do you want ?",
+                "name": "Which_service_do_you_want__be7b63",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "markdown": true,
+                "text": "[Link](https://web.whatsapp.com/)",
+                "type": "TextBody"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Which_service_do_you_want__0": "${form.Which_service_do_you_want__be7b63}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  },
+                  {
+                    "id": "3_Service_4",
+                    "title": "Service 4"
+                  }
+                ],
+                "label": "Which service do you want ?",
+                "name": "Which_service_do_you_want__be7b63",
+                "required": no false,
+                "type": "CheckboxGroup"
+              },
+              {
+                "markdown": true,
+                "text": "[Link](https://web.whatsapp.com/)",
+                "type": "TextBody"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Which_service_do_you_want__0": "${form.Which_service_do_you_want__be7b63}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "prompt": {
+    "EN": "Create a Flow with a 'TextHeading', a 'TextSubheading', a 'TextBody' and a 'TextCaption' all labeled 'This is a heading', 'This is a subheading', 'This is body text' and 'This is a text caption' respectively and title of the screen is 'Demo'."
+  },
+  "ok_flows": [
+    {
+  "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO",
+      "title": "Demo",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "This is a heading",
+            "visible": true
+          },
+          {
+            "type": "TextSubheading",
+            "text": "This is a subheading",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "This is body text"
+          },
+          {
+            "type": "TextCaption",
+            "text": "This is a text caption"
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+],
+  "ko_flows": [
+    { 
+  "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO",
+      "title": "Demo",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "This is a heading",
+            "visible": true
+          },
+          {
+            "tipe": "TextSubheading",
+            "text": "This is a subheading",
+            "visible": true
+          },
+          {
+            "tipe": "TextBody",
+            "text": "This is body text"
+          },
+          {
+            "type": "TextCaption".
+            "text": "This is a text caption"
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

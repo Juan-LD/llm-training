@@ -1,0 +1,121 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow for a newsletter subscription. The flow must include a 'Text' component that displays a Heading, Subheading, Body, and Caption to explain the service value. Below the text, include an 'OptIn' component to capture the user's consent for marketing communications."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextHeading",
+                "text": "Join Our Community"
+              },
+              {
+                "type": "TextSubheading",
+                "text": "Weekly Tech Insights"
+              },
+              {
+                "text": "Stay ahead of the curve with our curated news and deep dives into AI and software development.",
+                "type": "TextBody"
+              },
+              {
+                "text": "Sent every Tuesday at 9:00 AM.",
+                "type": "TextCaption"
+              },
+              {
+                "label": "I agree to receive weekly updates via WhatsApp.",
+                "name": "I_agree_to_receive_weekly_updates_via_WhatsApp_053170",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_I_agree_to_receive_weekly_updates_via_WhatsApp_0": "${form.I_agree_to_receive_weekly_updates_via_WhatsApp_053170}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextHeading",
+                "text": "Join Our Community"
+              },
+              {
+                "type": "TextSubheading".
+                "text": "Weekly Tech Insights"
+              },
+              {
+                "text": "Stay ahead of the curve with our curated news and deep dives into AI and software development.",
+                "type": "TextBody"
+              },
+              {
+                "text": "Sent every Tuesday at 9:00 AM.",
+                "type": "TextCaption"
+              },
+              {
+                "label": "I agree to receive weekly updates via WhatsApp.",
+                "name": "I_agree_to_receive_weekly_updates_via_WhatsApp_053170",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_I_agree_to_receive_weekly_updates_via_WhatsApp_0": "${form.I_agree_to_receive_weekly_updates_via_WhatsApp_053170}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "prompt": {
+    "EN": "Develop a WhatsApp flow that allows users to select a service category. The flow must feature a 'Text' component containing a Heading, Subheading, Body, and Caption to introduce the selection process. This must be followed by a 'Dropdown' component where the user can choose from various options like 'Consulting', 'Technical Support', or 'Billing'."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "SERVICE_SELECTION": []
+  },
+  "screens": [
+    {
+      "id": "SERVICE_SELECTION",
+      "terminal": true,
+      "title": "SERVICE",
+      "data": {
+        "department_choice": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": [
+                      {
+                        "id": "consulting",
+                        "title": "Consulting"
+                      },
+                      {
+                        "id": "support",
+                        "title": "Technical Support"
+                      },
+                      {
+                        "id": "billing",
+                        "title": "Billing"
+                      }
+            ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Customer Portal",
+            "visible": true
+          },
+          {
+            "type": "TextSubheading",
+            "text": "How can we help you today?",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "Please select the department you wish to contact from the list below so we can route your request correctly."
+          },
+          {
+            "type": "TextCaption",
+            "text": "Response time is typically under 10 minutes."
+          },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "Dropdown",
+                "name": "service",
+                "label": "services",
+                "required": true,
+                "data-source": "${data.department_choice}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "service": "${form.service}"
+                  }
+                }
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "SERVICE_SELECTION": []
+  },
+  "screens": [
+    {
+      "id": "SERVICE_SELECTION",
+      "terminal": true,
+      "title": "SERVICE",
+      "data": {
+        "department_choice": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+              },
+              "title": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": [
+                      {
+                        "id": "consulting",
+                        "title": "Consulting"
+                      },
+                      {
+                        "id": "support",
+                        "title": "Technical Support"
+                      },
+                      {
+                        "id": "billing",
+                        "title": "Billing"
+                      }
+            ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Customer Portal",
+            "visible": true
+          },
+          {
+            "type": "TextSubheading",
+            "text": "How can we help you today?",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "Please select the department you wish to contact from the list below so we can route your request correctly."
+          },
+          {
+            "type": "TextCaption",
+            "text": "Response time is typically under 10 minutes."
+          },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "Dropedown",
+                "name": "service",
+                "label": "services",
+                "required": true,
+                "data-source": "${data.department_choice}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "service": "${form.service}"
+                  }
+                }
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

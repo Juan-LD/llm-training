@@ -1,0 +1,147 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with a terminal screen titled 'Demo screen' using a SingleColumnLayout containing a Form named 'text_input_form' with a RadioButtonsGroup for selecting an appointment type and a footer that triggers a data exchange action."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "data_api_version": "3.0",
+        "routing_model": {},
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "terminal": true,
+            "title": "Demo screen",
+            "data": {
+              "all_appointment_types": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "__example__": [
+                  {
+                    "id": "1",
+                    "title": "Online"
+                  },
+                  {
+                    "id": "2",
+                    "title": "In Person"
+                  }
+                ]
+              }
+            },
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "RadioButtonsGroup",
+                      "name": "appointment_type",
+                      "label": "Appointment type",
+                      "description": "Choose your preferred appointment type",
+                      "required": true,
+                      "data-source": "${data.all_appointment_types}",
+                      "on-select-action": {
+                        "name": "data_exchange",
+                        "payload": {
+                          "appointment_type": "${form.appointment_type}"
+                        }
+                      }
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Continue",
+                      "on-click-action": {
+                        "name": "data_exchange",
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "data_api_version": "3.0",
+        "routing_model": {},
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "terminal": true,
+            "title": "Demo screen",
+            "data": {
+              "all_appointment_types": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "__example__": [
+                  {
+                    "id": "1",
+                    "title": "Online"
+                  },
+                  {
+                    "id": "2",
+                    "title": "In Person"
+                  }
+                ]
+              }
+            },
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "RadioButtonsGroup",
+                      "name": "appointment_type",
+                      "label": "Appointment type",
+                      "description": "Choose your preferred appointment type",
+                      "required": true,
+                      "data-source": "${data.all_appointment_types}",
+                      "on-select-action": {
+                        "name": "data_exchange",
+                        "payload": {
+                          "appointment_type": "${form.appointment_type}"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

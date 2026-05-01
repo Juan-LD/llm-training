@@ -1,0 +1,133 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with a single screen that utilizes a 'RichText' component to display a heading and introductory information about subscription preferences. Follow this with a 'CheckboxGroup' component that allows the user to select multiple options from a list including 'Newsletter', 'Product Updates', and 'Promotions'. The flow should include a submit button to capture the user's selections."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Communication Preferences",
+                "type": "TextSubheading"
+              },
+              {
+                "text": "Please select the types of updates you would like to ",
+                "type": "TextCaption"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Newsletter",
+                    "title": "Newsletter"
+                  },
+                  {
+                    "id": "1_Product_Updates",
+                    "title": "Product Updates"
+                  },
+                  {
+                    "id": "2_Promotions",
+                    "title": "Promotions"
+                  }
+                ],
+                "label": "Choose your interests",
+                "name": "Choose_your_interests_38da71",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Choose_your_interests_0": "${form.Choose_your_interests_38da71}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Communication Preferences",
+                "type": "TextSubheading"
+              },
+              {
+                "text": "Please select the types of updates you would like to ",
+                "type": "TextCaption"
+              },
+              {
+                "data": [
+                  {
+                    "id": "0_Newsletter",
+                    "title": "Newsletter"
+                  },
+                  {
+                    "id": "1_Product_Updates",
+                    "title": "Product Updates"
+                  },
+                  {
+                    "id": "2_Promotions",
+                    "title": "Promotions"
+                  }
+                ],
+                "label": "Choose your interests",
+                "name": "Choose_your_interests_38da71",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Choose_your_interests_0": "${form.Choose_your_interests_38da71}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that collects contact information, using a 'Footer', 'TextInput', 'ChipsSelector' and 'TextBasic'"
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+     {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "How can we get in contact with you?"
+          },
+          {
+            "type": "Form",
+            "name": "form",
+            "children": [
+              {
+                "type": "TextInput",
+                "name": "name",
+                "label": "Full name",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "phone",
+                "required": true,
+                "label": "Phone number"
+              },
+              {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "phone": "${form.phone}",
+                    "name": "${form.name}"
+                  }
+                }
+              },
+              {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "required": true,
+            "label": "Select your gender",
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "Female",
+                "title": "Female"
+              },
+              {
+                "id": "male",
+                "title": "Male"
+              }
+            ]
+          }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+     {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "How can we get in contact with you?"
+          },
+          {
+            "type": "Form",
+            "name": "form",
+            "children": [
+              {
+                "type": "TextInput",
+                "name": "name",
+                "label": "Full name",
+                "required": true,
+              },
+              {
+                "type": "TextInput",
+                "name": "phone",
+                "required": true,
+                "label": "Phone number"
+              },
+              {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "phone": "${form.phone}",
+                    "name": "${form.name}"
+                  }
+                }
+              },
+              {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "required": true,
+            "label": "Select your gender",
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "Female",
+                "title": "Female"
+              },
+              {
+                "id": "male",
+                "title": "Male"
+              }
+            ]
+          }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+          }
+  ]
+}

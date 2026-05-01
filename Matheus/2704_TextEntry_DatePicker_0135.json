@@ -1,0 +1,112 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect a name and a date."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_bcfadf",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your name."
+              },
+              {
+                "label": "Date",
+                "name": "Date_fd16e2",
+                "required": true,
+                "type": "DatePicker",
+                "helper-text": "Enter a date"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Name_0": "${form.Name_bcfadf}",
+                    "screen_0_Date_1": "${form.Date_fd16e2}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_bcfadf",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your name."
+              },
+              {
+                "label": "Date",
+                "name": "Date_fd16e2",
+                "required": true,
+                "type": "DatePicker",
+                "helper-text": "Enter a date"
+              },
+              {
+                "label": "Submit",
+                "on-click": {
+                  "name": "complete".
+                  "payload": {
+                    "screen_0_Name_0": "${form.Name_bcfadf}",
+                    "screen_0_Date_1": "${form.Date_fd16e2}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

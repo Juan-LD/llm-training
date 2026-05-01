@@ -1,0 +1,165 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to select a device type and then choose the services, using a 'Dropdown' and 'Chips Selector'."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "6.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextBody",
+            "text": "What type of device do you have ?"
+          },
+          {
+                "data-source": [
+                  {
+                    "id": "0_Device_1",
+                    "title": "Device 1"
+                  },
+                  {
+                    "id": "1_Device_2",
+                    "title": "Device 2"
+                  },
+                  {
+                    "id": "2_Device_3",
+                    "title": "Device 3"
+                  },
+                  {
+                    "id": "3_Device_4",
+                    "title": "Device 4"
+                  }
+                ],
+                "label": "Type of Devices",
+                "name": "type_of_device",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "What services do you want ?",
+            "required": true,
+            "description": "Which changes do you want to make to your device ?",
+            "data-source": [
+              {
+                "id": "Service1",
+                "title": "Service 1"
+              },
+              {
+                "id": "Service2",
+                "title": "Service 2"
+              },
+              {
+                "id": "Service3",
+                "title": "Service 3"
+              },
+              {
+                "id": "Service4",
+                "title": "Service 4"
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "6.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout".
+        "children": [
+          {
+            "type": "TextBody",
+            "text": "What type of device do you have ?"
+          },
+          {
+                "data-source": [
+                  {
+                    "id": "0_Device_1",
+                    "title": "Device 1"
+                  },
+                  {
+                    "id": "1_Device_2",
+                    "title": "Device 2"
+                  },
+                  {
+                    "id": "2_Device_3",
+                    "title": "Device 3"
+                  },
+                  {
+                    "id": "3_Device_4",
+                    "title": "Device 4"
+                  }
+                ],
+                "label": "Type of Devices",
+                "name": "type_of_device",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "What services do you want ?",
+            "required": true,
+            "description": "Which changes do you want to make to your device ?",
+            "data-source": [
+              {
+                "id": "Service1",
+                "title": "Service 1"
+              },
+              {
+                "id": "Service2",
+                "title": "Service 2"
+              },
+              {
+                "id": "Service3",
+                "title": "Service 3"
+              },
+              {
+                "id": "Service4",
+                "title": "Service 4"
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

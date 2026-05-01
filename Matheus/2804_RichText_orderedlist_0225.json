@@ -1,0 +1,131 @@
+{
+  "prompt": {
+    "EN": "Generate a WhatsApp Flow that displays Terms-of-Service content using a RichText component and enforces mandatory user opt-in before completion."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "data_api_version": "3.0",
+        "routing_model": {
+          "TOC": [],
+          "FIRST_SCREEN": [
+            "TOC"
+          ]
+        },
+        "screens": [
+          {
+            "id": "TOC",
+            "data": {
+              "text": {
+                "type": "string",
+                "__example__": "Your content"
+              }
+            },
+            "title": "Terms of Service",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "RichText",
+                  "text": "${data.text}"
+                }
+              ]
+            }
+          },
+          {
+            "id": "FIRST_SCREEN",
+            "title": "Welcome",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "OptIn",
+                  "name": "toc",
+                  "required": true,
+                  "label": "Please accept our 'Terms and Conditions' before proceeding.",
+                  "on-click-action": {
+                    "name": "data_exchange",
+                    "payload": {}
+                  }
+                },
+                {
+                  "type": "Footer",
+                  "label": "Proceed",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "data_api_version": "3.0",
+        "routing_model": {
+          "TOC": [],
+          "FIRST_SCREEN": [
+            "TOC"
+          ]
+        },
+        "screens": [
+          {
+            "id": "TOC",
+            "data": {
+              "text": {
+                "type": "string",
+                "__example__": "Your content"
+              }
+            },
+            "title": "Terms of Service",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "OrderedList",
+                  "text": "${data.text}";
+                }
+              ]
+            }
+          },
+          {
+            "id": "FIRST_SCREEN",
+            "title": "Welcome",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "OptIn",
+                  "name": "toc",
+                  "required": true,
+                  "label": "Please accept our 'Terms and Conditions' before proceeding.",
+                  "on-click-action": {
+                    "name": "data_exchange",
+                    "payload": {}
+                  }
+                },
+                {
+                  "type": "Footer",
+                  "label": "Proceed",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

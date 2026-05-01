@@ -1,0 +1,549 @@
+{
+  "prompt": {
+    "EN": "Create a Whatsapp Flow for multi-step insurance quotation flow similar to a wizard-style application with screen-based navigation. The first screen should be called “Our Offers” and display two insurance options: Home Insurance and Health Insurance, each containing a title, short description, and clickable action. When the user selects Home Insurance, they should be taken to a residential insurance form where they provide details such as property type (House, Apartment, or Condo), total surface area in square meters, number of rooms, and number of floors. When the user selects Health Insurance, they should be directed to a health insurance form that includes fields for insurance type (Individual or Family), number of people covered, and age range. After completing either form, the user should proceed to a final screen called “Contact Details”, where they enter their full name and phone number. Upon completion, the system should finalize the flow and return the collected contact information. The interface should use a clean, modern, single-column layout with intuitive navigation between steps, allowing only valid routes: first screen → insurance selection → contact details → flow completion."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "FIRST_SCREEN": [
+      "SECOND_SCREEN",
+      "THIRD_SCREEN"
+    ],
+    "SECOND_SCREEN": [
+      "CONTACT"
+    ],
+    "THIRD_SCREEN": [
+      "CONTACT"
+    ],
+    "CONTACT": []
+  },
+  "screens": [
+    {
+      "id": "FIRST_SCREEN",
+      "title": "Our offers",
+      "data": {
+        "insurances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "main-content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id": "home",
+              "main-content": {
+                "title": "Home Insurance",
+                "metadata": "Safeguard your home against natural disasters, theft, and accidents."
+              },
+              "on-click-action": {
+                "name": "data_exchange",
+                "payload": {
+                  "selection": "home"
+                }
+              }
+            },
+            {
+              "id": "health",
+              "main-content": {
+                "title": "Health Insurance",
+                "metadata": "Get essential coverage for doctor visits, prescriptions, and hospital stays."
+              },
+              "on-click-action": {
+                "name": "data_exchange",
+                "payload": {
+                  "selection": "health"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "NavigationList",
+            "name": "insurances",
+            "list-items": "${data.insurances}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SECOND_SCREEN",
+      "title": "Home Insurance",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "Tell us about your property"
+          },
+          {
+            "type": "Form",
+            "name": "property_details_form",
+            "children": [
+              {
+                "type": "Dropdown",
+                "name": "property_type",
+                "required": true,
+                "label": "Property Type",
+                "data-source": [
+                  {
+                    "id": "House",
+                    "title": "House"
+                  },
+                  {
+                    "id": "Apartment",
+                    "title": "Apartment"
+                  },
+                  {
+                    "id": "Condo",
+                    "title": "Condo"
+                  }
+                ]
+              },
+              {
+                "type": "TextInput",
+                "name": "surface",
+                "label": "Total surface (sqm)",
+                "input-type": "number",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "rooms",
+                "input-type": "number",
+                "label": "Number or rooms",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "floors",
+                "label": "Number of floors"
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "CONTACT",
+                    "type": "screen"
+                  },
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "THIRD_SCREEN",
+      "title": "Health Insurance",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "Tell us about the type of insurance you are looking for"
+          },
+          {
+            "type": "Form",
+            "name": "health_insurance_form",
+            "children": [
+              {
+                "type": "Dropdown",
+                "label": "Insurance type",
+                "name": "insurance_type",
+                "required": true,
+                "data-source": [
+                  {
+                    "id": "individual",
+                    "title": "Individual"
+                  },
+                  {
+                    "id": "family",
+                    "title": "Family"
+                  }
+                ]
+              },
+              {
+                "type": "TextInput",
+                "label": "Count",
+                "required": true,
+                "helper-text": "How may people will be covered by this insurance",
+                "name": "number_of_people"
+              },
+              {
+                "type": "Dropdown",
+                "label": "Age range",
+                "name": "age_range",
+                "required": true,
+                "data-source": [
+                  {
+                    "id": "18-24",
+                    "title": "18-24"
+                  },
+                  {
+                    "id": "25-34",
+                    "title": "25-34"
+                  }
+                ]
+              },
+              {
+                "type": "Footer",
+                "label": "Next",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "type": "screen",
+                    "name": "CONTACT"
+                  },
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "How can we get in contact with you?"
+          },
+          {
+            "type": "Form",
+            "name": "form",
+            "children": [
+              {
+                "type": "TextInput",
+                "name": "name",
+                "label": "Full name",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "phone",
+                "required": true,
+                "label": "Phone number"
+              },
+              {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "phone": "${form.phone}",
+                    "name": "${form.name}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "FIRST_SCREEN": [
+      "SECOND_SCREEN",
+      "THIRD_SCREEN"
+    ],
+    "SECOND_SCREEN": [
+      "CONTACT"
+    ],
+    "THIRD_SCREEN": [
+      "CONTACT"
+    ],
+    "CONTACT": []
+  },
+  "screens": [
+    {
+      "id": "FIRST_SCREEN",
+      "title": "Our offers",
+      "data": {
+        "insurances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "main-content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id": "home",
+              "main-content": {
+                "title": "Home Insurance",
+                "metadata": "Safeguard your home against natural disasters, theft, and accidents."
+              },
+              "on-click-action": {
+                "name": "data_exchange",
+                "payload": {
+                  "selection": "home"
+                }
+              }
+            },
+            {
+              "id": "health",
+              "main-content": {
+                "title": "Health Insurance",
+                "metadata": "Get essential coverage for doctor visits, prescriptions, and hospital stays."
+              },
+              "on-click-action": {
+                "name": "data_exchange",
+                "payload": {
+                  "selection": "health"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "NavigationList",
+            "name": "insurances",
+            "list-items": "${data.insurances}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SECOND_SCREEN",
+      "title": "Home Insurance",
+      "data": {()},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "Tell us about your property"
+          },
+          {
+            "type": "Form",
+            "name": "property_details_form",
+            "children": [
+              {
+                "type": "Dropdown",
+                "name": "property_type",
+                "required": true,
+                "label": "Property Type",
+                "data-source": [
+                  {
+                    "id": "House",
+                    "title": "House"
+                  },
+                  {
+                    "id": "Apartment",
+                    "title": "Apartment"
+                  },
+                  {
+                    "id": "Condo",
+                    "title": "Condo"
+                  }
+                ]
+              },
+              {
+                "type": "TextInput",
+                "name": "surface",
+                "label": "Total surface (sqm)",
+                "input-type": "number",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "rooms",
+                "input-type": "number",
+                "label": "Number or rooms",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "floors",
+                "label": "Number of floors"
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "CONTACT",
+                    "type": "screen"
+                  },
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "THIRD_SCREEN",
+      "title": "Health Insurance",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "Tell us about the type of insurance you are looking for"
+          },
+          {
+            "type": "Form",
+            "name": "health_insurance_form",
+            "children": [
+              {
+                "type": "Dropdown",
+                "label": "Insurance type",
+                "name": "insurance_type",
+                "required": true,
+                "data-source": [
+                  {
+                    "id": "individual",
+                    "title": "Individual"
+                  },
+                  {
+                    "id": "family",
+                    "title": "Family"
+                  }
+                ]
+              },
+              {
+                "type": "TextInput",
+                "label": "Count",
+                "required": true,
+                "helper-text": "How may people will be covered by this insurance",
+                "name": "number_of_people"
+              },
+              {
+                "type": "Dropdown",
+                "label": "Age range",
+                "name": "age_range",
+                "required": true,
+                "data-source": [
+                  {
+                    "id": "18-24",
+                    "title": "18-24"
+                  },
+                  {
+                    "id": "25-34",
+                    "title": "25-34"
+                  }
+                ]
+              },
+              {
+                "type": "Footer",
+                "label": "Next",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "type": "screen",
+                    "name": "CONTACT"
+                  },
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "How can we get in contact with you?"
+          },
+          {
+            "type": "Form",
+            "name": "form",
+            "children": [
+              {
+                "type": "TextInput",
+                "name": "name",
+                "label": "Full name",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "phone",
+                "required": true,
+                "label": "Phone number"
+              },
+              {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "phone": "${form.phone}",
+                    "name": "${form.name}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+          }
+  ]
+}

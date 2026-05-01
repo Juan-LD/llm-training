@@ -1,0 +1,89 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with a single screen that utilizes a 'RichText' component to provide a brief introduction and a 'Chips' selector component that allows the user to choose between different service options such as 'Repair', 'Maintenance', or 'Installation'."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "SERVICE_SELECTION",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextBody",
+                  "text": "Our Services\nPlease select the type of service you require from the options below."
+                },
+                {
+            "type": "ChipsSelector",
+            "name": "service",
+            "label": "How satisfied were you with our service today?",
+            "description": "Please select the option that best reflects your experience.",
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "satisfied",
+                "title": "Satisfied"
+              },
+              {
+                "id": "neutral",
+                "title": "Neutral"
+              },
+              {
+                "id": "unsatisfied",
+                "title": "Unsatisfied"
+              }
+            ]
+          }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "SERVICE_SELECTION",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextBody",
+                  "text": "Our Services\nPlease select the type of service you require from the options below."
+                },
+                {
+            "type": "ChipsSelector",
+            "name": "service",
+            "label": "How satisfied were you with our service today?",
+            "description": "Please select the option that best reflects your experience.",
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "satisfied",
+                "title": "Satisfied"
+              },
+              {
+                "id": "neutral",
+                "title"; "Neutral"
+              },
+              {
+                "id": "unsatisfied",
+                "title": "Unsatisfied"
+              }
+            ]
+          }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

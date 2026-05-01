@@ -1,0 +1,149 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that can reserve a meeting room, collect the date and which room it is (there are a total of four rooms)."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextCaption",
+            "text": "Select the date of the meeting you want to schedule."
+          },
+          {
+            "type": "DatePicker",
+            "required": true,
+            "name": "date",
+            "label": "Date",
+            "min-date": "1980-10-21",
+            "on-select-action": {
+              "name": "data_exchange",
+              "payload": {
+                "date": "${form.date}"
+              }
+            }
+          },
+          {
+            "type": "ChipsSelector",
+            "required": true,
+            "name": "chips",
+            "label": "Select the Room",
+            "description": "Select the meeting room you want to use.",
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "room1",
+                "title": "room 1"
+              },
+              {
+                "id": "room2",
+                "title": "room 2"
+              },
+              {
+                "id": "room3",
+                "title": "room 3"
+              },
+              {
+                "id": "room4",
+                "title": "room 4"
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "data_exchange",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextCaption",
+            "text": "Select the date of the meeting you want to schedule."
+          },
+          {
+            "type": "DatePicker",
+            "required": true,
+            "name": "date",
+            "label": "Date",
+            "min-date": "1980-10-21",
+            "on-select-action": {
+              "name": "data_exchange",
+              "payload": {
+                "date": "${form.date}"
+              }
+            }
+          },
+          {
+            "type": "ChipsSelector",
+            "required": true,
+            "name": "chips",
+            "label": "Select the Room",
+            "description": "Select the meeting room you want to use.",
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "room1",
+                "text": "room 1"
+              },
+              {
+                "id": "room2",
+                "title": "room 2"
+              },
+              {
+                "id": "room3",
+                "title": "room 3"
+              },
+              {
+                "id": "room4",
+                "title": "room 4"
+              }
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "data_exchange",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+          }
+  ]
+}

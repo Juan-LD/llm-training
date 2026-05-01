@@ -1,0 +1,109 @@
+{
+  "prompt": {
+    "EN": "Create a simple WhatsApp Flow for a user feedback form. The flow should consist of a component to capture the user's name and a CheckboxGroup component to allow the user to select multiple service categories they are interested in (e.g., 'Customer Support', 'Product Quality', 'Delivery')."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "3.1",
+        "screens": [
+          {
+            "id": "FEEDBACK_SCREEN",
+            "title": "Service Feedback",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextEntry",
+                  "name": "user_name",
+                  "label": "Full Name",
+                  "helper_text": "Please enter your name",
+                  "required": true
+                },
+                {
+                  "type": "CheckboxGroup",
+                  "name": "service_interests",
+                  "label": "Areas of interest",
+                  "required": false,
+                  "data": [
+                    {
+                      "id": "support",
+                      "title": "Customer Support"
+                    },
+                    {
+                      "id": "quality",
+                      "title": "Product Quality"
+                    },
+                    {
+                      "id": "delivery",
+                      "title": "Delivery"
+                    }
+                  ]
+                },
+                {
+                  "type": "Footer",
+                  "label": "Submit",
+                  "on_click_action": {
+                    "name": "complete",
+                    "payload": {
+                      "name": "${form.user_name}",
+                      "interests": "${form.service_interests}"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "3.1",
+        "screens": [
+          {
+            "id": "FEEDBACK_SCREEN",
+            "title": "Service Feedback",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "TextEntry",
+                  "name": "user_name",
+                  "label": "Full Name",
+                  "helper_text": "Please enter your name",
+                  "required": true
+                },
+                {
+                  "type": "CheckboxGroup",
+                  "name": "service_interests",
+                  "label": "Areas of interest",
+                  "required": false,
+                  "data_source": [
+                    {
+                      "id": "support",
+                      "title": "Customer Support"
+                    }
+                  ]
+                },
+                {
+                  "type": "Footer",
+                  "label": "Submit",
+                  "on_click_action": {
+                    "name": "complete".
+                    "payload": {
+                      "n4me": "${form.user_name}",
+                      "interests": "${form.service_interests}"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

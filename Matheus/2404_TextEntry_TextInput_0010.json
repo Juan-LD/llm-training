@@ -1,0 +1,75 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with a terminal screen containing a Form with a single TextInput and a Footer to complete the action."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "TextInput",
+                      "required": true,
+                      "label": "Text Input",
+                      "name": "text input"
+                    },
+                    {
+                      "type": "Footer",
+                      "label": "Continue",
+                      "on-click-action": {
+                        "name": "complete",
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "TextInput",
+                      "required": true,
+                      "label": "Text Input",
+                      "name": "text input"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

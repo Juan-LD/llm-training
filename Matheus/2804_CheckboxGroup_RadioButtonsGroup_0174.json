@@ -1,0 +1,170 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to select a device and then the service, using a Checkbox and RadioButtons."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Device_1",
+                    "title": "Device 1"
+                  },
+                  {
+                    "id": "1_Device_2",
+                    "title": "Device 2"
+                  },
+                  {
+                    "id": "2_Device_3",
+                    "title": "Device 3"
+                  }
+                ],
+                "label": "what device do you have ?",
+                "name": "what_device_do_you_have__f6b3db",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  },
+                  {
+                    "id": "3_Service_4",
+                    "title": "Service 4"
+                  }
+                ],
+                "label": "Which service do you want ?",
+                "name": "Which_service_do_you_want__f80cae",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_what_device_do_you_have__0": "${form.what_device_do_you_have__f6b3db}",
+                    "screen_0_Which_service_do_you_want__1": "${form.Which_service_do_you_want__f80cae}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Device_1",
+                    "title": "Device 1"
+                  },
+                  {
+                    "id": "1_Device_2",
+                    "title": "Device 2"
+                  },
+                  {
+                    "id": "2_Device_3",
+                    "title": "Device 3"
+                  }
+                ],
+                "label": "what device do you have ?",
+                "name": "what_device_do_you_have__f6b3db",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "datasrc": [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  },
+                  {
+                    "id": "3_Service_4",
+                    "title": "Service 4"
+                  }
+                ],
+                "label": "Which service do you want ?",
+                "name": "Which_service_do_you_want__f80cae",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_what_device_do_you_have__0": "${form.what_device_do_you_have__f6b3db}",
+                    "screen_0_Which_service_do_you_want__1": "${form.Which_service_do_you_want__f80cae}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

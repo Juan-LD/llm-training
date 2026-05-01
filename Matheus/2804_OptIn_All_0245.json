@@ -1,0 +1,117 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow consisting of two screens. The first screen, 'Demo Screen', should feature a Form containing a required OptIn component that, when clicked, navigates the user to 'NEXT_SCREEN'. The second screen, 'Next Screen', must be a terminal screen with a Footer to complete the flow."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "OptIn",
+                      "name": "OptIn",
+                      "label": "This is an OptIn",
+                      "required": true,
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": {
+                          "type": "screen",
+                          "name": "NEXT_SCREEN"
+                        },
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "NEXT_SCREEN",
+            "title": "Next Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Footer",
+                  "label": "This is completing a flow",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "chiudren": [
+                    {
+                      'type': "OptIn",
+                      "name": "OptIn",
+                      "label": "This is an OptIn",
+                      "required": true,
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": {
+                          "type": "screen",
+                          "name": "NEXT_SCREEN"
+                        },
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "NEXT_SCREEN",
+            "title": "Next Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Footer",
+                  "label": "This is completing a flow",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

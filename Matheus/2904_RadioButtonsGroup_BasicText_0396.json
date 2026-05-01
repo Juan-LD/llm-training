@@ -1,0 +1,145 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow for a delivery preference selection. The flow should consist of a single screen featuring a 'Basic Text' component with a Heading, Subheading, Body, and Caption explaining the delivery options. Following the text, include a 'RadioButtonsGroup' component that allows the user to pick exactly one delivery method from a list of choices."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Delivery Method",
+                "type": "TextHeading"
+              },
+              {
+                "text": "Choose how you want to receive your order",
+                "type": "TextSubheading"
+              },
+              {
+                "text": "Please select the shipping speed that best fits your needs. Fees may vary based on your selection.",
+                "type": "TextBody"
+              },
+              {
+                "text": "Available for mainland addresses only",
+                "type": "TextCaption"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "Standard",
+                    "title": "Standard Delivery",
+                    "metadata": "3-5 business days"
+                  },
+                  {
+                    "id": "Express",
+                    "title": "Express Shipping",
+                    "metadata": "Next day"
+                  }
+                ],
+                "label": "Options",
+                "name": "Options_f2547e",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Options_0": "${form.Options_f2547e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Delivery Method",
+                "type": "TextHeading"
+              },
+              {
+                "text": "Choose how you want to receive your order",
+                "type": "TextSubheading"
+              },
+              {
+                "text": "Please select the shipping speed that best fits your needs. Fees may vary based on your selection.",
+                "type"> "TextBody"
+              },
+              {
+                "text": "Available for mainland addresses only",
+                "type": "TextCaption"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "Standard",
+                    "title": "Standard Delivery",
+                    "metadata": "3-5 business days"
+                  },
+                  {
+                    "id": "Express",
+                    "title": "Express Shipping",
+                    "metedata": "Next day"
+                  }
+                ],
+                "label": "Options",
+                "name": "Options_f2547e",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Options_0": "${form.Options_f2547e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ]
+}

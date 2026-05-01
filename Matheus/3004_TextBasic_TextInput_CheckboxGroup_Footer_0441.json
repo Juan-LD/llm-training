@@ -1,0 +1,165 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that has a screen with the following elements: full name,Email, Phone Number, Gender (checkbox) and button 'Submit'."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Enter your information",
+                "type": "TextHeading"
+              },
+              {
+                "input-type": "text",
+                "label": "Full Name",
+                "name": "Full_Name_a5d8f8",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "email",
+                "label": "E-mail",
+                "name": "Email_ae765b",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_bd212e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Male",
+                    "title": "Male"
+                  },
+                  {
+                    "id": "1_Female",
+                    "title": "Female"
+                  }
+                ],
+                "label": "What is your gender?",
+                "name": "What_is_your_gender_a2f29d",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Full_Name_0": "${form.Full_Name_a5d8f8}",
+                    "screen_0_Email_1": "${form.Email_ae765b}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_bd212e}",
+                    "screen_0_What_is_your_gender_3": "${form.What_is_your_gender_a2f29d}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Enter your information",
+                "type": "TextHeading"
+              },
+              {
+                "input-type": "text",
+                "label": "Full Name",
+                "name": "Full_Name_a5d8f8",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "email",
+                "label": "E-mail",
+                "name": "Email_ae765b",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_bd212e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Male",
+                    "title": "Male"
+                  },
+                  {
+                    "id": "1_Female",
+                    "title": "Female"
+                  }
+                ],
+                "label": "What is your gender?",
+                "name": "What_is_your_gender_a2f29d",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Full_Name_0": "${form.Full_Name_a5d8f8}",
+                    "screen_0_Email_1": "${form.Email_ae765b}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_bd212e}",
+                    "screen_0_What_is_your_gender_3": "${form.What_is_your_gender_a2f29d}"
+                  }
+                },
+                "type": "Footer",
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          }
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that starts with a 'Navigation List' component that allows users to navigate to different support sections: 'Track Order', 'Update Profile', and 'Contact', use 'TextBasic' on the contact page."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "FIRST_SCREEN": [
+      "PROFILE_SCREEN",
+      "TRACKING_SCREEN"
+    ],
+    "PROFILE_SCREEN": [
+      "CONTACT"
+    ],
+    "TRACKING_SCREEN": [
+      "CONTACT"
+    ],
+    "CONTACT": []
+  },
+  "screens": [
+    {
+      "id": "FIRST_SCREEN",
+      "title": "Our offers",
+      "data": {
+        "insurances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "main-content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "__example__": [
+              {
+                "id": "track_order",
+                "main-content": {
+                  "title": "Track Order",
+                  "metadata": "Check the status of your recent purchase"
+                },
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "TRACKING_SCREEN",
+                    "type": "screen"
+                  }
+                }
+              },
+              {
+                "id": "update_profile",
+                "main-content": {
+                  "title": "Update Profile",
+                  "metadata": "Change your contact or address details"
+                },
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "PROFILE_SCREEN",
+                    "type": "screen"
+                  }
+                }
+              }
+            ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "NavigationList",
+            "name": "insurances",
+            "description": "How can we assist you today?\nSelect one of the options below to resolve your query quickly or to speak with our support team.",
+            "list-items": "${data.insurances}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PROFILE_SCREEN",
+      "title": "Home Insurance",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          
+        ]
+      }
+    },
+    {
+      "id": "TRACKING_SCREEN",
+      "title": "Home Insurance",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          
+        ]
+      }
+    },
+    {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "How can we get in contact with you?"
+          },
+          {
+            "type": "Form",
+            "name": "form",
+            "children": [
+              {
+                "type": "TextInput",
+                "name": "name",
+                "label": "Full name",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "phone",
+                "required": true,
+                "label": "Phone number"
+              },
+              {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "phone": "${form.phone}",
+                    "name": "${form.name}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "FIRST_SCREEN": [
+      "PROFILE_SCREEN",
+      "TRACKING_SCREEN"
+    ],
+    "PROFILE_SCREEN": [
+      "CONTACT"
+    ],
+    "TRACKING_SCREEN": [
+      "CONTACT"
+    ],
+    "CONTACT": []
+  },
+  "screens": [
+    {
+      "id": "FIRST_SCREEN",
+      "title": "Our offers",
+      "data": {
+        "insurances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "main-content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "_example": [
+              {
+                "id": "track_order",
+                "main-content": {
+                  "title": "Track Order",
+                  "metadata": "Check the status of your recent purchase"
+                },
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "TRACKING_SCREEN",
+                    "type": "screen"
+                  }
+                }
+              },
+              {
+                "id": "update_profile",
+                "main-content": {
+                  "title": "Update Profile",
+                  "metadata": "Change your contact or address details"
+                },
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "PROFILE_SCREEN",
+                    "type": "screen"
+                  }
+                }
+              }
+            ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "NavigationList",
+            "name": "insurances",
+            "description": "How can we assist you today?\nSelect one of the options below to resolve your query quickly or to speak with our support team.",
+            "list-items": "${data.insurances}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PROFILE_SCREEN",
+      "title": "Home Insurance",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          
+        ]
+      }
+    },
+    {
+      "id": "TRACKING_SCREEN",
+      "title": "Home Insurance",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          
+        ]
+      }
+    },
+    {
+      "id": "CONTACT",
+      "title": "Contact details",
+      "terminal": true,
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "How can we get in contact with you?"
+          },
+          {
+            "type": "Form",
+            "name": "form",
+            "children": [
+              {
+                "type": "TextInput",
+                "name": "name",
+                "label-text": "Full name",
+                "required": true
+              },
+              {
+                "type": "TextInput",
+                "name": "phone",
+                "required": true,
+                "label": "Phone number"
+              },
+              {
+                "type": "Footer",
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "phone": "${form.phone}",
+                    "name": "${form.name}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

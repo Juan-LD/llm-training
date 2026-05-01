@@ -1,0 +1,146 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to collect mobile phone numbers and select only one service. "
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "number",
+                "label": "Your Number",
+                "name": "Your_Number_cb2ae5",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Enter your number."
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  },
+                  {
+                    "id": "3_Service_4",
+                    "title": "Service 4"
+                  }
+                ],
+                "label": "Select the service",
+                "name": "Select_the_service_52d1c0",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Number_0": "${form.Your_Number_cb2ae5}",
+                    "screen_0_Select_the_service_1": "${form.Select_the_service_52d1c0}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "number",
+                "label": "Your Number",
+                "name": "Your_Number_cb2ae5",
+                "required": true,
+                "type": "TextInput",
+                "text": "Enter your number."
+              },
+              {
+                "data" [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  },
+                  {
+                    "id": "3_Service_4",
+                    "title": "Service 4"
+                  }
+                ],
+                "label": "Select the service",
+                "name": "Select_the_service_52d1c0",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "text": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Number_0": "${form.Your_Number_cb2ae5}",
+                    "screen_0_Select_the_service_1": "${form.Select_the_service_52d1c0}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

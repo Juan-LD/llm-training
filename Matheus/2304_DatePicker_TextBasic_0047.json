@@ -1,0 +1,85 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with a single screen that includes a 'RichText' component to display a heading and a 'DatePicker' component to allow the user to select their preferred appointment date."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextBody",
+            "text": "Schedule Appointment\nPlease select a convenient date below."
+          },
+          {
+            "type": "DatePicker",
+            "name": "date",
+            "label": "Date",
+            "min-date": "2024-10-21",
+            "max-date": "2024-11-12",
+            "unavailable-dates": [
+              "2024-10-28",
+              "2024-11-01"
+            ],
+            "on-select-action": {
+              "name": "data_exchange",
+              "payload": {
+                "date": "${form.date}"
+              }
+            }
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "data_exchange",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "3.1",
+        "screens": [
+          {
+            "id": "DATE_SELECTION",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "RichText",
+                  "props": {
+                    "text": "# Schedule Appointment\nPlease select a convenient date below."
+                  }
+                },
+                {
+                  "type": "DatePicker",
+                  "props": {
+                    "label": "Select Date",
+                    "identifier": "selected_date"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

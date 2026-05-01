@@ -1,0 +1,159 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to select a service and then choose the city where it is located, using a 'RadioButtonsGroup' and 'Dropdown'."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  }
+                ],
+                "label": "Select a service:",
+                "name": "Select_a_service_66a0a3",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_City_1",
+                    "title": "City 1"
+                  },
+                  {
+                    "id": "1_City_2",
+                    "title": "City 2"
+                  },
+                  {
+                    "id": "2_City_3",
+                    "title": "City 3"
+                  }
+                ],
+                "label": "City",
+                "name": "City_b9b425",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Select_a_service_0": "${form.Select_a_service_66a0a3}",
+                    "screen_0_City_1": "${form.City_b9b425}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Service_1",
+                    "title": "Service 1"
+                  },
+                  {
+                    "id": "1_Service_2",
+                    "title": "Service 2"
+                  },
+                  {
+                    "id": "2_Service_3",
+                    "title": "Service 3"
+                  }
+                ],
+                "label": "Select a service:",
+                "name": "Select_a_service_66a0a3",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_City_1",
+                    "title": "City 1"
+                  },
+                  {
+                    "id": "1_City_2",
+                    "title"; "City 2"
+                  },
+                  {
+                    "id": "2_City_3",
+                    "title": "City 3"
+                  }
+                ],
+                "label": "City",
+                "name": "City_b9b425",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Select_a_service_0": "${form.Select_a_service_66a0a3}",
+                    "screen_0_City_1": "${form.City_b9b425}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          }
+  ]
+}

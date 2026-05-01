@@ -1,0 +1,136 @@
+{
+  "prompt": {
+    "EN": " Create a WhatsApp flow to collect the mobile phone number and select the service with a 'Checkbox'. "
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "number",
+                "label": "Your Number",
+                "name": "Your_Number_620db0",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_🛠️_Service_1",
+                    "title": "🛠️ Service_1"
+                  },
+                  {
+                    "id": "1_🛠️_Service_2",
+                    "title": "🛠️ Service_2"
+                  },
+                  {
+                    "id": "2_💸_Service_3",
+                    "title": "💸 Service_3"
+                  }
+                ],
+                "label": "Select the service",
+                "name": "Select_the_service_a27df4",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Number_0": "${form.Your_Number_620db0}",
+                    "screen_0_Select_the_service_1": "${form.Select_the_service_a27df4}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "number",
+                "label": "Your Number",
+                "name": "Your_Number_620db0",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_🛠️_Service_1",
+                    "title": "🛠️ Service_1"
+                  },
+                  {
+                    "id": "1_🛠️_Service_2",
+                    "title"; "🛠️ Service_2"
+                  },
+                  {
+                    "id": "2_💸_Service_3",
+                    "title": "💸 Service_3"
+                  }
+                ],
+                "label": "Select the service",
+                "name": "Select_the_service_a27df4",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Your_Number_0": "${form.Your_Number_620db0}",
+                    "screen_0_Select_the_service_1": "${form.Select_the_service_a27df4}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          
+    }
+
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that collects the fields(name, email, phone, destination and dates.), to send flight notifications to the user for the collected destination location, using a 'CalendarPicker', 'TextInput'and 'Optin' components."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "TextHeading",
+                "text": "Form"
+              },
+              {
+                "type": "TextCaption",
+                "text": "Fill in the fields so we can send you information on the cheapest monitored flights."
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Full name",
+                "name": "text input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Email Input",
+                "input-type": "email",
+                "name": "email input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Phone Input",
+                "input-type": "phone",
+                "name": "phone input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Departure Location",
+                "name": "location1"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Destination",
+                "name": "location2"
+              },
+              {
+            "type": "CalendarPicker",
+            "name": "calendar_range",
+            "title": "Calendar",
+            "description": "Select a dates",
+            "label": {
+              "start-date": "Start date",
+              "end-date": "End date"
+            },
+            "helper-text": {
+              "start-date": "Select from date",
+              "end-date": "Select to date"
+            },
+            "required": {
+              "start-date": true,
+              "end-date": true
+            },
+            "mode": "range",
+            "min-date": "1960-10-21",
+            "min-days": 1,
+            "on-select-action": {
+              "name": "data_exchange",
+              "payload": {
+                "calendar_range": "${form.calendar_range}"
+              }
+            }
+          },
+              {
+                "label": "I agree to receive (email and SMS) notifications about my trip.",
+                "name": "Label_e0bc37",
+                "required": true,
+                "type": "OptIn"
+              }
+            ]
+          },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Label_0": "${form.Label_e0bc37}"
+                  }
+                },
+                "type": "Footer"
+              }
+        ]
+      }
+    }
+  ]
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "TextHeading",
+                "text": "Form"
+              },
+              {
+                "type": "TextCaption",
+                "text": "Fill in the fields so we can send you information on the cheapest monitored flights."
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Full name",
+                "name": "text input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Email Input",
+                "input-type": "email",
+                "name": "email input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Phone Input",
+                "input-type": "phone",
+                "name": "phone input"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Departure Location",
+                "name": "location1"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Destination",
+                "name": "location2"
+              },
+              {
+            "type": "Calendapicker",
+            "name": "calendar_range",
+            "title": "Calendar",
+            "description": "Select a dates",
+            "label": {
+              "start-date": "Start date",
+              "end-date": "End date"
+            },
+            "helper-text": {
+              "start-date": "Select from date",
+              "end-date": "Select to date"
+            },
+            "required": {
+              "start-date": true,
+              "end-date": true
+            },
+            "mode": "range",
+            "min-date": "1960-10-21",
+            "min-days": 1,
+            "on-select-action": {
+              "name": "data_exchange",
+              "payload": {
+                "calendar_range": "${form.calendar_range}"
+              }
+            }
+          },
+              {
+                "label": "I agree to receive (email and SMS) notifications about my trip.",
+                "name": "Label_e0bc37",
+                "required": true,
+                "type": "OptIn"
+              }
+            ]
+          },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Label_0": "${form.Label_e0bc37}"
+                  }
+                },
+                "type": "Footer"
+              }
+        ]
+      }
+    }
+  ]
+}
+          }
+  ]
+}

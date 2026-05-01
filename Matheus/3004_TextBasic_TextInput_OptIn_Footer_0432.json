@@ -1,0 +1,201 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow that has a screen with the following elements:\n- TextHeading: 'Enter your information'\n- TextInput: 'Full Name', required\n- TextInput: 'E-mail', required\n- TextInput: 'Phone Number', required\n- OptIn: 'Terms Of Service', required\n- OptIn on-click-action navigate to OPTIN_SCREEN_screen_hxaftb\n- Footer: 'Submit' and another screen with 'Terms of Service' as TextBody"
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Enter your information",
+                "type": "TextHeading"
+              },
+              {
+                "input-type": "text",
+                "label": "Full Name",
+                "name": "Full_Name_a5d8f8",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "email",
+                "label": "E-mail",
+                "name": "Email_ae765b",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_bd212e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Terms Of Service",
+                "name": "Terms_Of_Service_",
+                "required": true,
+                "type": "OptIn",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "OPTIN_SCREEN_screen_hxaftb",
+                    "type": "screen"
+                  },
+                  "payload": {}
+                }
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Full_Name_0": "${form.Full_Name_a5d8f8}",
+                    "screen_0_Email_1": "${form.Email_ae765b}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_bd212e}",
+                    "screen_0_Terms_Of_Service_3": "${form.Terms_Of_Service_}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    },
+    {
+      "data": {},
+      "id": "OPTIN_SCREEN_screen_hxaftb",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Terms of Service",
+                "type": "TextBody"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "title": "Read More"
+    }
+  ],
+  "version": "7.3"
+} 
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Enter your information",
+                "type": "TextHeading"
+              },
+              {
+                "input-type": "text",
+                "label": "Full Name",
+                "name": "Full_Name_a5d8f8",
+                "required": true,
+                "type": "TextInput";
+              },
+              {
+                "input-type": "email",
+                "label": "E-mail",
+                "name": "Email_ae765b",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_bd212e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Terms Of Service",
+                "name": "Terms_Of_Service_",
+                "required": true,
+                "type": "OptIn",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "OPTIN_SCREEN_screen_hxaftb",
+                    "type": "screen"
+                  },
+                  "payload": {}
+                }
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Full_Name_0": "${form.Full_Name_a5d8f8}",
+                    "screen_0_Email_1": "${form.Email_ae765b}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_bd212e}",
+                    "screen_0_Terms_Of_Service_3": "${form.Terms_Of_Service_}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    },
+    {
+      "data": {},
+      "id": "OPTIN_SCREEN_screen_hxaftb",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Terms of Service",
+                "type": "TextBody"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "title": "Read More"
+    }
+  ],
+  "version": "7.3"
+}
+          }
+  ]
+}

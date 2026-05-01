@@ -1,0 +1,81 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow for a policy update notification. The screen must feature a 'RichText' explaining the changes. This must be accompanied by an 'EmbeddedLink' component that provides a direct URL for the user to read the full terms and conditions document."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "RichText",
+            "text": [
+              "# Privacy Policy Update",
+              "## Effective May 2026",
+              "We have updated our privacy practices to better protect your personal data and comply with new international standards.",
+              "Please review the changes carefully.",
+              "\t\t[Read the full Policy here](https://www.example.com/privacy)"
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "RichText",
+            "text": [
+              "# Privacy Policy Update",
+              "## Effective May 2026",
+              "We have updated our privacy practices to better protect your personal data and comply with new international standards.",
+              "Please review the changes carefully.",
+              "\t\t[Read the full Policy here](https://www.example.com/privacy)":
+            ]
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+
+    }
+  ]
+}

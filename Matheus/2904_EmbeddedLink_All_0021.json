@@ -1,0 +1,103 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with two screens. The first screen, 'DEMO_SCREEN', should contain an EmbeddedLink that navigates to a second screen named 'FINISH' and passes a payload field 'test_payload'. The 'FINISH' screen should be terminal and display the passed payload in a Footer component that completes the flow."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "EmbeddedLink",
+                  "text": "This is an embedded link",
+                  "on-click-action": {
+                    "name": "navigate",
+                    "next": {
+                      "type": "screen",
+                      "name": "FINISH"
+                    },
+                    "payload": {
+                      "test_payload": "This is a test_payload"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "FINISH",
+            "data": {
+              "test_payload": {
+                "type": "string",
+                "__example__": "CTA title"
+              }
+            },
+            "title": "Final screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Footer",
+                  "label": "${data.test_payload}",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": []
+            }
+          },
+          {
+            "id": "FINISH",
+            "data": {
+              "test_payload": {
+                "type": "string",
+                "__example__": "CTA title"
+              }
+            },
+            "title": "Final screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Footer",
+                  "label": "${data.test_payload}",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+

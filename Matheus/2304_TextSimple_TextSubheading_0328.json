@@ -1,0 +1,69 @@
+{
+  "prompt": {
+    "EN": "Create a Flow with a 'TextSubheading' labeled 'This is a subheading'."
+  },
+  "ok_flows": [
+    {
+  "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "This is a subheading",
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+],
+  "ko_flows": [
+    { 
+  "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Demo Screen",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [,
+          {
+            "type": "Textheading",
+            "text": "This is a heading",
+            "visible": true
+          },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

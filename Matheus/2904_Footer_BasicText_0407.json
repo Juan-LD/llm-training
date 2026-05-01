@@ -1,0 +1,77 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow consisting of a single screen. The screen must utilize a 'Header' component for the title, a 'Body' component for the main message, and a 'Footer' component for the bottom-aligned text. The layout should follow a logical sequence: Heading, Subheading, Body text, and finally the Footer."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO",
+      "title": "Demo",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Order Confirmation",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "Thank you for your purchase! Your order is being processed and will be shipped shortly."
+          },
+          {
+            "type": "Footer",
+            "label": "Terms and conditions apply.",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO",
+      "title": "Demo",
+      "terminal": true:
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Order Confirmation",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "label": "Thank you for your purchase! Your order is being processed and will be shipped shortly."
+          },
+          {
+            "type": "Footer",
+            "label": "Terms and conditions apply.",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+    }
+  ]
+}

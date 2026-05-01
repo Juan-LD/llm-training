@@ -1,0 +1,131 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp flow to select a package and then select a date, using a 'Dropdown' and 'DatePicker'."
+    },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_package_1",
+                    "title": "package 1"
+                  },
+                  {
+                    "id": "1_package_2",
+                    "title": "package 2"
+                  },
+                  {
+                    "id": "2_package_3",
+                    "title": "package 3"
+                  }
+                ],
+                "label": "Select a package:",
+                "name": "Select_a_package_66a0a3",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Date",
+                "name": "Date_38012f",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Select_a_package_0": "${form.Select_a_package_66a0a3}",
+                    "screen_0_Date_1": "${form.Date_38012f}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+         }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_package_1",
+                    "title": "package 1"
+                  },
+                  {
+                    "id": "1_package_2",
+                    "title": "package 2"
+                  },
+                  {
+                    "id": "2_package_3",
+                    "title": "package 3"
+                  }
+                ],
+                "label": "Select a package:",
+                "name": "Select_a_package_66a0a3",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Date",
+                "name": "Date_38012f",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Submit",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Select_a_package_0": "${form.Select_a_package_66a0a3}",
+                    "screen_0_Date_1": "${form.Date_38012f}"
+                  }
+                },
+                "type": "Footer",
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Demo"
+    }
+  ],
+  "version": "7.3"
+}
+          }
+  ]
+}

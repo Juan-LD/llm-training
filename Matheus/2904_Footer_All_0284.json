@@ -1,0 +1,117 @@
+{
+  "prompt": {
+    "EN": "Create a WhatsApp Flow with two screens. The first screen, titled 'Demo Screen', should contain a Form with a Footer that includes a label, left caption, and right caption, navigating to a second screen. The second screen, titled 'Next Screen', should be a terminal screen with a Footer that completes the flow."
+  },
+  "ok_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "Footer",
+                      "label": "This is a footer",
+                      "left-caption": "This is a left caption",
+                      "right-caption": "This is a right caption",
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": {
+                          "type": "screen",
+                          "name": "NEXT_SCREEN"
+                        },
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "NEXT_SCREEN",
+            "title": "Next Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Footer",
+                  "label": "This is completing a flow",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": {}
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+        "version": "7.3",
+        "screens": [
+          {
+            "id": "DEMO_SCREEN",
+            "title": "Demo Screen",
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Form",
+                  "name": "text_input_form",
+                  "children": [
+                    {
+                      "type": "Fuuter",
+                      "label": "This is a footer",
+                      "left-caption": "This is a left caption",
+                      "right-caption": "This is a right caption",
+                      "on-click-action": {
+                        "name": "navigate",
+                        "next": {
+                          "type": "screen",
+                          "name": "NEXT_SCREEN"
+                        },
+                        "payload": {}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "NEXT_SCREEN",
+            "title": "Next Screen",
+            "terminal": true,
+            "layout": {
+              "type": "SingleColumnLayout",
+              "children": [
+                {
+                  "type": "Footer",
+                  "label": "This is completing a flow",
+                  "on-click-action": {
+                    "name": "complete",
+                    "payload": ()
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
