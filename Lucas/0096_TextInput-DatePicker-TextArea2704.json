@@ -1,0 +1,361 @@
+{
+  "prompt":
+    {
+      "EN": "create a flow with 3 pages, the 1st one the costumer gives his name and email, in the 2nd one his birthdate and nationality and the 3rd one his street and hobbies each one in a text box"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "Name_Email",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_d312e9",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your name here"
+              },
+              {
+                "input-type": "email",
+                "label": "Email",
+                "name": "Email_641bef",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your Email here"
+              },
+              {
+                "label": "Next",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "Datebirth_Nationality",
+                    "type": "screen"
+                  },
+                  "payload": {
+                    "screen_0_Name_0": "${form.Name_d312e9}",
+                    "screen_0_Email_1": "${form.Email_641bef}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "title": "Name and Email"
+    },
+    {
+      "data": {
+        "screen_0_Name_0": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_0_Email_1": {
+          "__example__": "Example",
+          "type": "string"
+        }
+      },
+      "id": "Datebirth_Nationality",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Nationality",
+                "name": "Nationality_242b66",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write here your nationality"
+              },
+              {
+                "label": "Date of birth",
+                "name": "Date_of_birth_ce3dcd",
+                "required": true,
+                "type": "DatePicker",
+                "helper-text": "Pick your date of birth"
+              },
+              {
+                "label": "Next",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "Street_Hobbies",
+                    "type": "screen"
+                  },
+                  "payload": {
+                    "screen_1_Nationality_0": "${form.Nationality_242b66}",
+                    "screen_1_Date_of_birth_1": "${form.Date_of_birth_ce3dcd}",
+                    "screen_0_Name_0": "${data.screen_0_Name_0}",
+                    "screen_0_Email_1": "${data.screen_0_Email_1}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "title": "Date of birth and Nationality"
+    },
+    {
+      "data": {
+        "screen_1_Nationality_0": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_1_Date_of_birth_1": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_0_Name_0": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_0_Email_1": {
+          "__example__": "Example",
+          "type": "string"
+        }
+      },
+      "id": "Street_Hobbies",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Street",
+                "name": "Street_77b397",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write your street here"
+              },
+              {
+                "label": "Hobbies",
+                "name": "Hobbies_73f36e",
+                "required": false,
+                "type": "TextArea",
+                "helper-text": "Write your hobbies here"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_2_Street_0": "${form.Street_77b397}",
+                    "screen_2_Hobbies_1": "${form.Hobbies_73f36e}",
+                    "screen_1_Nationality_0": "${data.screen_1_Nationality_0}",
+                    "screen_1_Date_of_birth_1": "${data.screen_1_Date_of_birth_1}",
+                    "screen_0_Name_0": "${data.screen_0_Name_0}",
+                    "screen_0_Email_1": "${data.screen_0_Email_1}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Street and Hobbies"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "Name_Email",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_d312e9",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your name here"
+              },
+              {
+                "input-type": "email",
+                "label": "Email",
+                "name": "Email_641bef",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your Email here"
+              },
+              {
+                "label": "Next",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "Datebirth_Nationality",
+                    "type": "screen"
+                  },
+                  "payload": {
+                    "screen_0_Name_0": "${form.Name_d312e9}",
+                    "screen_0_Email_1": "${form.Email_641bef}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "title": "Name and Email"
+    },
+    {
+      "data": {
+        "screen_0_Name_0": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_0_Email_1": {
+          "__example__": "Example",
+          "type": "string"
+        }
+      },
+      "id": "Datebirth_Nationality",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Nationality",
+                "name": "Nationality_242b66",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write here your nationality"
+              },
+              {
+                "label": "Date of birth",
+                "name": "Date_of_birth_ce3dcd",
+                "required": true,
+                "type": "DatePicker",
+                "helper-text": "Pick your date of birth"
+              },
+              {
+                "label": "Next",
+                "on-click-action": {
+                  "name": "navigate",
+                  "next": {
+                    "name": "Street_Hobbies",
+                    "type": "screen"
+                  },
+                  "payload": {
+                    "screen_1_Nationality_0": "${form.Nationality_242b66}",
+                    "screen_1_Date_of_birth_1": "${form.Date_of_birth_ce3dcd}",
+                    "screen_0_Name_0": "${data.screen_0_Name_0}",
+                    "screen_0_Email_1": "${data.screen_0_Email_1}",
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "title": "Date of birth and Nationality"
+    },
+    {
+      "data": {
+        "screen_1_Nationality_0": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_1_Date_of_birth_1": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_0_Name_0": {
+          "__example__": "Example",
+          "type": "string"
+        },
+        "screen_0_Email_1": {
+          "__example__": "Example",
+          "type": "string"
+        }
+      },
+      "id": "Street_Hobbies",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Street",
+                "name": "Street_77b397",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write your street here"
+              },
+              {
+                "label": "Hobbies",
+                "name": "Hobbies_73f36e",
+                "required": false,
+                "type": "TextArea",
+                "helper-text": "Write your hobbies here"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_2_Street_0": "${form.Street_77b397}",
+                    "screen_2_Hobbies_1": "${form.Hobbies_73f36e}",
+                    "screen_1_Nationality_0": "${data.screen_1_Nationality_0}",
+                    "screen_1_Date_of_birth_1": "${data.screen_1_Date_of_birth_1}",
+                    "screen_0_Name_0": "${data.screen_0_Name_0}",
+                    "screen_0_Email_1": "${data.screen_0_Email_1}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Street and Hobbies"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

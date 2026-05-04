@@ -1,0 +1,183 @@
+{
+  "prompt":
+    {
+      "EN": "Build a flow where participants can select their t-shirt size, enter their emergency contact name, and agree to the event liability waiver"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select your t-shirt size and write your contact",
+                "type": "TextCaption"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_S",
+                    "title": "S"
+                  },
+                  {
+                    "id": "1_M",
+                    "title": "M"
+                  },
+                  {
+                    "id": "2_L",
+                    "title": "L"
+                  },
+                  {
+                    "id": "3_XL",
+                    "title": "XL"
+                  }
+                ],
+                "label": "Sizes",
+                "name": "Sizes_ec10ec",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "input-type": "number",
+                "label": "Emergency Contact",
+                "name": "Emergency_Contact_d10896",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "text",
+                "label": "Contact Name",
+                "name": "Contact_Name_f38fc2",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "I agree with the event liability waiver.",
+                "name": "I_agree_with_the_event_liability_waiver_da1550",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Sizes_0": "${form.Sizes_ec10ec}",
+                    "screen_0_Emergency_Contact_1": "${form.Emergency_Contact_d10896}",
+                    "screen_0_Contact_Name_2": "${form.Contact_Name_f38fc2}",
+                    "screen_0_I_agree_with_the_event_liability_waiver_3": "${form.I_agree_with_the_event_liability_waiver_da1550}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Charity Run Registration"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select your t-shirt size and write your contact",
+                "type": "TextCaption"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_S",
+                    "title": "S"
+                  },
+                  {
+                    "id": "1_M",
+                    "title": "M"
+                  },
+                  {
+                    "id": "2_L",
+                    "title": "L"
+                  },
+                  {
+                    "id": "3_XL",
+                    "title": "XL"
+                  }
+                ],
+                "label": "Sizes",
+                "name": "Sizes_ec10ec",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "input-type": "number",
+                "label": "Emergency Contact",
+                "name": "Emergency_Contact_d10896",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "input-type": "text",
+                "label": "Contact Name",
+                "name": "Contact_Name_f38fc2",
+                "required": true
+                "type": "TextInput"
+              },
+              {
+                "label": "I agree with the event liability waiver.",
+                "name": "I_agree_with_the_event_liability_waiver_da1550",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Sizes_0": "${form.Sizes_ec10ec}",
+                    "screen_0_Emergency_Contact_1": "${form.Emergency_Contact_d10896}",
+                    "screen_0_Contact_Name_2": "${form.Contact_Name_f38fc2}",
+                    "screen_0_I_agree_with_the_event_liability_waiver_3": "${form.I_agree_with_the_event_liability_waiver_da1550}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Charity Run Registration"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

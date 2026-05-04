@@ -1,0 +1,149 @@
+{
+  "prompt": {
+    "EN": "Create a professional WhatsApp Flow that requests the user's complete residential address using a TextInput component"
+  },
+  	"ok_flows":
+  [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Ex. St. John Street",
+                "name": "Ex_St_John_Street_6f4cea",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Street"
+              },
+              {
+                "input-type": "text",
+                "label": "Ex. 3ºB",
+                "name": "Ex_3B_c28f7f",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "House Number"
+              },
+              {
+                "input-type": "text",
+                "label": "Ex. 75001-75020",
+                "name": "Ex_7500175020_2f4a04",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Postal Code"
+              },
+              {
+                "input-type": "text",
+                "label": "Ex. Paris",
+                "name": "Ex_Paris_0aea99",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "City"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Ex_St_John_Street_0": "${form.Ex_St_John_Street_6f4cea}",
+                    "screen_0_Ex_3B_1": "${form.Ex_3B_c28f7f}",
+                    "screen_0_Ex_7500175020_2": "${form.Ex_7500175020_2f4a04}",
+                    "screen_0_Ex_Paris_3": "${form.Ex_Paris_0aea99}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Address Information"
+    }
+  ],
+  "version": "7.3"
+}
+	}
+  ],
+	"ko_flows":
+  [
+   	{
+    "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Ex. St. John Street",
+                "name": "Ex_St_John_Street_6f4cea",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Street"
+              },
+              {
+                "input-type": "text",
+                "label": "Ex. 3ºB",
+                "name": "Ex_3B_c28f7f",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "House Number"
+              },
+              {
+                "input-type": "text",
+                "label": "Ex. 75001-75020",
+                "name": "Ex_7500175020_2f4a04",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Postal Code"
+              },
+              {
+                "input-type": "text",
+                "label": "Ex. Paris",
+                "name": "Ex_Paris_0aea99",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "City"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Ex_St_John_Street_0": "${form.Ex_St_John_Street_6f4cea}",
+                    "screen_0_Ex_3B_1": "${form.Ex_3B_c28f7f}",
+                    "screen_0_Ex_7500175020_2": "${form.Ex_7500175020_2f4a04}",
+                    "screen_0_Ex_Paris_3": "${form.Ex_Paris_0aea99}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Address Information"
+    }
+  ],
+  "version": "7,3"
+}
+    }
+  ]
+}

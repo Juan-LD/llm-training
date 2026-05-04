@@ -1,0 +1,187 @@
+{
+  "prompt":
+    {
+      "EN": "Develop a flow that lets subscribers choose which beans they want this month and select the roasting level they prefer"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "ChipsSelector",
+                "name": "chips",
+                "label": "Please choose 2 types of beans",
+                "required": true,
+                "max-selected-items": 2,
+                "data-source": [
+                  {
+                    "id": "Soy Bean",
+                    "title": "Soy Bean"
+                  },
+                  {
+                    "id": "Mung Bean",
+                    "title": "Mung Bean"
+                  },
+                  {
+                    "id": "Lentils",
+                    "title": "Lentils"
+                  },
+                  {
+                    "id": "Kidney Bean",
+                    "title": "Kidney Bean"
+                  },
+                  {
+                    "id": "Adzuki Bean",
+                    "title": "Adzuki Bean"
+                  }
+                ]
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Crude",
+                    "title": "Crude"
+                  },
+                  {
+                    "id": "1_Medium",
+                    "title": "Medium"
+                  },
+                  {
+                    "id": "2_Toasted",
+                    "title": "Toasted"
+                  },
+                  {
+                    "id": "3_Burned",
+                    "title": "Burned"
+                  }
+                ],
+                "label": "Select the roast level",
+                "name": "Select_the_roast_level_be5f74",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Select_the_roast_level_0": "${form.Select_the_roast_level_be5f74}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Monthly Bean Selection"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "loadout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "ChipsSelector",
+                "name": "chips",
+                "label": "Please choose 2 types of beans",
+                "required": true,
+                "max-selected-items": 2,
+                "data-source": [
+                  {
+                    "id": "Soy Bean",
+                    "title": "Soy Bean"
+                  },
+                  {
+                    "id": "Mung Bean",
+                    "title": "Mung Bean"
+                  },
+                  {
+                    "id": "Lentils",
+                    "title": "Lentils"
+                  },
+                  {
+                    "id": "Kidney Bean",
+                    "title": "Kidney Bean"
+                  },
+                  {
+                    "id": "Adzuki Bean",
+                    "title": "Adzuki Bean"
+                  }
+                ]
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Crude",
+                    "title": "Crude"
+                  },
+                  {
+                    "id": "1_Medium",
+                    "title": "Medium"
+                  },
+                  {
+                    "id": "2_Toasted",
+                    "title": "Toasted"
+                  },
+                  {
+                    "id": "3_Burned",
+                    "title": "Burned"
+                  }
+                ],
+                "label": "Select the roast level",
+                "name": "Select_the_roast_level_be5f74",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Select_the_roast_level_0": "${form.Select_the_roast_level_be5f74}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Monthly Bean Selection"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

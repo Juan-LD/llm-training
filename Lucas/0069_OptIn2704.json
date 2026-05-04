@@ -1,0 +1,91 @@
+{
+  "prompt": {
+    "EN": "Create a flow using only OptIn component for agreement"
+  },
+  	"ok_flows":
+  [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Do you agree?",
+                "name": "Do_you_agree_f95a37",
+                "required": false,
+                "type": "OptIn"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Do_you_agree_0": "${form.Do_you_agree_f95a37}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Agreement"
+    }
+  ],
+  "version": "7.3"
+}
+	}
+  ],
+	"ko_flows":
+  [
+   	{
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Do you agree?",
+                "name": "Do_you_agree_f95a37",
+                "required": false,
+                "type": "OptIn"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Do_you_agree_0": "${form.Do_you_agree_f95a37}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Forms"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Agreement"
+    }
+  ],
+  "version": "7.3"
+}
+   	}
+  ]
+}

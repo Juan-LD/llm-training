@@ -1,0 +1,131 @@
+{
+  "prompt":
+    {
+      "EN": "Develop a flow for travelers to enter their destination country, choose their dates, and agree to the basic coverage terms"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Please chose your desired country and date"
+              },
+              {
+                "input-type": "text",
+                "label": "Country",
+                "name": "Country_71310e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Date",
+                "name": "Date_21f2cb",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "I agree with the basic terms",
+                "name": "I_agree_with_the_basic_terms_401e53",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Country_0": "${form.Country_71310e}",
+                    "screen_0_Date_1": "${form.Date_21f2cb}",
+                    "screen_0_I_agree_with_the_basic_terms_2": "${form.I_agree_with_the_basic_terms_401e53}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Traveling"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Please chose your desired country and date"
+              },
+              {
+                "input-type": "text",
+                "label": "Country",
+                "name": "Country_71310e",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Date",
+                "name": "Date_21f2cb",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "I agree with the basic terms",
+                "name": "I_agree_with_the_basic_terms_401e53",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Country_0": "${form.Country_71310e}",
+                    "screen_0_Date_1": "${form.Date_21f2cb}",
+                    "screen_0_I_agree_with_the_basic_terms_2": "${form.I_agree_with_the_basic_terms_401e53}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Traveling"
+    }
+  ],
+  "version": 7.3
+}
+   	  }
+    ]
+}

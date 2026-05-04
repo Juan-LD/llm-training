@@ -1,0 +1,181 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow where couples can select their wedding date, describe the theme of their event, and choose a photography package from a list"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Select your wedding date",
+                "type": "TextSubheading"
+              },
+              {
+                "label": "Date",
+                "name": "Date_272081",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Describe the theme",
+                "name": "Describe_the_theme_ef3d98",
+                "required": true,
+                "type": "TextArea"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Package_1",
+                    "title": "Package 1",
+                    "description": "100 photos + 10 videos",
+                    "metadata": "99.99€"
+                  },
+                  {
+                    "id": "1_Package_2",
+                    "title": "Package 2",
+                    "description": "200 photos + 20 videos",
+                    "metadata": "199.99€"
+                  },
+                  {
+                    "id": "2_Package_3",
+                    "title": "Package 3",
+                    "description": "300 photos + 50 videos",
+                    "metadata": "249.99€"
+                  },
+                  {
+                    "id": "3_Package_4",
+                    "title": "Package 4",
+                    "description": "500 photos + 70 videos",
+                    "metadata": "399.99€"
+                  }
+                ],
+                "label": "Choose your package",
+                "name": "Choose_your_package_5d22f0",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Date_0": "${form.Date_272081}",
+                    "screen_0_Describe_the_theme_1": "${form.Describe_the_theme_ef3d98}",
+                    "screen_0_Choose_your_package_2": "${form.Choose_your_package_5d22f0}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Wedding Photographer Inquiry"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Select your wedding date",
+                "type": "Text"
+              },
+              {
+                "label": "Date",
+                "name": "Date_272081",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Describe the theme",
+                "name": "Describe_the_theme_ef3d98",
+                "required": true,
+                "type": "TextArea"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Package_1",
+                    "title": "Package 1",
+                    "description": "100 photos + 10 videos",
+                    "metadata": "99.99€"
+                  },
+                  {
+                    "id": "1_Package_2",
+                    "title": "Package 2",
+                    "description": "200 photos + 20 videos",
+                    "metadata": "199.99€"
+                  },
+                  {
+                    "id": "2_Package_3",
+                    "title": "Package 3",
+                    "description": "300 photos + 50 videos",
+                    "metadata": "249.99€"
+                  },
+                  {
+                    "id": "3_Package_4",
+                    "title": "Package 4",
+                    "description": "500 photos + 70 videos",
+                    "metadata": "399.99€"
+                  }
+                ],
+                "label": "Choose your package",
+                "name": "Choose_your_package_5d22f0",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Date_0": "${form.Date_272081}",
+                    "screen_0_Describe_the_theme_1": "${form.Describe_the_theme_ef3d98}",
+                    "screen_0_Choose_your_package_2": "${form.Choose_your_package_5d22f0}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Wedding Photographer Inquiry"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

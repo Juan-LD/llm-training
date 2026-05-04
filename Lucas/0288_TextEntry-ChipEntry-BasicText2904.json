@@ -1,0 +1,169 @@
+{
+  "prompt":
+    {
+      "EN": "Build a flow where customers can write a custom message for a gift card and select the wrapping color they prefer from a set of options"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please indicates your present and the desired color",
+                "type": "TextSubheading"
+              },
+              {
+                "input-type": "text",
+                "label": "Present",
+                "name": "Present_065a5e",
+                "required": true,
+                "type": "TextInput"
+              },
+                        {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "Please choose one color",
+            "required": true,
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "Yellow",
+                "title": "Yellow"
+              },
+              {
+                "id": "Red",
+                "title": "Red"
+              },
+              {
+                "id": "Blue",
+                "title": "Blue"
+              },
+                            {
+                "id": "Black",
+                "title": "Black"
+              },
+                            {
+                "id": "Orange",
+                "title": "Orange"
+              },
+                            {
+                "id": "White",
+                "title": "White"
+              }
+            ]
+          },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Present_0": "${form.Present_065a5e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Present"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please indicates your present and the desired color",
+                "type": "TextSubheading"
+              },
+              {
+                "input-type": "text",
+                "label": "Present",
+                "name": "Present_065a5e",
+                "required": true,
+                "type": "TextInput"
+              },
+                        {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "Please choose one color",
+            "required": true,
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "Yellow",
+                "title": "Yellow"
+              },
+              {
+                "id": "Red",
+                "title": "Red"
+              },
+              {
+                "id": "Blue",
+                "title": "Blue"
+              },
+                            {
+                "id": "Black",
+                "title": "Black"
+              },
+                            {
+                "id": "Orange",
+                "title": "Orange"
+              },
+                            {
+                "id": "White",
+                "title": "White"
+              }
+            ]
+          },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Present_0": "${form.Present_065a5e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Present"
+    }
+  ],
+  "version": 7.3
+}
+   	  }
+    ]
+}

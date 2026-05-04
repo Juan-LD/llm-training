@@ -1,0 +1,111 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow combining Text Heading, Text Body and Text Input"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Text Heading",
+                "type": "TextHeading"
+              },
+              {
+                "text": "Body text",
+                "type": "TextBody"
+              },
+              {
+                "input-type": "text",
+                "label": "Text Input",
+                "name": "Text_Input_8db322",
+                "required": false,
+                "type": "TextInput"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Text_Input_0": "${form.Text_Input_8db322}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form",
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Text types"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Text Heading",
+                "type": "TextHeading"
+              },
+              {
+                "text": "Body text",
+                "type": "TextBody"
+              },
+              {
+                "input-type": "text",
+                "label": "Text Input",
+                "name": "Text_Input_8db322",
+                "required": false,
+                "type": "TextInput"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Text_Input_0": "${form.Text_Input_8db322}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Text types"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

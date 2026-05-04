@@ -1,0 +1,137 @@
+{
+  "prompt":
+    {
+      "EN": "Design a flow that lets users choose their education level and in which field"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "version": "6.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Education",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "Please indicate your level of education",
+            "required": true,
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "doctorate",
+                "title": "doctorate"
+              },
+              {
+                "id": "Degree",
+                "title": "degree"
+              },
+              {
+                "id": "Master_degree",
+                "title": "master's degree"
+              }
+            ]
+          },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "TextBody",
+                "text": "Tell us in what course"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Course",
+                "name": "course"
+              }
+              ]
+            },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "version": "6.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Education",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "ChipsSelector",
+            "name": "chips",
+            "label": "Please indicate your level of education",
+            "required": true,
+            "max-selected-items": 1,
+            "data-source": [
+              {
+                "id": "doctorate",
+                "title": "doctorate"
+              },
+              {
+                "id": "Degree",
+                "title": "degree"
+              },
+              {
+                "id": "Master_degree",
+                "title": "master's degree"
+              }
+            ]
+          },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "TextBody",
+                "text": "Tell us in what course"
+              },
+              {
+                "type": "TextInput",
+                "required": true,
+                "label": "Course",
+                "name": "course"
+              }
+              ]
+            },
+          {
+            "type": "Footer",
+            "label": "Continue",
+            "on-click-action": {
+              "name": "completed",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+   	  }
+    ]
+}

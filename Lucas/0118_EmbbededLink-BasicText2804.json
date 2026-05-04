@@ -1,0 +1,91 @@
+{
+  "prompt": {
+    "EN": "create a flow that has a built in link with a caption type text saying what it directs to\n"
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextBody",
+                "markdown": true,
+                "text": "[Youtube](https://www.youtube.com/)"
+              },
+              {
+                "text": "Goes to youtube",
+                "type": "TextCaption"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {}
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Link"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ],
+  "ko_flows": [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextBody",
+                "markdown": true,
+                "text": "[Youtube](https://www.youtube.com/)"
+              },
+              {
+                "text": "Goes to youtube",
+                "type": "TextCaption"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {}
+                },
+                "type": "Foter"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Link"
+    }
+  ],
+  "version": "7.3"
+}
+    }
+  ]
+}

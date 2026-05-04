@@ -1,0 +1,173 @@
+{
+  "prompt":
+    {
+      "EN": "Develop a structured flow that collects detailed feedback, a satisfaction rating, and provides access to additional information through a link"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please fill the spaces with information based on your satisfaction.",
+                "type": "TextBody"
+              },
+              {
+                "label": "Details",
+                "name": "Details_d28464",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_1",
+                    "title": "1"
+                  },
+                  {
+                    "id": "1_2",
+                    "title": "2"
+                  },
+                  {
+                    "id": "2_3",
+                    "title": "3"
+                  },
+                  {
+                    "id": "3_4",
+                    "title": "4"
+                  },
+                  {
+                    "id": "4_5",
+                    "title": "5"
+                  }
+                ],
+                "label": "Rating",
+                "name": "Rating_406812",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+
+                "markdown": true,
+                "text": "[More Information](https://developers.facebook.com/tools/)",
+                "type": "TextCaption"
+
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Details_0": "${form.Details_d28464}",
+                    "screen_0_Rating_1": "${form.Rating_406812}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Satisfaction Form"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please fill the spaces with information based on your satisfaction.",
+                "type": "TextBody"
+              },
+              {
+                "label": "Details",
+                "name": "Details_d28464",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_1",
+                    "title": "1"
+                  },
+                  {
+                    "id": "1_2",
+                    "title": "2"
+                  },
+                  {
+                    "id": "2_3",
+                    "title": "3"
+                  },
+                  {
+                    "id": "3_4",
+                    "title": "4"
+                  },
+                  {
+                    "id": "4_5",
+                    "title": "5"
+                  }
+                ],
+                "label": "Rating",
+                "name": "Rating_406812",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+
+                "markdown": true,
+                "text": "[More Information](https://developers.facebook.com/tools/)",
+                "type": "TextCaption"
+
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Details_0": "${form.Details_d28464}",
+                    "screen_0_Rating_1": "${form.Rating_406812}"
+                  }
+                },
+                "type": "LowText"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Satisfaction Form"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

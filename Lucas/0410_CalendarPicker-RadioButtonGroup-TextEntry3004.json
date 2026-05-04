@@ -1,0 +1,151 @@
+{
+  "prompt":
+    {
+      "EN": "Build a flow where homeowners can select the number of rooms to clean, choose between a basic or deep clean, and pick a preferred start date"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Write the number of rooms to clean",
+                "type": "TextSubheading"
+              },
+              {
+                "input-type": "text",
+                "label": "Number of rooms",
+                "name": "Number_of_rooms_0fa513",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Basic_Clean",
+                    "title": "Basic Clean"
+                  },
+                  {
+                    "id": "1_Deep_Clean",
+                    "title": "Deep Clean"
+                  }
+                ],
+                "label": "Clean type",
+                "name": "Clean_type_af8943",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Start date",
+                "name": "Start_date_e7ebb8",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Number_of_rooms_0": "${form.Number_of_rooms_0fa513}",
+                    "screen_0_Clean_type_1": "${form.Clean_type_af8943}",
+                    "screen_0_Start_date_2": "${form.Start_date_e7ebb8}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Home Cleaning Service"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Write the number of rooms to clean",
+                "type": "TextSubheading"
+              },
+              {
+                "input-type": "text",
+                "label": "Number of rooms",
+                "name": "Number_of_rooms_0fa513",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Basic_Clean",
+                    "title": "Basic Clean"
+                  },
+                  {
+                    "id": "1_Deep_Clean",
+                    "title": "Deep Clean"
+                  }
+                ],
+                "label": "Clean type",
+                "name": "Clean_type_af8943",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Start date",
+                "name": "Start_date_e7ebb8",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete"
+                  "payload": {
+                    "screen_0_Number_of_rooms_0": "${form.Number_of_rooms_0fa513}",
+                    "screen_0_Clean_type_1": "${form.Clean_type_af8943}",
+                    "screen_0_Start_date_2": "${form.Start_date_e7ebb8}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Home Cleaning Service"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

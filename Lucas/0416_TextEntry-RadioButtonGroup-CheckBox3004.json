@@ -1,0 +1,203 @@
+{
+  "prompt":
+    {
+      "EN": "Design a flow where users can select their favorite wine types, choose a monthly delivery volume, and provide their shipping address"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Choose your favorite type of wines",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Wine_type_1",
+                    "title": "Wine type 1"
+                  },
+                  {
+                    "id": "1_Wine_type_2",
+                    "title": "Wine type 2"
+                  },
+                  {
+                    "id": "2_Wine_type_3",
+                    "title": "Wine type 3"
+                  },
+                  {
+                    "id": "3_Wine_type_4",
+                    "title": "Wine type 4"
+                  }
+                ],
+                "label": "Wines:",
+                "name": "Wines_054857",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_5_per_month",
+                    "title": "5 per month"
+                  },
+                  {
+                    "id": "1_10_per_month",
+                    "title": "10 per month"
+                  },
+                  {
+                    "id": "2_20_per_month",
+                    "title": "20 per month"
+                  },
+                  {
+                    "id": "3_50_per_month",
+                    "title": "50 per month"
+                  }
+                ],
+                "label": "How many do you want per month",
+                "name": "How_many_do_you_want_per_month_cd1bba",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "text",
+                "label": "Shipping address",
+                "name": "Shipping_address_c49dde",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Wines_0": "${form.Wines_054857}",
+                    "screen_0_How_many_do_you_want_per_month_1": "${form.How_many_do_you_want_per_month_cd1bba}",
+                    "screen_0_Shipping_address_2": "${form.Shipping_address_c49dde}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Wine Club Membership"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Choose your favorite type of wines",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Wine_type_1",
+                    "title": "Wine type 1"
+                  },
+                  {
+                    "id": "1_Wine_type_2",
+                    "title": "Wine type 2"
+                  },
+                  {
+                    "id": "2_Wine_type_3",
+                    "title": "Wine type 3"
+                  },
+                  {
+                    "id": "3_Wine_type_4",
+                    "title": "Wine type 4"
+                  }
+                ],
+                "label": "Wines:",
+                "name": "Wines_054857",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_5_per_month",
+                    "title": "5 per month"
+                  },
+                  {
+                    "id": "1_10_per_month",
+                    "title": "10 per month"
+                  },
+                  {
+                    "id": "2_20_per_month",
+                    "title": "20 per month"
+                  },
+                  {
+                    "id": "3_50_per_month",
+                    "title": "50 per month"
+                  }
+                ],
+                "label": "How many do you want per month",
+                "name": "How_many_do_you_want_per_month_cd1bba",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "text",
+                "label": "Shipping address",
+                "name": "Shipping_address_c49dde",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Wines_0": "${form.Wines_054857}",
+                    "screen_0_How_many_do_you_want_per_month_1": "${form.How_many_do_you_want_per_month_cd1bba}",
+                    "screen_0_Shipping_address_2": "${form.Shipping_address_c49dde}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+
+      "title": "Wine Club Membership"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+  "prompt":
+    {
+      "EN": "Build a flow where users describe their computer issue, provide their temporary access code, and click a link to download the support tool"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Description",
+                "name": "Description_778137",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Describe here your problem"
+              },
+              {
+                "input-type": "text",
+                "label": "Access Code",
+                "name": "Access_Code_3c0ab2",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here your temporary access code"
+              },
+              {
+                "type": "TextCaption",
+                "markdown": true,
+                "text": "[Link to a support tool](https://developers.facebook.com/support)"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Description_0": "${form.Description_778137}",
+                    "screen_0_Access_Code_1": "${form.Access_Code_3c0ab2}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Computer Problem"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Description",
+                "name": "Description_778137",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Describe here your problem"
+              },
+              {
+                "input-type": "text",
+                "type": "TextInput",
+                "helper-text": "Please write here your temporary access code"
+              },
+              {
+                "type": "TextCaption",
+                "markdown": true,
+                "text": "[Link to a support tool](https://developers.facebook.com/support)"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Description_0": "${form.Description_778137}",
+                    "screen_0_Access_Code_1": "${form.Access_Code_3c0ab2}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Computer Problem"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

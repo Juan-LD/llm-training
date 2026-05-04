@@ -1,0 +1,111 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow where I can right the name and a description"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Nome",
+                "name": "Nome_470c34",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your name here"
+              },
+              {
+                "label": "Description",
+                "name": "Description_5b1cdd",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Nome_0": "${form.Nome_470c34}",
+                    "screen_0_Description_1": "${form.Description_5b1cdd}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Information"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Nome",
+                "name": "Nome_470c34",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your name here"
+              },
+              {
+                "label": "Description",
+                "name": "Description_5b1cdd",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "label": "Complete",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Nome_0": "${form.Nome_470c34}",
+                    "screen_0_Description_1": "${form.Description_5b1cdd}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form",
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Information"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

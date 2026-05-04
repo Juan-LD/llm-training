@@ -1,0 +1,162 @@
+{
+  "prompt": {
+    "EN": "Create a flow where people can select which days of the week they are available using checkboxes"
+  },
+  "ok_flows": [
+    {
+      "EN": {
+  		"version": "7.3",
+  		"screens": [
+    			{
+      			"id": "DEMO_SCREEN",
+      			"title": "Demo Screen",
+      			"terminal": true,
+      			"layout": {
+        			"type": "SingleColumnLayout",
+        			"children": 
+					[
+          					{
+            					"type": "TextSubheading",
+            					"text": "Chose witch days you are available: ",
+            					"visible": true
+          					},
+           					{
+            					"type": "Form",
+            					"name": "checkbox_example_form",
+            					"children": 
+							[
+              							{
+                						"type": "CheckboxGroup",
+                						"name": "checkboxgroup",
+                						"label": "Available days:",
+                						"required":true,
+                						"data-source": 
+									[
+                  								{
+                    								"id": "Sunday",
+                    								"title": "Sunday"
+                  								},
+                  								{
+                    								"id": "Monday",
+                  	  							"title": "Monday"
+                  								},
+                  								{
+                    								"id": "Tuesday",
+                    								"title": "Tuesday"
+                  								},
+                  								{
+                    								"id": "Wednesday",
+                    								"title": "Wednesday"
+                  								},
+                  								{
+                    								"id": "Thursday",
+                    								"title": "Thursday"
+                  								},
+                 	 							{
+                    								"id": "Friday",
+                    								"title": "Friday"
+                  								},
+                  								{
+                    								"id": "Saturday",
+                    								"title": "Saturday"
+                  								}
+                							]
+              							}
+
+									]
+          					},
+          					{
+            					"type": "Footer",
+            					"label": "Continue",
+            					"on-click-action": 
+							{
+              						"name": "complete",
+              						"payload": {}
+           						}
+         					}
+        				]
+      				}
+    			}
+  		]
+	  }
+	}
+  				],
+			"ko_flows":	[
+   {
+      "EN": {
+  		"version": "7.3",
+  		"screens": [
+    			{
+      			"id": "DEMO_SCREEN",
+      			"title": "Demo Screen",
+      			"terminal": true,
+      			"layout": {
+        			"type": "SingleColumnLayout",
+        			"children": 
+					[
+          					{
+            					"type": "TextSubheading",
+            					"text": "Chose witch days you are available: ",
+            					"visible": true
+          					},
+           					{
+            					"type": "Form",
+            					"name": "checkbox_example_form",
+            					"children": 
+							[
+              							{
+                						"type": "CheckboxGroup",
+                						"name": "checkboxgroup",
+                						"data-source": 
+									[
+                  								{
+                    								"id": "Sunday",
+                    								"title": "Sunday"
+                  								},
+                  								{
+                    								"id": "Monday",
+                  	  							"title": "Monday"
+                  								},
+                  								{
+                    								"id": "Tuesday",
+                    								"title": "Tuesday"
+                  								},
+                  								{
+                    								"id": "Wednesday",
+                    								"title": "Wednesday"
+                  								},
+                  								{
+                    								"id": "Thursday",
+                    								"title": "Thursday"
+                  								},
+                 	 							{
+                    								"id": "Friday",
+                    								"title": "Friday"
+                  								},
+                  								{
+                    								"id": "Saturday",
+                    								"title": "Saturday"
+                  								}
+                							]
+              							}
+              
+            						]
+          					},
+          					{
+            					"type": "Footer",
+            					"label": "Continue",
+            					"on-click-action": 
+							{
+              						"name": "complete",
+              						"payload": {}
+           						}
+         					}
+        				]
+      				}
+    			}
+  		]
+	}
+
+}
+  		]
+}

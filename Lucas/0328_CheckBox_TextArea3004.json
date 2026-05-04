@@ -1,0 +1,175 @@
+{
+  "prompt":
+    {
+      "EN": "Build a flow where staff members can check which days they prefer to work from the office and provide suggestions for improving the workspace"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextCaption",
+                "text": "Write when do you prefer to work, and give your suggestions for improving the workspace"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Sunday",
+                    "title": "Sunday"
+                  },
+                  {
+                    "id": "1_Monday",
+                    "title": "Monday"
+                  },
+                  {
+                    "id": "2_Tuesday",
+                    "title": "Tuesday"
+                  },
+                  {
+                    "id": "3_Wednesday",
+                    "title": "Wednesday"
+                  },
+                  {
+                    "id": "4_Thursday",
+                    "title": "Thursday"
+                  },
+                  {
+                    "id": "5_Friday",
+                    "title": "Friday"
+                  },
+                  {
+                    "id": "6_Saturday",
+                    "title": "Saturday"
+                  }
+                ],
+                "label": "Days",
+                "name": "Days_7ab964",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Suggestions",
+                "name": "Suggestions_152ded",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Days_0": "${form.Days_7ab964}",
+                    "screen_0_Suggestions_1": "${form.Suggestions_152ded}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Employee Survey"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextCaption",
+                "text": "Write when do you prefer to work, and give your suggestions for improving the workspace"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Sunday",
+                    "title": "Sunday"
+                  },
+                  {
+                    "id": "1_Monday",
+                    "title": "Monday"
+                  },
+                  {
+                    "id": "2_Tuesday",
+                    "title": "Tuesday"
+                  },
+                  {
+                    "id": "3_Wednesday",
+                    "title": "Wednesday"
+                  },
+                  {
+                    "id": "4_Thursday",
+                    "title": "Thursday"
+                  },
+                  {
+                    "id": "5_Friday",
+                    "title": "Friday"
+                  },
+                  {
+                    "id": "6_Saturday",
+                    "title": "Saturday"
+                  }
+                ],
+                "label": "Days",
+                "name": "Days_7ab964",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Suggestions",
+                "name": "Suggestions_152ded",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "label": "Continue",
+                "on click action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Days_0": "${form.Days_7ab964}",
+                    "screen_0_Suggestions_1": "${form.Suggestions_152ded}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Employee Survey"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

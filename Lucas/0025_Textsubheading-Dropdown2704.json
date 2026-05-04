@@ -1,0 +1,229 @@
+{
+  "prompt": {
+    "EN": "Make a flow where the user picks their favourite food from a dropdown with 7 options"
+  },
+  	"ok_flows":
+  [
+    {
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "DEMO_SCREEN": []
+  },
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "data": {
+        "all_burgers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id": "1",
+              "title": "Food 1",
+              "description": "Description of Food 1"
+            },
+            {
+              "id": "2",
+              "title": "Food 2",
+              "description": "Description of Food 2"
+            },
+            {
+              "id": "3",
+              "title": "Food 3",
+              "description": "Description of Food 3"
+            },
+            {
+              "id": "4",
+              "title": "Food 4",
+              "description": "Description of Food 4"
+            },
+            {
+              "id": "5",
+              "title": "Food 5",
+              "description": "Description of Food 5"
+            },
+            {
+              "id": "6",
+              "title": "Food 6",
+              "description": "Description of Food 6"
+            },
+            {
+              "id": "7",
+              "title": "Food 7",
+              "description": "Description of Food 7"
+            }
+          ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "Chose your favorite food ",
+            "visible": true
+          },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "Dropdown",
+                "name": "burger",
+                "label": "Food",
+                "required": true,
+                "data-source": "${data.all_burgers}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "burger": "${form.burger}"
+                  }
+                }
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+	}
+  ],
+	"ko_flows":
+  [
+   	{
+      "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "DEMO_SCREEN": []
+  },
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "terminal": true,
+      "title": "Demo screen",
+      "data": {
+        "foods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": {
+                        {
+                          "id": "1",
+                          "title": "Food 1",
+                          "description": "Description of Food 1"
+                        },
+                        {
+                          "id": "2",
+                          "title": "Food 2",
+                          "description": "Description of Food 2"
+                        },
+                        {
+                          "id": "3",
+                          "title": "Food 3",
+                          "description": "Description of Food 3"
+                        },
+                        {
+                          "id": "4",
+                          "title": "Food 4",
+                          "description": "Description of Food 4"
+                        },
+                        {
+                          "id": "5",
+                          "title": "Food 5",
+                          "description": "Description of Food 5"
+                        },
+                        {
+                          "id": "6",
+                          "title": "Food 6",
+                          "description": "Description of Food 6"
+                        },
+                        {
+                          "id": "7",
+                          "title": "Food 7",
+                          "description": "Description of Food 7"
+                        }
+            }
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextSubheading",
+            "text": "Chose your favorite food ",
+            "visible": true
+          },
+          {
+            "type": "Form",
+            "name": "text_input_form",
+            "children": [
+              {
+                "type": "Dropdown",
+                "name": "food",
+                "label": "Food",
+                "required": true,
+                "data-source": "${data.foods}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "food": "${form.food}"
+                  }
+                }
+              },
+              {
+                "type": "Footer",
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": {}
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
+   	}
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "prompt":
+    {
+      "EN": "Build a flow where users pick a main dish from a Dropdown and use a CheckboxGroup to select up to three extra sides"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select a dish",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Dish_1",
+                    "title": "Dish 1"
+                  },
+                  {
+                    "id": "1_Dish_2",
+                    "title": "Dish 2"
+                  },
+                  {
+                    "id": "2_Dish_3",
+                    "title": "Dish 3"
+                  },
+                  {
+                    "id": "3_Dish_4",
+                    "title": "Dish 4"
+                  },
+                  {
+                    "id": "4_Dish_5",
+                    "title": "Dish 5"
+                  }
+                ],
+                "label": "Available dishes",
+                "name": "Available_dishes_874b13",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Extra_1",
+                    "title": "Extra 1"
+                  },
+                  {
+                    "id": "1_Extra_2",
+                    "title": "Extra 2"
+                  },
+                  {
+                    "id": "2_Extra_3",
+                    "title": "Extra 3"
+                  }
+                ],
+                "label": "Extras:",
+                "name": "Extras_fa781b",
+                "required": false,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Available_dishes_0": "${form.Available_dishes_874b13}",
+                    "screen_0_Extras_1": "${form.Extras_fa781b}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Dishes"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select a dish",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Dish_1",
+                    "title": "Dish 1"
+                  },
+                  {
+                    "id": "1_Dish_2",
+                    "title": "Dish 2"
+                  },
+                  {
+                    "id": "2_Dish_3",
+                    "title": "Dish 3"
+                  },
+                  {
+                    "id": "3_Dish_4",
+                    "title": "Dish 4"
+                  },
+                  {
+                    "id": "4_Dish_5",
+                    "title": "Dish 5"
+                  }
+                ],
+                "label": "Available dishes",
+                "name": "Available_dishes_874b13",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Extra_1",
+                    "title": "Extra 1"
+                  },
+                  {
+                    "id": "1_Extra_2",
+                    "title": "Extra 2"
+                  },
+                  {
+                    "id": "2_Extra_3",
+                    "title": "Extra 3"
+                  }
+                ],
+                "label": "Extras:",
+                "name": "Extras_fa781b",
+                "required": false,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Available_dishes_0": "${form.Available_dishes_874b13}",
+                    "screen_0_Extras_1": "${form.Extras_fa781b}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumn"
+      },
+      "terminal": true,
+      "title": "Dishes"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+  "prompt":
+    {
+      "EN": "Create a professional flow with clear instructions where users can choose both a date and a preferred time slot"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select a date and time",
+                "type": "TextSubheading"
+              },
+              {
+                "label": "Date",
+                "name": "Date_f01b3f",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_8h_-_12h",
+                    "title": "8h - 12h"
+                  },
+                  {
+                    "id": "1_12h_-_16h",
+                    "title": "12h - 16h"
+                  },
+                  {
+                    "id": "2_16h_-_20h",
+                    "title": "16h - 20h"
+                  }
+                ],
+                "label": "Time",
+                "name": "Time_ce394e",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Conclude",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Date_0": "${form.Date_f01b3f}",
+                    "screen_0_Time_1": "${form.Time_ce394e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Select time"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select a date and time",
+                "type": "Text"
+              },
+              {
+                "label": "Date",
+                "name": "Date_f01b3f",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_8h_-_12h",
+                    "title": "8h - 12h"
+                  },
+                  {
+                    "id": "1_12h_-_16h",
+                    "title": "12h - 16h"
+                  },
+                  {
+                    "id": "2_16h_-_20h",
+                    "title": "16h - 20h"
+                  }
+                ],
+                "label": "Time",
+                "name": "Time_ce394e",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Conclude",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Date_0": "${form.Date_f01b3f}",
+                    "screen_0_Time_1": "${form.Time_ce394e}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Select time"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

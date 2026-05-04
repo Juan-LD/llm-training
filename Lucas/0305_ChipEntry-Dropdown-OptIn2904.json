@@ -1,0 +1,177 @@
+{
+  "prompt":
+    {
+      "EN": "Design a flow where clients can choose a hair or nail treatment, pick their favorite stylist from the team, and agree to the basic coverage terms"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Please select your treatment"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Hair_Treatment",
+                    "title": "Hair Treatment"
+                  },
+                  {
+                    "id": "1_Nail_Treatment",
+                    "title": "Nail Treatment"
+                  }
+                ],
+                "label": "Available treatments",
+                "name": "Available_treatments_27ba05",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "type": "ChipsSelector",
+                "name": "chips",
+                "label": "Please choose employee",
+                "required": true,
+                "max-selected-items": 1,
+                "data-source": [
+                  {
+                    "id": "Jonh",
+                    "title": "Jonh"
+                  },
+                  {
+                    "id": "Tomas",
+                    "title": "Tomas"
+                  },
+                  {
+                    "id": "Pedro",
+                    "title": "Pedro"
+                  }
+                ]
+              },
+              {
+                "label": "I agree to the basic coverage terms",
+                "name": "I_agree_to_the_basic_coverage_terms_bfd088",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Available_treatments_0": "${form.Available_treatments_27ba05}",
+                    "screen_0_I_agree_to_the_basic_coverage_terms_1": "${form.I_agree_to_the_basic_coverage_terms_bfd088}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Treatment"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Please select your treatment"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Hair_Treatment",
+                    "title": "Hair Treatment"
+                  },
+                  {
+                    "id": "1_Nail_Treatment",
+                    "title": "Nail Treatment"
+                  }
+                ],
+                "label": "Available treatments",
+                "name": "Available_treatments_27ba05",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "type": "ChipsSelector",
+                "name": "chips",
+                "label": "Please choose employee",
+                "required": true,
+                "max-selected-items": 1,
+                "data-source": [
+                  {
+                    "identification": "Jonh",
+                    "title": "Jonh"
+                  },
+                  {
+                    "id": "Tomas",
+                    "title": "Tomas"
+                  },
+                  {
+                    "id": "Pedro",
+                    "title": "Pedro"
+                  }
+                ]
+              },
+              {
+                "label": "I agree to the basic coverage terms",
+                "name": "I_agree_to_the_basic_coverage_terms_bfd088",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Available_treatments_0": "${form.Available_treatments_27ba05}",
+                    "screen_0_I_agree_to_the_basic_coverage_terms_1": "${form.I_agree_to_the_basic_coverage_terms_bfd088}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Treatment"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

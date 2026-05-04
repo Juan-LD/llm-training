@@ -1,0 +1,143 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow where potential buyers can choose a property they want to visit, select a convenient date"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select the desired property and when you wanna see it",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Property_1",
+                    "title": "Property 1"
+                  },
+                  {
+                    "id": "1_Property_2",
+                    "title": "Property 2"
+                  },
+                  {
+                    "id": "2_Property_3",
+                    "title": "Property 3"
+                  }
+                ],
+                "label": "Properties",
+                "name": "Properties_9e96ac",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Day",
+                "name": "Day_e5eced",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Properties_0": "${form.Properties_9e96ac}",
+                    "screen_0_Day_1": "${form.Day_e5eced}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Buyers"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please select the desired property and when you wanna see it",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Property_1",
+                    "title": "Property 1"
+                  },
+                  {
+                    "id": "1_Property_2",
+                    "title": "Property 2"
+                  },
+                  {
+                    "id": "2_Property_3",
+                    "title": "Property 3"
+                  }
+                ],
+                "label": "Properties",
+                "name": "Properties_9e96ac",
+                "required": true,
+                "type": "Text"
+              },
+              {
+                "label": "Day",
+                "name": "Day_e5eced",
+                "required": true,
+                "type": "DatePicker"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Properties_0": "${form.Properties_9e96ac}",
+                    "screen_0_Day_1": "${form.Day_e5eced}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Buyers"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+  "prompt":
+    {
+      "EN": "Develop a formal flow where users can select their gender"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Male",
+                    "title": "Male"
+                  },
+                  {
+                    "id": "1_Female",
+                    "title": "Female"
+                  },
+                  {
+                    "id": "2_I_prefer_not_to_say",
+                    "title": "I prefer not to say"
+                  }
+                ],
+                "label": "Please indicate your gender",
+                "name": "Please_indicate_your_gender_478d75",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "text",
+                "label": "Other",
+                "name": "Other_1a8d9b",
+                "required": false,
+                "type": "TextInput"
+              },
+              {
+                "label": "Done",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Please_indicate_your_gender_0": "${form.Please_indicate_your_gender_478d75}",
+                    "screen_0_Other_1": "${form.Other_1a8d9b}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Gender"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Male",
+                    "title": "Male"
+                  },
+                  {
+                    "id": "1_Female",
+                    "title": "Female"
+                  },
+                  {
+                    "id": "2_I_prefer_not_to_say",
+                    "title": "I prefer not to say"
+                  }
+                ],
+                "label": "Please indicate your gender",
+                "name": "Please_indicate_your_gender_478d75",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "text",
+                "label": "Other",
+                "name": "Other_1a8d9b",
+                "required": false,
+                "type": "TextInput"
+              },
+              {
+                "label": "Done",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Please_indicate_your_gender_0": "${form.Please_indicate_your_gender_478d75}",
+                    "screen_0_Other_1": "${form.Other_1a8d9b}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "tipe": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Gender"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

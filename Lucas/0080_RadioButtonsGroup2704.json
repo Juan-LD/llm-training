@@ -1,0 +1,121 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow using RadioButtonsGroup to choose a payment method with 3 options"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_VISA",
+                    "title": "VISA"
+                  },
+                  {
+                    "id": "1_Mastercard",
+                    "title": "Mastercard"
+                  },
+                  {
+                    "id": "2_Paypal",
+                    "title": "Paypal"
+                  }
+                ],
+                "label": "Chose your payment method",
+                "name": "Chose_your_payment_method_77b2a6",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Pay",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Chose_your_payment_method_0": "${form.Chose_your_payment_method_77b2a6}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Payment"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_VISA",
+                    "title": "VISA"
+                  },
+                  {
+                    "id": "1_Mastercard",
+                    "title": "Mastercard"
+                  },
+                  {
+                    "id": "2_Paypal",
+                    "title": "Paypal"
+                  }
+                ],
+                "label": "Chose your payment method",
+                "name": "Chose_your_payment_method_77b2a6",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Pay",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Chose_your_payment_method_0": "${form.Chose_your_payment_method_77b2a6}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Payment"
+    }
+  ],
+  "versions": "7.3"
+}
+   	  }
+    ]
+}

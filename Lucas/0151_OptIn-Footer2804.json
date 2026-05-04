@@ -1,0 +1,93 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow that has Opt-in and a Footer"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Option",
+                "name": "Option_bbc880",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Option_0": "${form.Option_bbc880}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Basic Information"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Option",
+                "name": "Option_bbc880",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Option_0": "${form.Option_bbc880}"
+                  }
+                },
+                "type": "Text"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Basic Information"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

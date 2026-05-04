@@ -1,0 +1,152 @@
+{
+  "prompt":
+    {
+      "EN": "create a flow where I can select a date and name one event"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "Evento",
+      "terminal": true,
+      "title": "Event",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+                "type": "TextInput",
+                "required": true,
+                "label": "Write the event here",
+                "name": "Text Input"
+              },
+          {
+            "type": "CalendarPicker",
+            "name": "calendar_range",
+            "label": {
+              "start-date": "Start date",
+              "end-date": "End date"
+            },
+            "helper-text": {
+              "start-date": "Select from date",
+              "end-date": "Select to date"
+            },
+            "required": {
+              "start-date": true,
+              "end-date": false
+            },
+            "mode": "range",
+
+            "include-days": [
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri",
+              "Sat",
+              "Sun"
+            ],
+            "init-value": {
+              "start-date": "2026-03-25",
+              "end-date": "2026-06-06"
+            },
+            "on-select-action": {
+              "name": "data_exchange",
+              "payload": {
+                "calendar_range": "${form.calendar_range}"
+              }
+            }
+          },
+          {
+            "type": "Footer",
+            "label": "Close",
+            "on-click-action": {
+              "name": "data_exchange",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "version": "7.3",
+  "data_api_version": "3.0",
+  "routing_model": {},
+  "screens": [
+    {
+      "id": "Evento",
+      "terminal": true,
+      "title": "Event",
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+                "type": "TextInput",
+                "required": true,
+                "label": "Write the event here",
+                "name": "Text Input"
+              },
+          {
+            "type": "CalendarPicker",
+            "name": "calendar_range",
+            "label": {
+              "start-date": "Start date",
+              "end-date": "End date"
+            },
+            "helper-text": {
+              "start-date": "Select from date",
+              "end-date": "Select to date"
+            },
+            "required": {
+              "start-date": true,
+              "end-date": false
+            },
+            "mode": "range",
+
+            "include-days": [
+              "Mon",
+              "Tue",
+              "Wed",
+              "Thu",
+              "Fri",
+              "Sat",
+              "Sun"
+            ],
+            "init-value": {
+              "start-date": "2026-03-25",
+              "end-date": "2026-06-06"
+            },
+            "on-select-action": {
+              "name": "data_exchange",
+              "payload": {
+                "calendar_range": "${form.calendar_range}"
+              }
+            }
+          },
+          {
+            "type": "Footer",
+            "on-click-action": {
+              "name": "data_exchange",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+   	  }
+    ]
+}

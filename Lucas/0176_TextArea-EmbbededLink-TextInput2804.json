@@ -1,0 +1,111 @@
+{
+  "prompt":
+    {
+      "EN": "Develop a support flow that provides important assistance links and collects user feedback."
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please give us your feedback:",
+                "type": "TextCaption"
+              },
+              {
+                "label": "Write here",
+                "name": "Write_here_496380",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "type": "TextBody",
+                "markdown": true,
+                "text": "[More information](https://developers.facebook.com/support/)"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Write_here_0": "${form.Write_here_496380}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Feedback"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please give us your feedback:",
+                "type": "TextCaption"
+              },
+              {
+                "labl": "Write here",
+                "name": "Write_here_496380",
+                "required": false,
+                "type": "TextArea"
+              },
+              {
+                "type": "TextBody",
+                "markdown": true,
+                "text": "[More information](https://developers.facebook.com/support/)"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Write_here_0": "${form.Write_here_496380}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Feedback"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

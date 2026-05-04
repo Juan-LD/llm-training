@@ -1,0 +1,155 @@
+{
+  "prompt":
+    {
+      "EN": "Design a flow for potential guests to write a brief bio, provide a link to their portfolio, and select which topics they are experts in."
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Biography",
+                "name": "Biography_ecd265",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Please write your bio here"
+              },
+              {
+                "type": "TextCaption",
+                "markdown": true,
+                "text": "[Link to portfolio](https://developers.facebook.com/support)"
+
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Topic_1",
+                    "title": "Topic 1"
+                  },
+                  {
+                    "id": "1_Topic_2",
+                    "title": "Topic 2"
+                  },
+                  {
+                    "id": "2_Topic_3",
+                    "title": "Topic 3"
+                  },
+                  {
+                    "id": "3_Topic_4",
+                    "title": "Topic 4"
+                  }
+                ],
+                "label": "Select the topics you dominate",
+                "name": "Select_the_topics_you_dominate_5d1ddd",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Biography_0": "${form.Biography_ecd265}",
+                    "screen_0_Select_the_topics_you_dominate_1": "${form.Select_the_topics_you_dominate_5d1ddd}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Information"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+
+            "children": [
+              {
+                "label": "Biography",
+                "name": "Biography_ecd265",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Please write your bio here"
+              },
+              {
+                "type": "TextCaption",
+                "markdown": true,
+                "text": "[Link to portfolio](https://developers.facebook.com/support)"
+
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Topic_1",
+                    "title": "Topic 1"
+                  },
+                  {
+                    "id": "1_Topic_2",
+                    "title": "Topic 2"
+                  },
+                  {
+                    "id": "2_Topic_3",
+                    "title": "Topic 3"
+                  },
+                  {
+                    "id": "3_Topic_4",
+                    "title": "Topic 4"
+                  }
+                ],
+                "label": "Select the topics you dominate",
+                "name": "Select_the_topics_you_dominate_5d1ddd",
+                "required": true,
+                "type": "CheckboxGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Biography_0": "${form.Biography_ecd265}",
+                    "screen_0_Select_the_topics_you_dominate_1": "${form.Select_the_topics_you_dominate_5d1ddd}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Information"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

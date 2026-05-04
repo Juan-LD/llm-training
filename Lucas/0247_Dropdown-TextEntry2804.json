@@ -1,0 +1,201 @@
+{
+  "prompt":
+    {
+      "EN": "Design a formal flow to collect the user’s phone number and preferred contact time"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please indicate your phone number and when do you prefer to be contacted",
+                "type": "TextSubheading"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone number",
+                "name": "Phone_number_a5da7e",
+                "required": false,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_8h_-_9h",
+                    "title": "8h - 9h"
+                  },
+                  {
+                    "id": "1_9h_-_10h",
+                    "title": "9h - 10h"
+                  },
+                  {
+                    "id": "2_10h_-_11h",
+                    "title": "10h - 11h"
+                  },
+                  {
+                    "id": "3_11h_-_12h",
+                    "title": "11h - 12h"
+                  },
+                  {
+                    "id": "4_12h_-_13h",
+                    "title": "12h - 13h"
+                  },
+                  {
+                    "id": "5_13h_-_14h",
+                    "title": "13h - 14h"
+                  },
+                  {
+                    "id": "6_14h_-_15h",
+                    "title": "14h - 15h"
+                  },
+                  {
+                    "id": "7_15h_-_16h",
+                    "title": "15h - 16h"
+                  },
+                  {
+                    "id": "8_16h_-_17h",
+                    "title": "16h - 17h"
+                  },
+                  {
+                    "id": "9_17h_-_18h",
+                    "title": "17h - 18h"
+                  }
+                ],
+                "label": "Time",
+                "name": "Time_c2b706",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Done",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Phone_number_0": "${form.Phone_number_a5da7e}",
+                    "screen_0_Time_1": "${form.Time_c2b706}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Communication"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please indicate your phone number and when do you prefer to be contacted",
+                "type": "TextSubheading"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone number",
+                "name": "Phone_number_a5da7e",
+                "required": false,
+                "type": "TextInput"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_8h_-_9h",
+                    "title": "8h - 9h"
+                  },
+                  {
+                    "id": "1_9h_-_10h",
+                    "title": "9h - 10h"
+                  },
+                  {
+                    "id": "2_10h_-_11h",
+                    "title": "10h - 11h"
+                  },
+                  {
+                    "id": "3_11h_-_12h",
+                    "title": "11h - 12h"
+                  },
+                  {
+                    "id": "4_12h_-_13h",
+                    "title": "12h - 13h"
+                  },
+                  {
+                    "id": "5_13h_-_14h",
+                    "title": "13h - 14h"
+                  },
+                  {
+                    "id": "6_14h_-_15h",
+                    "title": "14h - 15h"
+                  },
+                  {
+                    "id": "7_15h_-_16h",
+                    "title": "15h - 16h"
+                  },
+                  {
+                    "id": "8_16h_-_17h",
+                    "title": "16h - 17h"
+                  },
+                  {
+                    "id": "9_17h_-_18h",
+                    "title": "17h - 18h"
+                  }
+                ],
+                "label": "Time",
+                "name": "Time_c2b706",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Done",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Phone_number_0": "${form.Phone_number_a5da7e}",
+                    "screen_0_Time_1": "${form.Time_c2b706}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": false,
+      "title": "Communication"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,159 @@
+{
+  "prompt":
+    {
+      "EN": "Create a formal flow where users can choose a membership plan, accept the terms and confirm their agreement."
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Chose your plan",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Plan_1",
+                    "title": "Plan 1",
+                    "metadata": "9.99€"
+                  },
+                  {
+                    "id": "1_Plan_2",
+                    "title": "Plan 2",
+                    "metadata": "19.99€"
+                  },
+                  {
+                    "id": "2_Plan_3",
+                    "title": "Plan 3",
+                    "metadata": "39.99€"
+                  },
+                  {
+                    "id": "3_Plan_4",
+                    "title": "Plan 4",
+                    "metadata": "99.99€"
+                  }
+                ],
+                "label": "Available plans",
+                "name": "Available_plans_102087",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "I accept the terms and regulations",
+                "name": "I_accept_the_terms_and_regulations_8891a3",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Sign",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Available_plans_0": "${form.Available_plans_102087}",
+                    "screen_0_I_accept_the_terms_and_regulations_1": "${form.I_accept_the_terms_and_regulations_8891a3}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Membership"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Chose your plan",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Plan_1",
+                    "title": "Plan 1",
+                    "metadata": "9.99€"
+                  },
+                  {
+                    "id": "1_Plan_2",
+                    "title": "Plan 2",
+                    "metadata": "19.99€"
+                  },
+                  {
+                    "id": "2_Plan_3",
+                    "title": "Plan 3",
+                    "metadata": "39.99€"
+                  },
+                  {
+                    "id": "3_Plan_4",
+                    "title": "Plan 4",
+                    "metadata": "99.99€"
+                  }
+                ],
+                "label": "Available plans",
+                "name": "Available_plans_102087",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "I accept the terms and regulations",
+                "name": "I_accept_the_terms_and_regulations_8891a3",
+                "required": true.
+                "type": "OptIn"
+              },
+              {
+                "label": "Sign",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Available_plans_0": "${form.Available_plans_102087}",
+                    "screen_0_I_accept_the_terms_and_regulations_1": "${form.I_accept_the_terms_and_regulations_8891a3}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Membership"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

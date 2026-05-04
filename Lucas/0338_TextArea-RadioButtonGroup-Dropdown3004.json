@@ -1,0 +1,181 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow where customers can describe their flavor preferences, choose how often they want bags delivered, and select their preferred grind size"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Flavor",
+                "name": "Flavor_699b53",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here your wanted flavor"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Once_a_day",
+                    "title": "Once a day"
+                  },
+                  {
+                    "id": "1_Twice_a_day",
+                    "title": "Twice a day"
+                  },
+                  {
+                    "id": "2_3_times_a_day",
+                    "title": "3 times a day"
+                  }
+                ],
+                "label": "How many times",
+                "name": "How_many_times_f1d42b",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_500_ml",
+                    "title": "500 ml"
+                  },
+                  {
+                    "id": "1_750_ml",
+                    "title": "750 ml"
+                  },
+                  {
+                    "id": "2_1_L",
+                    "title": "1 L"
+                  }
+                ],
+                "label": "Size",
+                "name": "Size_2e39c6",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Flavor_0": "${form.Flavor_699b53}",
+                    "screen_0_How_many_times_1": "${form.How_many_times_f1d42b}",
+                    "screen_0_Size_2": "${form.Size_2e39c6}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Coffe"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": ,
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Flavor",
+                "name": "Flavor_699b53",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here your wanted flavor"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Once_a_day",
+                    "title": "Once a day"
+                  },
+                  {
+                    "id": "1_Twice_a_day",
+                    "title": "Twice a day"
+                  },
+                  {
+                    "id": "2_3_times_a_day",
+                    "title": "3 times a day"
+                  }
+                ],
+                "label": "How many times",
+                "name": "How_many_times_f1d42b",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_500_ml",
+                    "title": "500 ml"
+                  },
+                  {
+                    "id": "1_750_ml",
+                    "title": "750 ml"
+                  },
+                  {
+                    "id": "2_1_L",
+                    "title": "1 L"
+                  }
+                ],
+                "label": "Size",
+                "name": "Size_2e39c6",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Flavor_0": "${form.Flavor_699b53}",
+                    "screen_0_How_many_times_1": "${form.How_many_times_f1d42b}",
+                    "screen_0_Size_2": "${form.Size_2e39c6}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Coffe"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

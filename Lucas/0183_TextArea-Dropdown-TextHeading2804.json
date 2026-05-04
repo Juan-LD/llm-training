@@ -1,0 +1,160 @@
+{
+  "prompt":
+    {
+      "EN": "Create a formal flow that lets users select a category and provide a detailed description of their request"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Choose your category and give it a description",
+                "type": "TextHeading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_1st_Category",
+                    "title": "1st Category"
+                  },
+                  {
+                    "id": "1_2nd_Category",
+                    "title": "2nd Category"
+                  },
+                  {
+                    "id": "2_3rd_Category",
+                    "title": "3rd Category"
+                  },
+                  {
+                    "id": "3_4th_Category",
+                    "title": "4th Category"
+                  },
+                  {
+                    "id": "4_5th_Category",
+                    "title": "5th Category"
+                  }
+                ],
+                "label": "Categories",
+                "name": "Categories_e08168",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Description",
+                "name": "Description_d803aa",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write your description here"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Categories_0": "${form.Categories_e08168}",
+                    "screen_0_Description_1": "${form.Description_d803aa}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Detailed Description"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Choose your category and give it a description",
+                "type": "TextHeading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_1st_Category",
+                    "title": "1st Category"
+                  },
+                  {
+                    "id": "1_2nd_Category",
+                    "title": "2nd Category"
+                  },
+                  {
+                    "id": "2_3rd_Category",
+                    "title": "3rd Category"
+                  },
+                  {
+                    "id": "3_4th_Category",
+                    "title": "4th Category"
+                  },
+                  {
+                    "id": "4_5th_Category",
+                    "title": "5th Category"
+                  }
+                ],
+                "label": "Categories",
+                "name": "Categories_e08168",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "name": "Description_d803aa",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write your description here"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Categories_0": "${form.Categories_e08168}",
+                    "screen_0_Description_1": "${form.Description_d803aa}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Detailed Description"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

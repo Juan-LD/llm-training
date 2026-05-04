@@ -1,0 +1,159 @@
+{
+  "prompt":
+    {
+      "EN": "Design a flow where clients can choose a design category, write a brief description of their brand, and agree to the initial deposit terms"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Category_1",
+                    "title": "Category 1"
+                  },
+                  {
+                    "id": "1_Category_2",
+                    "title": "Category 2"
+                  },
+                  {
+                    "id": "2_Category_3",
+                    "title": "Category 3"
+                  },
+                  {
+                    "id": "3_Category_4",
+                    "title": "Category 4"
+                  }
+                ],
+                "label": "Categories",
+                "name": "Categories_0ed722",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Description",
+                "name": "Description_4a9928",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write a brief description"
+              },
+              {
+                "label": "I agree with the initial deposit terms",
+                "name": "I_agree_with_the_initial_deposit_terms_b76656",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Categories_0": "${form.Categories_0ed722}",
+                    "screen_0_Description_1": "${form.Description_4a9928}",
+                    "screen_0_I_agree_with_the_initial_deposit_terms_2": "${form.I_agree_with_the_initial_deposit_terms_b76656}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Freelance Graphic Design Brief"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Category_1",
+                    "title": "Category 1"
+                  },
+                  {
+                    "id": "1_Category_2",
+                    "title": "Category 2"
+                  },
+                  {
+                    "id": "2_Category_3",
+                    "title": "Category 3"
+                  },
+                  {
+                    "id": "3_Category_4",
+                    "title": "Category 4"
+                  }
+                ],
+                "label": "Categories",
+                "name": "Categories_0ed722",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Description",
+                "name": "Description_4a9928",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write a brief description"
+              },
+              {
+                "label": "I agree with the initial deposit terms",
+                "name": "I_agree_with_the_initial_deposit_terms_b76656",
+                "required": true,
+                "type": "OptIn"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Categories_0": "${form.Categories_0ed722}",
+                    "screen_0_Description_1": "${form.Description_4a9928}",
+                    "screen_0_I_agree_with_the_initial_deposit_terms_2": "${form.I_agree_with_the_initial_deposit_terms_b76656}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path".
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Freelance Graphic Design Brief"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

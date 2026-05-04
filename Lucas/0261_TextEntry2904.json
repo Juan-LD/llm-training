@@ -1,0 +1,133 @@
+{
+  "prompt":
+    {
+      "EN": "Develop a flow to collect the Company Name, Street Address, and Phone Number using appropriate TextInput components"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_a3c93a",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here the company's name"
+              },
+              {
+                "input-type": "text",
+                "label": "Adress",
+                "name": "Adress_761f68",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here the company's adress"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_a6ab91",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here the company's phone number"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Name_0": "${form.Name_a3c93a}",
+                    "screen_0_Adress_1": "${form.Adress_761f68}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_a6ab91}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Company"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Name",
+                "name": "Name_a3c93a",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here the company's name"
+              },
+              {
+                "input-type": "text",
+                "label": "Adress",
+                "name": "Adress_761f68",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here the company's adress"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone Number",
+                "name": "Phone_Number_a6ab91",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Please write here the company's phone number"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Name_0": "${form.Name_a3c93a}",
+                    "screen_0_Adress_1": "${form.Adress_761f68}",
+                    "screen_0_Phone_Number_2": "${form.Phone_Number_a6ab91}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Company"
+    }
+  ],
+  "version": "7.4"
+}
+   	  }
+    ]
+}

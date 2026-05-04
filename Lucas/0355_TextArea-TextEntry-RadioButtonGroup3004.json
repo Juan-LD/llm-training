@@ -1,0 +1,152 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow where a collector can describe the artwork they want, select the desired canvas size, and provide their contact phone number"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "Description",
+                "name": "Description_8f68ce",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Describe your artwork here"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_50_cm",
+                    "title": "50 cm"
+                  },
+                  {
+                    "id": "1_100_cm",
+                    "title": "100 cm"
+                  },
+                  {
+                    "id": "2_200_cm",
+                    "title": "200 cm"
+                  }
+                ],
+                "label": "Artwork size",
+                "name": "Artwork_size_e02c4b",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone",
+                "name": "Phone_8194f8",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Description_0": "${form.Description_8f68ce}",
+                    "screen_0_Artwork_size_1": "${form.Artwork_size_e02c4b}",
+                    "screen_0_Phone_2": "${form.Phone_8194f8}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Art"
+    }
+  ],
+  "version": "7.3"
+}}
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "child": [
+          {
+            "children": [
+              {
+                "label": "Description",
+                "name": "Description_8f68ce",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Describe your artwork here"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_50_cm",
+                    "title": "50 cm"
+                  },
+                  {
+                    "id": "1_100_cm",
+                    "title": "100 cm"
+                  },
+                  {
+                    "id": "2_200_cm",
+                    "title": "200 cm"
+                  }
+                ],
+                "label": "Artwork size",
+                "name": "Artwork_size_e02c4b",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "phone",
+                "label": "Phone",
+                "name": "Phone_8194f8",
+                "required": true,
+                "type": "TextInput"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Description_0": "${form.Description_8f68ce}",
+                    "screen_0_Artwork_size_1": "${form.Artwork_size_e02c4b}",
+                    "screen_0_Phone_2": "${form.Phone_8194f8}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Art"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

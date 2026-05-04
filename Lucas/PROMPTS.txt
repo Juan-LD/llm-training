@@ -1,0 +1,110 @@
+create a flow where I can right the name and a description
+	
+create a flow where I can select a date and name one event
+
+create a flow with 3 pages, the 1st one the costumer gives his name and email, in the 2nd one his birthdate and nationality and the 3rd one his street and hobbies each one in a text box
+
+create a flow that has a built in link with a caption type text saying what it directs to
+
+create a flow that the client can write his information
+
+create a flow that when I click on top of a button, it gives a column with 4 options
+
+Create a flow combining Text Heading, Text Body and Text Input
+
+Create a flow that ends with Opt-in and Footer
+
+Create a flow with Dropdown to select the country of residence
+
+Create a flow using Radio Buttons Group to choose a payment method with 3 options
+
+Create a flow using only Opt-in component for agreement
+
+Create a flow with Text Heading, Text Body and an Embedded Link
+
+Create a flow with Text Area for suggestions and a Footer to submit
+
+Create a professional WhatsApp Flow that requests the user's complete residential address using a Text Input component.
+
+Make a flow where the user picks their favourite food from a dropdown with 7 options.
+
+Develop a WhatsApp Flow that allows the user to select their vacation period using the calendar.
+
+Create a flow where people can select which days of the week they are available using checkboxes.
+
+Develop a support-oriented flow using TextCaption, EmbeddedLink, and TextInput to provide assistance information and collect user feedback.
+
+Create a formal WhatsApp Flow combining TextHeading, Dropdown, and TextArea for category selection and detailed description.
+
+Create a professional flow using TextBody, CalendarPicker, and RadioButtonsGroup to present instructions and allow date and time slot selection.
+
+Design a structured flow that integrates TextArea, RadioButtonsGroup, and EmbeddedLink to collect detailed feedback, rating, and provide access to additional resources.
+
+Create a formal WhatsApp Flow using TextSubheading, Dropdown, and OptIn, enabling users to choose a membership plan and provide consent.
+
+Create a professional WhatsApp Flow to collect the user’s email address.
+
+Develop a formal flow where users can select their gender
+
+Design a flow that lets users choose their education level and in which field
+
+Design a formal flow to collect the user’s phone number and preferred contact time.
+
+Build a flow where users pick a main dish from a Dropdown and use a CheckboxGroup to select up to three extra sides
+
+Develop a flow to collect the Company Name, Street Address, and Phone Number using appropriate TextInput components
+
+Create a flow where potential buyers can choose a property they want to visit, select a convenient date
+
+Build a flow where customers can write a custom message for a gift card and select the wrapping color they prefer from a set of options
+
+Develop a flow for travelers to enter their destination country, choose their dates, and agree to the basic coverage terms
+
+Design a flow where clients can choose a hair or nail treatment, pick their favorite stylist from the team, and agree to the basic coverage terms
+
+Design a flow where donors can choose a cause to support, select a monthly donation amount, and provide their phone number for updates
+
+Build a flow where staff members can check which days they prefer to work from the office and provide suggestions for improving the workspace
+
+Create a flow where customers can describe their flavor preferences, choose how often they want bags delivered, and select their preferred grind size
+
+Design a flow for potential guests to write a brief bio, provide a link to their portfolio, and select which topics they are experts in.
+
+Create a flow where a collector can describe the artwork they want, select the desired canvas size, and provide their contact phone number
+
+Create a flow for students to select which instrument they want to learn, choose their skill level, and provide their preferred contact time
+
+Build a flow where users describe their computer issue, provide their temporary access code, and click a link to download the support tool
+
+Create a flow where students can select a subject they need help with, describe their current challenges, and pick a time slot for a trial lesson.
+
+Design a flow where clients can choose a design category, write a brief description of their brand, and agree to the initial deposit terms
+
+Build a flow where homeowners can select the number of rooms to clean, choose between a basic or deep clean, and pick a preferred start date
+
+Create a flow where couples can select their wedding date, describe the theme of their event, and choose a photography package from a list
+
+Design a flow for users to pick a language they speak fluently and another they want to learn, then write a short introduction about themselves
+
+Build a flow where participants can select their t-shirt size, enter their emergency contact name, and agree to the event liability waiver
+
+Develop a flow that lets subscribers choose which origin of beans they want this month and select the roasting level they prefer
+{
+  "prompt":
+    {
+      "EN": ""
+    },
+  "ok_flows":
+    [
+      {
+        "EN":
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN":
+   	  }
+    ]
+}

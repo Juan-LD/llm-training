@@ -1,0 +1,219 @@
+{
+  "prompt":
+    {
+      "EN": "Design a flow for users to pick a language they speak fluently and another they want to learn, then write a short introduction about themselves"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please pick a language you speak fluently and another you want to learn",
+                "type": "TextCaption"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Language_1",
+                    "title": "Language 1"
+                  },
+                  {
+                    "id": "1_Language_2",
+                    "title": "Language 2"
+                  },
+                  {
+                    "id": "2_Language_3",
+                    "title": "Language 3"
+                  },
+                  {
+                    "id": "3_Language_4",
+                    "title": "Language 4"
+                  },
+                  {
+                    "id": "4_Language_5",
+                    "title": "Language 5"
+                  }
+                ],
+                "label": "Mother Language",
+                "name": "Mother_Language_0895eb",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Language_A",
+                    "title": "Language A"
+                  },
+                  {
+                    "id": "1_Language_B",
+                    "title": "Language B"
+                  },
+                  {
+                    "id": "2_Language_C",
+                    "title": "Language C"
+                  },
+                  {
+                    "id": "3_Language_D",
+                    "title": "Language D"
+                  },
+                  {
+                    "id": "4_Language_E",
+                    "title": "Language E"
+                  }
+                ],
+                "label": "Desired Language",
+                "name": "Desired_Language_54c0e6",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Introduction",
+                "name": "Introduction_185540",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write a short introduction about yourself"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Mother_Language_0": "${form.Mother_Language_0895eb}",
+                    "screen_0_Desired_Language_1": "${form.Desired_Language_54c0e6}",
+                    "screen_0_Introduction_2": "${form.Introduction_185540}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Language Exchange Partner"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Please pick a language you speak fluently and another you want to learn",
+                "type": "TextCaption"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Language_1",
+                    "title": "Language 1"
+                  },
+                  {
+                    "id": "1_Language_2",
+                    "title": "Language 2"
+                  },
+                  {
+                    "id": "2_Language_3",
+                    "title": "Language 3"
+                  },
+                  {
+                    "id": "3_Language_4",
+                    "title": "Language 4"
+                  },
+                  {
+                    "id": "4_Language_5",
+                    "title": "Language 5"
+                  }
+                ],
+                "label": "Mother Language",
+                "name": "Mother_Language_0895eb",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Language_A",
+                    "title": "Language A"
+                  },
+                  {
+                    "id": "1_Language_B",
+                    "title": "Language B"
+                  },
+                  {
+                    "id": "2_Language_C",
+                    "title": "Language C"
+                  },
+                  {
+                    "id": "3_Language_D",
+                    "title": "Language D"
+                  },
+                  {
+                    "id": "4_Language_E",
+                    "title": "Language E"
+                  }
+                ],
+                "label": "Desired Language",
+                "name": "Desired_Language_54c0e6",
+                "required": true,
+                "type": ""
+              },
+              {
+                "label": "Introduction",
+                "name": "Introduction_185540",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write a short introduction about yourself"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Mother_Language_0": "${form.Mother_Language_0895eb}",
+                    "screen_0_Desired_Language_1": "${form.Desired_Language_54c0e6}",
+                    "screen_0_Introduction_2": "${form.Introduction_185540}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Language Exchange Partner"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+  "prompt":
+    {
+      "EN": "Design a flow where donors can choose a cause to support, select a monthly donation amount, and provide their phone number for updates"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Please select your cause"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Cause_1",
+                    "title": "Cause 1"
+                  },
+                  {
+                    "id": "1_Cause_2",
+                    "title": "Cause 2"
+                  },
+                  {
+                    "id": "2_Cause_3",
+                    "title": "Cause 3"
+                  },
+                  {
+                    "id": "3_Cause_4",
+                    "title": "Cause 4"
+                  }
+                ],
+                "label": "Causes",
+                "name": "Causes_d8ebbf",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_10€/month",
+                    "title": "10€/month"
+                  },
+                  {
+                    "id": "1_100€/month",
+                    "title": "100€/month"
+                  },
+                  {
+                    "id": "2_1000€/month",
+                    "title": "1000€/month"
+                  }
+                ],
+                "label": "Select a monthly donation",
+                "name": "Select_a_monthly_donation_1964c7",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "text",
+                "label": "Phone number",
+                "name": "Phone_number_3803f3",
+                "required": false,
+                "type": "TextInput",
+                "helper-text": "Give us your phone number to receive news"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Causes_0": "${form.Causes_d8ebbf}",
+                    "screen_0_Select_a_monthly_donation_1": "${form.Select_a_monthly_donation_1964c7}",
+                    "screen_0_Phone_number_2": "${form.Phone_number_3803f3}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Treatment"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Please select your cause"
+              },
+              {
+                "data source": [
+                  {
+                    "id": "0_Cause_1",
+                    "title": "Cause 1"
+                  },
+                  {
+                    "id": "1_Cause_2",
+                    "title": "Cause 2"
+                  },
+                  {
+                    "id": "2_Cause_3",
+                    "title": "Cause 3"
+                  },
+                  {
+                    "id": "3_Cause_4",
+                    "title": "Cause 4"
+                  }
+                ],
+                "label": "Causes",
+                "name": "Causes_d8ebbf",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_10€/month",
+                    "title": "10€/month"
+                  },
+                  {
+                    "id": "1_100€/month",
+                    "title": "100€/month"
+                  },
+                  {
+                    "id": "2_1000€/month",
+                    "title": "1000€/month"
+                  }
+                ],
+                "label": "Select a monthly donation",
+                "name": "Select_a_monthly_donation_1964c7",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "input-type": "text",
+                "label": "Phone number",
+                "name": "Phone_number_3803f3",
+                "required": false,
+                "type": "TextInput",
+                "helper-text": "Give us your phone number to receive news"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Causes_0": "${form.Causes_d8ebbf}",
+                    "screen_0_Select_a_monthly_donation_1": "${form.Select_a_monthly_donation_1964c7}",
+                    "screen_0_Phone_number_2": "${form.Phone_number_3803f3}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Treatment"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,95 @@
+{
+  "prompt": {
+    "EN": "Create a flow with TextArea for suggestions and a Footer to submit"
+  },
+  	"ok_flows":
+  [
+    {
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "suggestion",
+                "name": "suggestion_ce153e",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write your suggestions here"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_suggestion_0": "${form.suggestion_ce153e}"
+                  }
+                },
+
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Suggestions"
+    }
+  ],
+  "version": "7.3"
+}
+	}
+  ],
+	"ko_flows":
+  [
+   	{
+      "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "label": "suggestion",
+                "name": "suggestion_ce153e",
+                "required": true,
+                "type": "TextArea",
+                "helper-text": "Write your suggestions here"
+              },
+              {
+                "label": "Send",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_suggestion_0": ""
+                  }
+                },
+
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Suggestions"
+    }
+  ],
+  "version": "7.3"
+}
+   	}
+  ]
+}

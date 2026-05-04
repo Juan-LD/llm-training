@@ -1,0 +1,197 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow for students to select which instrument they want to learn, choose their skill level, and provide their preferred contact time"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Instrument",
+                "name": "Instrument_d3c3e8",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Indicate the instrument you wanna learn"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Begginer",
+                    "title": "Begginer"
+                  },
+                  {
+                    "id": "1_Intermediate",
+                    "title": "Intermediate"
+                  },
+                  {
+                    "id": "2_Professional",
+                    "title": "Professional"
+                  }
+                ],
+                "label": "Level",
+                "name": "Level_6ae24b",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_8h_-_10h",
+                    "title": "8h - 10h"
+                  },
+                  {
+                    "id": "1_10h_-_12h",
+                    "title": "10h - 12h"
+                  },
+                  {
+                    "id": "2_12h_-_14h",
+                    "title": "12h - 14h"
+                  },
+                  {
+                    "id": "3_14h_-_16h",
+                    "title": "14h - 16h"
+                  },
+                  {
+                    "id": "4_16h_-_18h",
+                    "title": "16h - 18h"
+                  }
+                ],
+                "label": "Best time to learn",
+                "name": "Best_time_to_learn_72aa1c",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Instrument_0": "${form.Instrument_d3c3e8}",
+                    "screen_0_Level_1": "${form.Level_6ae24b}",
+                    "screen_0_Best_time_to_learn_2": "${form.Best_time_to_learn_72aa1c}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Instrument"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "text",
+                "label": "Instrument",
+                "name": "Instrument_d3c3e8",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Indicate the instrument you wanna learn"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Begginer",
+                    "title": "Begginer"
+                  },
+                  {
+                    "id": "1_Intermediate",
+                    "title": "Intermediate"
+                  },
+                  {
+                    "id": "2_Professional",
+                    "title": "Professional"
+                  }
+                ],
+                "label": "Level",
+                "name": "Level_6ae24b",
+                "required": true,
+                "type": "RadioButtonsGroup"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_8h_-_10h",
+                    "title": "8h - 10h"
+                  },
+                  {
+                    "id": "1_10h_-_12h",
+                    "title": "10h - 12h"
+                  },
+                  {
+                    "id": "2_12h_-_14h",
+                    "title": "12h - 14h"
+                  },
+                  {
+                    "id": "3_14h_-_16h",
+                    "title": "14h - 16h"
+                  },
+                  {
+                    "id": "4_16h_-_18h",
+                    "title": "16h - 18h"
+                  }
+                ],
+                "label": "Best time to learn",
+                "name": "Best_time_to_learn_72aa1c",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Continue",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Instrument_0": "${form.Instrument_d3c3e8}",
+                    "screen_0_Level_1": "${form.Level_6ae24b}",
+                    "screen_0_Best_time_to_learn_2": "${form.Best_time_to_learn_72aa1c}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": false,
+      "title": "Instrument"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+  "prompt":
+    {
+      "EN": "Create a professional WhatsApp Flow to collect the user’s email address"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "email",
+                "label": "example@google.com",
+                "name": "examplegooglecom_1433e9",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your Email here"
+              },
+              {
+                "label": "Enter",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_examplegooglecom_0": "${form.examplegooglecom_1433e9}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Email"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "input-type": "email",
+                "label": "example@google.com",
+                "name": "examplegooglecom_1433e9",
+                "required": true,
+                "type": "TextInput",
+                "helper-text": "Write your Email here"
+              },
+              {
+                "label": "Enter",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_examplegooglecom_0": "${form.examplegooglecom_1433e9}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Email",
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

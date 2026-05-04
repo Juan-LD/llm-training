@@ -1,0 +1,185 @@
+{
+  "prompt":
+    {
+      "EN": "Create a flow with Dropdown where the user can select their country of residence"
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Select your country",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Country_1",
+                    "title": "Country 1"
+                  },
+                  {
+                    "id": "1_Country_2",
+                    "title": "Country 2"
+                  },
+                  {
+                    "id": "2_Country_3",
+                    "title": "Country 3"
+                  },
+                  {
+                    "id": "3_Country_4",
+                    "title": "Country 4"
+                  },
+                  {
+                    "id": "4_Country_5",
+                    "title": "Country 5"
+                  },
+                  {
+                    "id": "5_Country_6",
+                    "title": "Country 6"
+                  },
+                  {
+                    "id": "6_Country_7",
+                    "title": "Country 7"
+                  },
+                  {
+                    "id": "7_Country_8",
+                    "title": "Country 8"
+                  },
+                  {
+                    "id": "8_Country_9",
+                    "title": "Country 9"
+                  },
+                  {
+                    "id": "9_Country_10",
+                    "title": "Country 10"
+                  }
+                ],
+                "label": "Countries",
+                "name": "Countries_1cd9fc",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Countries_0": "${form.Countries_1cd9fc}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Basic Information"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "text": "Select your country",
+                "type": "TextSubheading"
+              },
+              {
+                "data-source": [
+                  {
+                    "id": "0_Country_1",
+                    "title": "Country 1"
+                  },
+                  {
+                    "id": "1_Country_2",
+                    "title": "Country 2"
+                  },
+                  {
+                    "id": "2_Country_3",
+                    "title": "Country 3"
+                  },
+                  {
+                    "id": "3_Country_4",
+                    "title": "Country 4"
+                  },
+                  {
+                    "id": "4_Country_5",
+                    "title": "Country 5"
+                  },
+                  {
+                    "id": "5_Country_6",
+                    "title": "Country 6"
+                  },
+                  {
+                    "id": "6_Country_7",
+                    "title": "Country 7"
+                  },
+                  {
+                    "id": "7_Country_8",
+                    "title": "Country 8"
+                  },
+                  {
+                    "id": "8_Country_9",
+                    "title": "Country 9"
+                  },
+                  {
+                    "id": "9_Country_10",
+                    "title": "Country 10"
+                  }
+                ],
+                "label": "Countries",
+                "name": "Countries_1cd9fc",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "completed",
+                  "payload": {
+                    "screen_0_Countries_0": "${form.Countries_1cd9fc}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Basic Information"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

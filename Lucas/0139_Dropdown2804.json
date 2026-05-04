@@ -1,0 +1,129 @@
+{
+  "prompt":
+    {
+      "EN": "create a flow that when I click on top of a button, it gives a column with 4 options "
+    },
+  "ok_flows":
+    [
+      {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Option_1",
+                    "title": "Option 1"
+                  },
+                  {
+                    "id": "1_Option_2",
+                    "title": "Option 2"
+                  },
+                  {
+                    "id": "2_Option_3",
+                    "title": "Option 3"
+                  },
+                  {
+                    "id": "3_Option_4",
+                    "title": "Option 4"
+                  }
+                ],
+                "label": "Options Menu",
+                "name": "Options_Menu_fad3d2",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Options_Menu_0": "${form.Options_Menu_fad3d2}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Options"
+    }
+  ],
+  "version": "7.3"
+}
+	  }
+    ],
+
+  "ko_flows":
+    [
+   	  {
+        "EN": {
+  "screens": [
+    {
+      "data": {},
+      "id": "RECOMMEND",
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "data-source": [
+                  {
+                    "id": "0_Option_1",
+                    "titulo": "Option 1"
+                  },
+                  {
+                    "id": "1_Option_2",
+                    "title": "Option 2"
+                  },
+                  {
+                    "id": "2_Option_3",
+                    "title": "Option 3"
+                  },
+                  {
+                    "id": "3_Option_4",
+                    "title": "Option 4"
+                  }
+                ],
+                "label": "Options Menu",
+                "name": "Options_Menu_fad3d2",
+                "required": true,
+                "type": "Dropdown"
+              },
+              {
+                "label": "Close",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "screen_0_Options_Menu_0": "${form.Options_Menu_fad3d2}"
+                  }
+                },
+                "type": "Footer"
+              }
+            ],
+            "name": "flow_path",
+            "type": "Form"
+          }
+        ],
+        "type": "SingleColumnLayout"
+      },
+      "terminal": true,
+      "title": "Options"
+    }
+  ],
+  "version": "7.3"
+}
+   	  }
+    ]
+}

@@ -1,0 +1,89 @@
+{
+  "prompt": {
+    "EN": "Create a flow with TextHeading, TextBody and an EmbeddedLink"
+  },
+  	"ok_flows":
+  [
+    {
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Text types",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Heading Text",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "Body text"
+          },
+          {
+            "type": "TextBody",
+            "markdown": true,
+            "text": "[Embbeded Link to whatsapp](https://whatsapp.com)"
+          },
+          {
+            "type": "Footer",
+            "label": "Close",
+            "on-click-action": {
+              "name": "complete",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+	}
+  ],
+	"ko_flows":
+  [
+   	{
+      "EN": {
+  "version": "7.3",
+  "screens": [
+    {
+      "id": "DEMO_SCREEN",
+      "title": "Text types",
+      "terminal": true,
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "TextHeading",
+            "text": "Heading Text",
+            "visible": true
+          },
+          {
+            "type": "TextBody",
+            "text": "Body text"
+          },
+          {
+            "type": "TextBody",
+            "markdown": true,
+            "text": "[Embbeded Link to whatsapp](https://whatsapp.com)"
+          },
+          {
+            "type": "Footer",
+            "label": "Close",
+            "on-click-action": {
+              "name": "done",
+              "payload": {}
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+   	}
+  ]
+}
